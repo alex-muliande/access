@@ -2,6 +2,7 @@ label{
     visibility: hidden;   
 }
 
+
 #signup {
     padding: 30px;
     border: 1px solid #8F9948;
@@ -55,7 +56,7 @@ li {
 
 }
 
-#username {
+/* #username {
     display: none;
 }
 
@@ -68,7 +69,7 @@ li {
 }
 #hint_id_password2 {
     display:none;
-}
+} */
 
 textinput.id_username:before {
     content: "username";
