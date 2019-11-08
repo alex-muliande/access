@@ -1,0 +1,14 @@
+
+{% load crispy_forms_tags%}
+
+<div class="content-section">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Initial</button>
+        </div>
+    </form>
+</div>
+
