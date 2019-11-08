@@ -1,0 +1,5 @@
+Hello {{name}}
+
+Thankyou for showing your interest to join Moringa School through the Access program.
+We are going to walk with you through this journey and ensure you achieve your acadamic success.
+The first spet of this journey is application, click here {{link}} to access your first step.
