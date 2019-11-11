@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-    # path('admin/', include('django_sb_admin.urls')),
-]
+    path('', include('access.urls')),
+
