@@ -9,8 +9,7 @@ urlpatterns = [
     path('register/', views.register, name ='register'),
     path('', views.index, name = 'index'),
     path('', include("django.contrib.auth.urls")),
-
-
+    path('django-sb-admin/', include('django_sb_admin.urls')),
 ]
 
 

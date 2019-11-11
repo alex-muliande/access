@@ -36,11 +36,11 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django_sb_admin',
     'bootstrap4',
     'crispy_forms',
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
+    'django_sb_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
