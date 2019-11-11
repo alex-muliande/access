@@ -1,8 +1,5 @@
-<h1> 
 Hello {{name}}
-</h1>
-<h4>
+
 Thankyou for showing your interest to join Moringa School through the Access program.
 We are going to walk with you through this journey and ensure you achieve your acadamic success.
-The first step of this journey is application, click here <span> <a href="#">NEXT</a> </span> to access your first stage.
-</h4>
+The first spet of this journey is application.
