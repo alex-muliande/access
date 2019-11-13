@@ -56,24 +56,21 @@ li {
 
 }
 
-/* #username {
-    display: none;
-}
-
-#hint_id_password1 {
-    display:none;
-}
-
-#hint_id_username {
-    display:none;
-}
-#hint_id_password2 {
-    display:none;
-} */
-
 textinput.id_username:before {
     content: "username";
 }
 .asteriskField {
     display: none;
+}
+
+/* styles for the admin page  */
+
+#header {
+    background: #5D7435;
+}
+
+/*django-sb-admin styles*/
+.page-header {
+    color:#5D7435;
+    /* visibility: hidden; */
 }
