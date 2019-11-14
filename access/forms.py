@@ -1,6 +1,8 @@
 from django import forms
 from .models import InitialForm
-class InitialformCreateView(forms.ModelForm):
+
+class InitialformCreateView(forms.ModelForm ):
     class Meta:
         model = InitialForm
-        fields = ['cert_image','name','email']
+        fields = ['KCSE_certificate_image','your_name','email']
+
