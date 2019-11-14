@@ -27,6 +27,7 @@ def forms(request):
     """
     return render(request, "django_sb_admin/sb_admin_forms.html",
                   {"nav_active":"forms"})
+                  
 def bootstrap_elements(request):
     """Bootstrap elements page.
     """
