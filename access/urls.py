@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns=[
     path('', views.index, name ='index'),
-    path('initial/',views.initial, name='initial')
+    path('initial/',views.initial, name='initial'),
+    path('bulk/',views.congragulate)
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)  
