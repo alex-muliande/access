@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
 from .models import InitialForm
@@ -16,13 +16,11 @@ def initial(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             recipient = InitialForm(name = name, email = email,cert_image=cert_image)
-            recipient.save()
+            rec                                  ipient.save()
             welcome_to_moringa(name,email)
             HttpResponseRedirect('index')
     else:
         form = InitialformCreateView()
     return render(request, 'initial.html',{'form':form})
             
-
-        
 
