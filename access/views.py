@@ -24,9 +24,9 @@ def initial(request):
         form = InitialformCreateView(request.POST, request.FILES)
         if form.is_valid():
             KCSE_certificate_image = form.cleaned_data['KCSE_certificate_image']
-            name = form.cleaned_data['name']
+            your_name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
-            recipient = InitialForm(KCSE_certificate_image=KCSE_certificate_image,name = name, email = email)
+            recipient = InitialForm(KCSE_certificate_image=KCSE_certificate_image,your_name = your_name, email = email)
             recipient.save()
             welcome_to_moringa(name,email)
             HttpResponseRedirect('index')
