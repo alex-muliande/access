@@ -1,4 +1,5 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% block sb_admin_description %}{% endblock sb_admin_description %}">
     <meta name="author" content="{% block sb_admin_author %}{% endblock %}">
-    <title>{% block title %}Django SB Admin -Bootstrap Admin Template{% endblock %}</title>
+    <title>{% block title %}ACCESS PROGRAM ADMIN{% endblock %}</title>
 
     <!-- Bootstrap Core CSS -->
     {% block sb_admin_bootstrap_css %}<link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet">{% endblock sb_admin_bootstrap_css %}
@@ -41,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% block sb_admin_header_url %}{% url "sb_admin_start" %}{% endblock sb_admin_header_url %}">{% block sb_admin_header %}Django SB Admin{% endblock sb_admin_header %}</a>
+                <a class="navbar-brand" href="{% block sb_admin_header_url %}{% url "sb_admin_start" %}{% endblock sb_admin_header_url %}">{% block sb_admin_header %}ACCESS PROGRAM ADMIN{% endblock sb_admin_header %}</a>
             </div>
             <!-- Top Menu Items -->
             {% block sb_admin_navbar_right %}<ul class="nav navbar-right top-nav">
@@ -59,7 +60,7 @@
                                             <strong>{% if user.username %}{{ user.username }}{% else %}Anonymous{% endif %}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        <p>Activate mass emails...</p>
                                     </div>
                                 </div>
                             </a>
@@ -75,7 +76,7 @@
                                             <strong>{% if user.username %}{{ user.username }}{% else %}Anonymous{% endif %}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        <p>Book Rooms for interview...</p>
                                     </div>
                                 </div>
                             </a>
@@ -91,7 +92,7 @@
                                             <strong>{% if user.username %}{{ user.username }}{% else %}Anonymous{% endif %}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                        <p>Confirm Approved applicants...</p>
                                     </div>
                                 </div>
                             </a>
@@ -105,24 +106,18 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
                         <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                            <a href="#">Emails <span class="label label-default">Activate Emails</span></a>
                         </li>
                         <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                            <a href="#">Interviews <span class="label label-primary">Set Interviews</span></a>
                         </li>
                         <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                            <a href="#">Space <span class="label label-success">Book Space</span></a>
                         </li>
                         <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                            <a href="#">Buckets <span class="label label-info">Move Appllicants</span></a>
                         </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
+                        
                         <li>
                             <a href="#">View All</a>
                         </li>
@@ -151,13 +146,27 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li {% if nav_active == "start" %}class="active"{% endif %}>
-                        <a href="{% url "sb_admin_start" %}"><i class="fa fa-fw fa-play"></i> Start</a>
+                        <a href="{% url "sb_admin_start" %}"><i class="fa fa-fw fa-play"></i>Login</a>
                     </li>
                     <li {% if nav_active == "dashboard" %}class="active"{% endif %}>
                         <a href="{% url "sb_admin_dashboard" %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Applicants <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Approved</a>
+                            </li>
+                            <li>
+                                <a href="#">Rejected</a>
+                            </li>
+                            <li>
+                                <a href="#">Pending</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li {% if nav_active == "charts" %}class="active"{% endif %}>
-                        <a href="{% url "sb_admin_charts" %}"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="{% url "sb_admin_charts" %}"><i class="fa fa-fw fa-bar-chart-o"></i> Flow-Charts</a>
                     </li>
                     <li {% if nav_active == "tables" %}class="active"{% endif %}>
                         <a href="{% url "sb_admin_tables" %}"><i class="fa fa-fw fa-table"></i> Tables</a>
@@ -171,17 +180,7 @@
                     <li {% if nav_active == "bootstrap_grid" %}class="active"{% endif %}>
                         <a href="{% url "sb_admin_bootstrap_grid" %}""><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
                     </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
 
                     <li {% if nav_active == "rtl_dashboard" %}class="active"{% endif %}>
                         <a href="{% url "sb_admin_rtl_dashboard" %}"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
@@ -203,10 +202,10 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            {% block sb_admin_title %}Start{% endblock sb_admin_title %}
-                            {% block sb_admin_subheading %}<small>Short introduction</small>{% endblock sb_admin_subheading %}
+                            {% block sb_admin_title %}LOGIN{% endblock sb_admin_title %}
+                            {% block sb_admin_subheading %}<small></small>{% endblock sb_admin_subheading %}
                         </h1>
-                        <ol class="breadcrumb">
+                        <!-- <ol class="breadcrumb">
                             <li>
                                 {% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>{% endblock sb_admin_breadcrumb %}
                             </li>
@@ -215,7 +214,7 @@
                                  <i class="fa fa-play"></i> Start
                             </li>
                             {% endblock sb_admin_breadcrumb_active %}
-                        </ol>
+                        </ol> -->
                     </div>
                 </div>
                 <!-- /.row -->
@@ -235,24 +234,24 @@
                     </div>
                 </div>
 {% endif %}
-                {% block sb_admin_content %}
+                <!-- {% block sb_admin_content %}
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="alert alert-info alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Django SB Admin</strong> This and everything below is inside <code>sb_admin_content</code> block.
+                            <i class="fa fa-info-circle"></i>  <strong>ACCESS PROGRAM ADMIN</strong> This and everything below is inside <code>sb_admin_content</code> block.
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">Django SB Admin</h2>
+                        <h2 class="page-header">ACCESS PROGRAM ADMIN</h2>
                         <p class="lead">Reusable Django application providing SB Admin dashboard theme, but also some other bootstrap related extras (for now it is only a login snippet).</p>
                         <h5>List of resources</h5>
                         <h6>Font Awesome</h6>
                         <p class="">You can find list of all awesome icons <a href="https://fortawesome.github.io/Font-Awesome/icons/">here</a>.
                     </div>
-                </div>
+                </div> -->
                 {% include "django_sb_admin/login.html" %}               
                 {% endblock sb_admin_content %}
 

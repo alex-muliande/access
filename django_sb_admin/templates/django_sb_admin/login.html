@@ -16,8 +16,9 @@
 </div>
 {% endfor %}
 {% endif %}
-<form class="form-signin" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
-  <h2 class="form-signin-heading">Please sign in</h2>
+<form class="form-signin" action="{{ app_path }}" method="post" id="login-form">
+  {% csrf_token %}
+  <!-- <h2 class="form-signin-heading">Please sign in</h2> -->
   {{ form.username.errors }}
   <label for="id_username" class="sr-only">Username</label>
   <input type="username" class="form-control" placeholder="Username" required autofocus id="id_username" maxlength="254" name="username" type="text" />
@@ -25,9 +26,9 @@
   <label for="id_password" class="sr-only">Password</label>
   <input  id="id_password" name="password" type="password" class="form-control" placeholder="Password" required>
   <div class="checkbox">
-    <!--<label>-->
-      <!--<input type="checkbox" value="remember-me"> Remember me-->
-    <!--</label>-->
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>

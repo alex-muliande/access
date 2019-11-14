@@ -16,12 +16,11 @@
         </div>
         <div class="panel-body">
 
-          <form  action="" method="post">
-            {% csrf_token %}
+          <form method="POST">
+            {%csrf_token%}
             {% bootstrap_form form%}
-            <div class="form-group">
-              <input id="button" type="submit" class="btn btn-primary btn-sm" value="Sign Up">
-            </div>
+            <button type="submit" class="btn btn-success">SUBMIT</button>
+            
 
 
           </form>
