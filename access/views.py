@@ -16,7 +16,7 @@ def initial(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             recipient = InitialForm(name = name, email = email,cert_image=cert_image)
-            rec                                  ipient.save()
+            recipient.save()
             welcome_to_moringa(name,email)
             HttpResponseRedirect('index')
     else:
