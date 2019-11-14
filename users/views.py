@@ -4,8 +4,9 @@ from .forms import RegisterForm
 
 
 
-def index(request):
+def index (request):
     return render(request, 'index.html')
+
 
 def register(response):
     if response.method == "POST":

@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-admin.site.site_header = 'ACCESS PROGRAM ADMIN DASHBOARD'
-admin.site.site_title = 'ACCESS PROGRAM ADMIN DASHBOARD'
-admin.site.index_title = 'ACCESS ADMISSIONS'
+# admin.site.site_header = 'ACCESS PROGRAM ADMIN DASHBOARD'
+# admin.site.site_title = 'ACCESS PROGRAM ADMIN DASHBOARD'
+# admin.site.index_title = 'ACCESS ADMISSIONS'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
+    path('', include('access.urls')),
 ]
