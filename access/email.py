@@ -11,3 +11,8 @@ def welcome_to_moringa(name,receiver):
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')
     msg.send()
+
+def application_pass(name,receiver):
+    subject = 'Congratulation for passing in your first step on this journey to Moringa school Access.'
+    sender = 'wachirabeatice2020@gmail.com'
+
