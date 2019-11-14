@@ -6,7 +6,6 @@ from .models import InitialForm
 from django.http import HttpResponse
 from .forms import InitialformCreateView
 
-
 def index(request):
     return render(request, 'index.html')
 
