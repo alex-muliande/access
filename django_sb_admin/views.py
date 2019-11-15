@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from access.models import InitialForm
+from access.models import InitialForm, FormtwoResponses
+from django.contrib.admin.views.decorators import staff_member_required
 
 def start(request):
     """Start page with a documentation.
@@ -7,13 +8,14 @@ def start(request):
     return render(request, "django_sb_admin/start.html",
                   {"nav_active":"start"})
 
-
+@staff_member_required
 def dashboard(request):
     """Dashboard page.
     """
-    applicants = InitialForm.objects.count()
+    applicants = InitialForm.objects.all()
+    stage2 = FormtwoResponses.objects.all()
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
-                  {"nav_active":"dashboard", "applicants": applicants})
+                  {"nav_active":"dashboard", "applicants": applicants, "stage2":stage2})
 
 
 def charts(request):
