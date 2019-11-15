@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from access.models import InitialForm
 
 def start(request):
     """Start page with a documentation.
@@ -10,9 +11,9 @@ def start(request):
 def dashboard(request):
     """Dashboard page.
     """
-    
+    applicants = InitialForm.objects.count()
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
-                  {"nav_active":"dashboard"})
+                  {"nav_active":"dashboard", "applicants": applicants})
 
 
 def charts(request):
