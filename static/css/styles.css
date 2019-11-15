@@ -504,7 +504,7 @@ footer .footer_nav li {
 /* alumni */
 
 @media screen and (min-width: 1024px) {
-  header .shadow {
+  header.shadow {
       /*height: 522px;*/
   }
   #banner_image {
@@ -1039,4 +1039,7 @@ footer .footer_nav li {
 #single_view .tab-header{
     font-weight: 300;
     font-size: 25px;
+}
+.form-control{
+    padding: 110px;
 }
