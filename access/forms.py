@@ -1,6 +1,6 @@
-# from django import forms
-
-
-# class UploadFileForm(forms.Form):
-#     name = forms.CharField(max_length=50)
-#     file = forms.FileField()
+from django import forms
+from .models import InitialForm
+class InitialformCreateView(forms.ModelForm):
+    class Meta:
+        model = InitialForm
+        fields = ['cert_image','name','email']

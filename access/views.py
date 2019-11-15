@@ -5,13 +5,29 @@ from django.views.generic import CreateView
 from .models import InitialForm, FormtwoResponses
 from .sheet1 import form_responses, process_response
 import json
+from .models import InitialForm
+from django.http import HttpResponse
+from .forms import InitialformCreateView
 def index(request):
     return render(request, 'index.html')
 
-class InitialformCreateView(CreateView):
-    model = InitialForm
-    template_name = 'initial.html'  
-    fields = ['cert_image', 'name']
+def initial(request):
+    if request.method == 'POST':
+        form = InitialformCreateView(request.POST, request.FILES)
+        if form.is_valid():
+            cert_image = form.cleaned_data['cert_image']
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            recipient = InitialForm(name = name, email = email,cert_image=cert_image)
+            recipient.save()
+            welcome_to_moringa(name,email)
+            HttpResponseRedirect('index')
+    else:
+        form = InitialformCreateView()
+    return render(request, 'initial.html',{'form':form})
+            
+
+        
 
 
 
