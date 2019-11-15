@@ -12,18 +12,27 @@ def send_bulk(email,name):
 
     # connection.open()
     html_content='''
-    <h2>Initial Application Form Complete</h2>
-    <p style="color: red;">(Accepted after Initial Application Form)</p>
-    <br>
-    <p>Dear Applicant ,</p>
-    <br>
-    <p>Thank you for filling out the initial application form. We have confirmed you meet our basic eligibility criteria. <br>
-    The next step in the application process is our full application. Please click <a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>  You are required to submit the full application one week after we send it to you.
-    </p>
-    <br>
-    <p>Kind regards,</p>
-    <br>
-    <p>The Moringa School Access Team</p>
+  Hello,
+Thank you for your interest in the Access Program! Our next class will start soon.  we will notify you when the application period for that class will open. Kindly send us an email that day and we will send you the link to apply.
+Please review the requirements to confirm you qualify for the program before deciding to apply. To be considered for this scholarship, you must:
+Be 18-35 years old
+Come from a needy background
+Have graduated high school
+Not have completed your bachelor's degree coursework in the last 2 years
+Not currently be studying in university
+Have basic computer skills
+Be fully fluent in both written and spoken English
+Have a place to live in Nairobi
+Be able to commit to the program full-time (Monday-Friday 8:30am - 6:00pm) for 6 months.
+You can find more information about Moringa School and the Access Program below this email.
+All the best,
+The Access Program Team 
+
+Moringa School is a world-class learning program which trains students to become software developers. We connect our students with employment opportunities after they graduate and teach them skills that will last a lifetime.
+Click here for a video about the Moringa experience.
+Click here for Moringa School’s website.
+The Access Program gives scholarships to youth from needy backgrounds. The scholarship value is 400,000 KES. To learn more about the program, click here: Access Program Overview.
+The admissions process is multi-stage. You must pass each stage to proceed. To learn more, read the section called "Admissions Process" in Access Program Overview.
     '''.format(name)
     # receiver_list = emails
     # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
@@ -115,5 +124,53 @@ def congragulate2(request):
                 print('failed *********************** ',email_2)
                 pass
         return JsonResponse({'sent':users_emails2})
+    return JsonResponse({'sent':'upto date'})
+###########################################
+def send_bulk3(email,name):
+    # connection = EmailMultiAlternatives.get_connection()
+
+    # connection.open()
+    html_content='''
+    
+    
+    <h2>Application Form </h2>
+    <p style="color: red;">(Launch of Application Form 2)</p>
+    <br>
+    <p>Hello,</p>
+    <br>
+    <p>We thank you for applying to the Moringa School Access Program.
+    To proceed in the selection process, kindly click on this link to complete the application form. 
+    <a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
+    If you qualify, the next step in the application process is an assessment. 
+    
+    Wishing you all the best!
+
+    </p>
+    <br>
+    <p>Kind regards,</p>
+    <br>
+    <p>The Moringa School Access Team</p>
+    '''.format(name)
+    # receiver_list = emails
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def congragulate3(request):
+    users_emails3=interestModel.all_emails()
+    print('Passed *********************** ',users_emails3)
+    if users_emails3:
+        for email_3 in users_emails3:
+            user = interestModel.objects.filter(email = email_3).first()
+            send_bulk3(user.email,user.your_name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                print('Passed *********************** ',email_3)
+            else:
+                print('failed *********************** ',email_3)
+                pass
+        return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})
 
