@@ -10,6 +10,7 @@ def start(request):
 def dashboard(request):
     """Dashboard page.
     """
+    
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
                   {"nav_active":"dashboard"})
 
