@@ -3,6 +3,11 @@ from django.contrib.auth import login, authenticate
 from .forms import RegisterForm
 
 
+def index (request):
+    return render (request, 'index.html')
+
+
+    
 def register(response):
     if response.method == "POST":
         form = RegisterForm(response.POST)
