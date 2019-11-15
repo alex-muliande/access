@@ -1,5 +1,6 @@
+
+from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,JsonResponse
-from django.shortcuts import render
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
 from .models import InitialForm
@@ -34,7 +35,6 @@ def initial(request):
         form = InitialformCreateView()
 
     return render(request, 'initial.html',{'form':form})
-            
 
 
 def congragulate(request):

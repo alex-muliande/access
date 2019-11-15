@@ -41,17 +41,18 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap4',
-    'crispy_forms',
-    'users.apps.UsersConfig',
-    'access.apps.AccessConfig',
-    'django_sb_admin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'crispy_forms',
+    'users.apps.UsersConfig',
+    'access.apps.AccessConfig',
+    'django_sb_admin',    
 ]
 
 MIDDLEWARE = [

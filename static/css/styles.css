@@ -51,6 +51,24 @@
   width: 100%;
 }
 
+textinput.id_username:before {
+    content: "username";
+}
+.asteriskField {
+    display: none;
+}
+
+/* styles for the admin page  */
+
+#header {
+    background: #5D7435;
+}
+
+/*django-sb-admin styles*/
+.page-header {
+    color:#5D7435;
+    /* visibility: hidden; */
+
 .content {
   margin: 15px 0;
   position: relative;
@@ -83,6 +101,9 @@
 
 .content-detail:hover {
   background-color: rgba(0, 0, 0, 0.5);
+}
+.asteriskField {
+    display: none;
 }
 
 .modal-content {
@@ -1039,4 +1060,283 @@ footer .footer_nav li {
 #single_view .tab-header{
     font-weight: 300;
     font-size: 25px;
+}
+<<<<<<< HEAD
+
+.careers.card .exp {
+    color: #007AFF;
+    font-size: 13px;
+    font-weight: 200;
+    letter-spacing: 0.47px;
+    line-height: 0;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+div.card.careers {
+    height: 373px;
+    width: 330px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+.careers .card-body {
+    border-left: 6px solid #FFFFFF;
+    transition: all 1.5s ease 0s;
+    -webkit-transition: all 1.5s ease 0s;
+}
+
+.careers .card-body:hover {
+    border-left: 6px solid darkorange;
+    transition: all 0.9s ease 0s;
+    -webkit-transition: all 0.9s ease 0s;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+}
+
+.careers .tab-text {
+    font-size: 18px !important;
+    font-weight: 200;
+    line-height: 36px;
+    margin: 15px 30px;
+}
+
+.partners-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.partners {
+    flex: 0 0 auto;
+    display: inline-block;
+    border: 1px solid #eeeeee;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.partners:hover {
+    -webkit-transform: scale(1.1, 1);
+    transform: scale(1.1, 1);
+}
+
+.partners .card-body {
+    height: auto;
+    background-color: #FFFFFF;
+    align-content: center;
+    vertical-align: center;
+}
+
+.partners .card-body .card-img {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.panel-heading .accordion-toggle::after {
+    content: "\f107";
+    float: right;
+    color: grey;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.panel-heading .accordion-toggle.collapsed::after {
+    content: "\f106";
+}
+
+.panel-title a {
+    color: #000;
+}
+
+/*form styling*/
+.application_form ul.radioselect,
+.application_form input.radioselect,
+.application_form input.checkboxselectmultiple,
+.application_form ul.checkboxselectmultiple {
+    height: auto !important;
+    border: none;
+    width: auto;
+    display: inherit;
+}
+
+.radioselect li,
+.checkboxselectmultiple li {
+    list-style: none !important;
+}
+
+.form-button:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.form-button {
+    margin: 10px 20px 0 0;
+    padding: 12px 51px;
+    background-color: #637C33;
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    font-size: 27px;
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+    -webkit-appearance: button;
+}
+
+.col {
+    max-width: 352px;
+}
+
+.space {
+    margin: 47px 20px 0 0;
+}
+
+.pagination {
+    color: #000;
+}
+
+#slider {
+    width: 130%;
+    overflow: hidden;
+    margin-right: 30px;
+}
+
+#no-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+section.testimonials {
+    float: left;
+    width: 25%;
+}
+
+.slider-inner {
+    display: table;
+    position: relative;
+    transition: all 0.3s;
+    left: 0;
+    width: 260%;
+}
+
+#slider-nav {
+    text-align: center;
+}
+
+button {
+    margin: 0.5em;
+    font-size: 1.2em;
+}
+
+.image-left .card-footer {
+    padding: 1.2rem 1.25rem;
+    background-color: unset;
+    border-top: none;
+}
+
+.display {
+    display: inline-flex;
+}
+
+form {
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.videoWrapper {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.videoWrapper iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+iframe.cms-plugin.cms-plugin-34 {
+    height: 620px;
+}
+
+.closed {
+    padding: 90px 0;
+}
+
+.sponsors--row {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.sponsors--row a {
+    margin: 1rem;
+}
+
+.sponsors--row-4 img {
+    max-width: 150px;
+    max-height: 75px;
+    margin: 1rem;
+}
+
+#CookielawBanner {
+    background: #fff;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1038;
+    border-top: solid 1px #eee;
+}
+
+#CookielawBanner .container {
+    position: relative;
+}
+
+#CookielawBanner #CookielawCross {
+    background: url('../img/close.png') no-repeat 0 0;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+}
+
+#CookielawBanner .btn{
+    margin:  0 0 7px 7px;
+}
+
+#CookielawBanner h6{
+    font-size: 1.3rem;
+}
+
+#CookielawBanner p{
+    font-size: 1rem;
 }
