@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.urls import reverse
 #from .sheet2 import form_responses, process_response
 
 class interestModel(models.Model):
@@ -27,13 +29,32 @@ class interestModel(models.Model):
     residence_clarification=models.CharField(max_length=250)     
 
 class scoreModel(models.Model):
+    Accepted = 'Accepted'
+    Rejected = 'Rejected'
+    Undecided = 'Undecided'
+
+    STATUS= (Accepted,'Accepted'),(Rejected,'Rejected')
     name=models.CharField(max_length=250)
     email=models.EmailField(max_length=250)
     number=models.IntegerField()
     score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
-from django.contrib.auth.models import User
-from django.urls import reverse
+    status=models.CharField(max_length=250,choices=STATUS, default='undecided')
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            print(self.score)
+            l = self.score
+            score, total = self.score.split('/')
+            if int(score) > 11:
+                self.status = 'Accepted'
+            else:
+                self.status = 'Rejected'
+        super().save(*args, **kwargs)
+
+
+
+
 # Create your models here.
 class InitialForm(models.Model):
     KCSE_certificate_image = models.ImageField(upload_to = 'media/images')

@@ -4,7 +4,15 @@ from django.http import Http404
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .sheet2 import interest_responses, firstapplication_response
-# from .sheet3 import assesment_responses, score_response
+from .sheet3 import assesment_responses, score_response
+from django.http import HttpResponseRedirect,JsonResponse
+from .email import welcome_to_moringa
+from django.views.generic import CreateView
+from .models import InitialForm
+from django.http import HttpResponse
+from .forms import InitialformCreateView
+from django.core import mail
+
 # from django.contrib.auth.models import User
 # from django.shortcuts import render
 # from .filters import UserFilter
@@ -30,35 +38,38 @@ def homepage(request):
     res= interestModel.objects.all()
     return render(request,'interest.html',{'data':res})
 
-# def scorecard(request):
-#     '''
-#     Assuming we make the api call
+def scorecard(request):
+    '''
+    Assuming we make the api call
         
-#     '''
-#     # form_data=assesment_responses()
-#     form_data=assesment_responses()
-#     response = score_response()
+    '''
+    # form_data=assesment_responses()
+    form_data=assesment_responses()
+    response = score_response()
 
-#     for email in  scoreModel.objects.values_list('email', flat=True).distinct():
-#         scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+    for email in  scoreModel.objects.values_list('email', flat=True).distinct():
+        scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
 
-#     res= scoreModel.objects.all()
-#     return render(request,'scores.html',{'data':res})
+    res= scoreModel.objects.all()
+    return render(request,'scores.html',{'data':res})
+
     
+def failed(request):
+    # form_data=assesment_responses()
+    response = score_response()
+    
+    failed=scoreModel.objects.filter(status='Rejected').all()
+    passed = scoreModel.objects.filter(status='Accepted').all()
+   
+    print(failed)
+    # for f in failed:
+        # scoreModel.objects.create(name=f.name,email=f.email,score=f.score,number=f.number,assesment_time=f.assesment_time)
+        # for email in  scoreModel.objects.values_list('email', flat=True).distinct():
+        #     scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
 
-# def search(request):
-#     user_list = User.objects.all()
-#     user_filter = UserFilter(request.GET, queryset=user_list)
-#     return render(request, 'search/user_list.html', {'filter': user_filter})
 
-from django.shortcuts import render,redirect
-from django.http import HttpResponseRedirect,JsonResponse
-from .email import welcome_to_moringa
-from django.views.generic import CreateView
-from .models import InitialForm
-from django.http import HttpResponse
-from .forms import InitialformCreateView
-from django.core import mail
+    return render(request,'rejected.html',{'failed':failed})
+
 
 def send_bulk(emails):
     connection = mail.get_connection()
