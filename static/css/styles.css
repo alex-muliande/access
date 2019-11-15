@@ -236,8 +236,8 @@ html {
 }
 
 body {
-    font-family: 'Lato', Courier, Monaco, monospace;
-    font-weight: 400;
+    /* font-family: 'Lato', Courier, Monaco, monospace; */
+    font-weight: 250;
 }
 
 element.style {
@@ -366,7 +366,7 @@ p.text {
 
 
 .quote {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 200;
     margin-bottom: 40px;
 }
@@ -899,7 +899,7 @@ footer .footer_nav li {
       margin: 33px 0 0 10px;
   }
   p.paragraph {
-      font-size: 21px;
+      font-size: 18px;
       text-align: -webkit-center;
       text-align: -moz-center;
       text-align: center;
