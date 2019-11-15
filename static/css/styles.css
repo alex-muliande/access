@@ -525,7 +525,7 @@ footer .footer_nav li {
 /* alumni */
 
 @media screen and (min-width: 1024px) {
-  header .shadow {
+  header.shadow {
       /*height: 522px;*/
   }
   #banner_image {
@@ -1061,7 +1061,10 @@ footer .footer_nav li {
     font-weight: 300;
     font-size: 25px;
 }
-<<<<<<< HEAD
+
+.form-control{
+    padding: 110px;
+
 
 .careers.card .exp {
     color: #007AFF;
@@ -1339,4 +1342,5 @@ iframe.cms-plugin.cms-plugin-34 {
 
 #CookielawBanner p{
     font-size: 1rem;
+>>>>>>> 6d27b57216af21c579c217b90dec918f9536f9cc
 }
