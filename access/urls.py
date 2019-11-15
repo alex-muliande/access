@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 from .views import InitialformCreateView
-from . import views
+from . import views 
 
 #router = routers.DefaultRouter()
 #router.register('', views.Profileview)
