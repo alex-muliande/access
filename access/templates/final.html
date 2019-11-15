@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div>
+
+    {% for i in pending %}
+
+    <h3> {{ i.all_names}}</h3>
+
+    {% endfor %}
+
+</div>
+
+<div>
+
+    {% for i in accepted %}
+
+    <h3> {{ i.all_names}}</h3>
+
+    {% endfor %}
+
+</div>
+
+
+<div>
+
+    {% for i in rejected %}
+
+    <h3> {{ i.all_names}}</h3>
+
+    {% endfor %}
+
+</div>
+
+{% endblock content%}

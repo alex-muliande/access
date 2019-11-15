@@ -7,7 +7,10 @@ from . import views
 
 urlpatterns=[
     path('', views.index, name ='index'),
-    path('initial/', InitialformCreateView.as_view(), name='initial')
+    path('initial/', InitialformCreateView.as_view(), name='initial'),
+    path('forms', views.myforms, name ='forms'),
+    path('get_data/',views.StageOne),
+    path('final/',views.FinalList),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)  
