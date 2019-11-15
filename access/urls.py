@@ -7,5 +7,7 @@ from rest_framework import routers
 
 urlpatterns = [
 path('homepage/',views.homepage,name='homepage'),
-path(r'^search/$', views.search, name='search')
+path('assesment/',views.scorecard,name='assesment'),
+path('rejected/',views.failed,name='rejected'),
+path('accepted/',views.failed,name='accepted'),
 ]

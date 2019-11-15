@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<h2>FORM RESPONSES</h2>
+<h2>Rejected Applicants</h2>
 
 
 <p>
@@ -13,8 +13,10 @@
             <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Phone number</th>
             <th scope="col">Score</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">assesment_time</th>
+            
        
             </tr>
         </thead>
@@ -23,12 +25,10 @@
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
         <td class="table-secondary">{{d.score}}</td>
-        <td class="table-success">{{d.phone_number}}</td>
-        <td class="table-danger">{{d.age}}</td>
-        <td class="table-warning">{{d.date_of_birth}}</td>
-        <td class="table-info">{{d.bachelors_degree}}</td>
-        <td class="table-light">{{d.start_date}}</td>
-        <td class="table-dark">{{d.moringastudent}}</td>
+        <td class="table-success">{{d.number}}</td>
+        <td class="table-danger">{{d.assesment_time}}</td>
+        
+           
         </tr> 
     
     </table>

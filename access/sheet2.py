@@ -5,7 +5,7 @@ from .models import interestModel
 
 # use creds to create a client to interact with the Google Drive API
 
-def form_responses():
+def interest_responses():
     '''
     returns the json response from the api
     '''
@@ -36,12 +36,12 @@ def form_responses():
 
 
 
-def process_response():
+def firstapplication_response():
     '''
     this function creates the instances and saves to db
     and returns the data
     '''
-    json_response= form_responses()
+    json_response= interest_responses()
     json_data=[]
     print('**************************************************')
     for res in json_response:
@@ -96,4 +96,4 @@ def process_response():
             json_data.append(application_object)
 
     return json_data
-form_responses()      
+interest_responses()      

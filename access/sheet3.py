@@ -1,17 +1,17 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
-from .models import interestModel
+from .models import scoreModel
 
 # use creds to create a client to interact with the Google Drive API
 
-def form_responses():
+def assesment_responses():
     '''
     returns the json response from the api
     '''
     
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('../assesment_secret.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name('assesment_secret.json', scope)
     #authorize
     client = gspread.authorize(creds)
     # Find a workbook by name and open the first sheet
@@ -36,12 +36,12 @@ def form_responses():
 
 
 
-def process_response():
+def score_response():
     '''
     this function creates the instances and saves to db
     and returns the data
     '''
-    json_response= form_responses()
+    json_response= assesment_responses()
     json_data=[]
     print('**************************************************')
     for res in json_response:
@@ -81,11 +81,12 @@ def process_response():
             '''
             making sure each response has a name attached to it
             '''
-            application_object = interestModel.objects.create(
-                            name=name,email=email,number=number,score=score,assesment_time=assesment_time
+            application_object = scoreModel.objects.create(
+                            name=name,email=email,number=number,
+                            score=score,assesment_time=assesment_time,
                             )
             #application_object.save()
             json_data.append(application_object)
 
     return json_data
-form_responses()      
+assesment_responses()      

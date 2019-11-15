@@ -3,7 +3,7 @@ from django.db import models
 
 class interestModel(models.Model):
     
-    email=models.CharField(max_length=250,default='Nan')
+    email=models.EmailField(max_length=250,default='Nan')
     name=models.CharField(max_length=50)
     phone_number=models.CharField(max_length=250)
     guardians_number=models.TextField(max_length=250,default='Nan')
@@ -29,6 +29,6 @@ class interestModel(models.Model):
 class scoreModel(models.Model):
     name=models.CharField(max_length=250)
     email=models.EmailField(max_length=250)
-    number=models.IntegerField(max_length=250)
-    score=models.IntegerField(max_length=250)
+    number=models.IntegerField()
+    score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
