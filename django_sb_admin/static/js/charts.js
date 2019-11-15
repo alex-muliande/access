@@ -1,4 +1,4 @@
-Highcharts.chart('container', {
+Highcharts.chart('piechart', {
     chart: {
       type: 'spline',
       scrollablePlotArea: {

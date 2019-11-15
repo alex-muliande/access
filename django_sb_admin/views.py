@@ -21,6 +21,7 @@ def dashboard(request):
 def charts(request):
     """Charts page.
     """
+    applicants = InitialForm.objects.filter
     return render(request, "django_sb_admin/sb_admin_charts.html",
                   {"nav_active":"charts"})
 
