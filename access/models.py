@@ -43,7 +43,7 @@ class InitialForm(models.Model):
     is_sent= models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.your_name
 
     @classmethod
     def all_emails(cls):
