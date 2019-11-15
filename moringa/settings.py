@@ -36,17 +36,20 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap4',
-    'crispy_forms',
-    'users.apps.UsersConfig',
-    'access.apps.AccessConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'bootstrap4',
+    'crispy_forms',
+    'users.apps.UsersConfig',
+    'access.apps.AccessConfig',
+    'django_sb_admin',    
+
 ]
 
 MIDDLEWARE = [
@@ -137,7 +140,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = "/"
+
+LOGIN_REDIRECT_URL = "/initial/"
 LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
