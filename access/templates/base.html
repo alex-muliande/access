@@ -1,8 +1,11 @@
 {%load bootstrap4%}
 {%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,6 +28,10 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+
+
+
+
     {%if title%}
     <title>Access Admissions -{{title}}</title>
     {%else%}
@@ -41,8 +48,11 @@
     {% include 'navbar.html'%}
     <div class="container">
     {%block content%}
-    {%endblock%}
+     {%endblock%}
+
+     
     </div>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1 .min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
@@ -56,5 +66,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js">
     </script>
+
 </body>
+
 </html>
