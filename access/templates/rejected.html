@@ -20,22 +20,23 @@
        
             </tr>
         </thead>
-        {% for d in data %}
+        <tbody>
+        {% for f in failed %}
         <tr>
-        <td class="table-active">{{d.name}}</td>
-        <td class="table-primary">{{d.email}}</td>
-        <td class="table-secondary">{{d.score}}</td>
-        <td class="table-success">{{d.number}}</td>
-        <td class="table-danger">{{d.assesment_time}}</td>
-        
+        <td class="table-active">{{f.name}}</td>
+        <td class="table-primary">{{f.email}}</td>
+        <td class="table-secondary">{{f.score}}</td>
+        <td class="table-success">{{f.number}}</td>
+        <td class="table-danger">{{f.assesment_time}}</td>
+
            
         </tr> 
-    
+        {% endfor %}
+        </tbody>
     </table>
 
     
 </p>
-{% endfor %}
  
     
 </body>
