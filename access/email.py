@@ -11,3 +11,5 @@ def welcome_to_moringa(name,receiver):
     msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
     msg.attach_alternative(html_content,'text/html')
     msg.send()
+
+
