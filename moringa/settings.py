@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
-    'django_sb_admin',    
+    'django_sb_admin',  
+    
 
 ]
 
