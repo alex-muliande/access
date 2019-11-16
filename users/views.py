@@ -9,7 +9,6 @@ def register(response):
         if form.is_valid():
             form.save()
             
-            f"('Your post has been created!', 'success')"
 
            
         return redirect("login")
