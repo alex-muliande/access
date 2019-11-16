@@ -29,7 +29,7 @@ def initial(request):
             email = form.cleaned_data['email']
             recipient = InitialForm(KCSE_certificate_image=KCSE_certificate_image,your_name = your_name, email = email)
             recipient.save()
-            welcome_to_moringa(name,email)
+            welcome_to_moringa(your_name,email)
             HttpResponseRedirect('index')
     else:
         form = InitialformCreateView()
