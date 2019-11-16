@@ -63,10 +63,7 @@ def StageOne(request):
 
 def FinalList(request):
      
-    all = FormtwoResponses.objects.all()
-
-
-
+    
     pending = FormtwoResponses.objects.filter(status='Pending')
     accepted = FormtwoResponses.objects.filter(status='Accepted')
     rejected = FormtwoResponses.objects.filter(status='Rejected')
