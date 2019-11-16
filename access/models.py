@@ -12,6 +12,7 @@ class InitialForm(models.Model):
     def __str__(self):
         return self.name
 
+
     @classmethod
     def all_emails(cls):
         list_emails=[]
