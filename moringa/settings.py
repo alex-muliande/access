@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap4',
-    'django_filters',
+    # 'django_filters',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
