@@ -74,6 +74,7 @@ class InitialForm(models.Model):
     def __str__(self):
         return self.your_name
 
+
     @classmethod
     def all_emails(cls):
         list_emails=[]
