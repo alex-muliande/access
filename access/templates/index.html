@@ -3,6 +3,35 @@
 {%block content%}
 
 <script src="{% static 'js/send_mail.js' %}"></script>
+
+<style>
+    .loader{
+     display: none;
+    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    border:2px solid white ;
+    border-left:2px solid darkgreen ;
+    border-radius:50%;
+    animation: 1s spin linear infinite;
+    animation-direction: alternate;
+     }
+    @keyframes spin {
+    0%{
+      transform:rotate(0);
+      opacity: 1px;
+    }
+    50%{
+       opacity: 10px;
+    }
+    100%{
+      transform: rotate(360deg);
+       opacity: 1px;
+    }
+    
+    }
+    </style>
+
             <!-- <section id="moringa-pathways-section"> -->
     <div class="container text-center quote_container">
             <span id="about"></span>
@@ -15,15 +44,7 @@
             technical education possible for individuals who would otherwise not be able to access it.Our courses
             consist of pathways that branch into either full stack development or mobile development.</p>
     </div>
-    <div class="container-fluid text-center">
-        <div class="moringa-pathways">
-            <img src="static/css/img/android-studio.jpg" alt="">
-            <img src="static/css/img/django-logo.jpg" alt="">
-            <img src="static/css/img/java-logo.jpg" alt="">
-            <img src="static/css/img/python-logo.jpg" alt="">
-            <img src="static/css/img/android-developers.jpg" alt="">
-        </div>
-    </div>
+
     <!-- </section> -->
 
 
@@ -31,10 +52,10 @@
         <div class="footer-container container">
             <div class="row">
                 <div class="col-md-3 d-none d-md-block images-zig">
-                    <span class="img-one"><img src="/home/moringa/Desktop/moringa/static/img/django.jpg" alt=""></span>
-                    <span class="img-two"><img src="/home/moringa/Desktop/moringa/static/img/python.jpg" alt=""></span>
-                    <span class="img-three"><img src="/home/moringa/Desktop/moringa/static/img/flask.jpg" alt=""></span>
-                    <span class="img-four"><img src="/home/moringa/Desktop/moringa/static/img/angular.svg"
+                    <span class="img-one"><img src="static/img/django.jpg" alt=""></span>
+                    <span class="img-two"><img src="static/img/python.jpg" alt=""></span>
+                    <span class="img-three"><img src="static/img/flask.jpg" alt=""></span>
+                    <span class="img-four"><img src="static/img/angular.svg"
                             alt=""></span>
                 </div>
                 <div class="col-md-6 col-12">
@@ -91,65 +112,24 @@
 
     </footer>
 
-
-
-    <p>here</p>
-
+    <p>Admin send mails button</p>
+   
+<div class="row">
+    <div class="col-md-4">
     <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats">
         congratulations
     </button>
+</div>
+<div class="col-md-4">
+    <button class="congrats1"> congrats1
+        
+    </button>
 
-
-
-
-
-
-    <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js/moment.min.js"></script>
-    <script type="text/javascript" src="/static/js/main.js"></script>
-    <script type="text/javascript" src="/static/js/defer-images.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-125823348-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-125823348-1');
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KM4VGT8');
-    </script>
-    <!-- End Google Tag Manager -->
-
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KM4VGT8" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    </div>
+</div>
 </body>
 
-</html>
+
 
 {%endblock%}
 
