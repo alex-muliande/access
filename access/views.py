@@ -186,7 +186,7 @@ def send_bulk2(email,name):
     send_this.send()
 
 def congragulate2(request):
-    users_emails2=interestModel.all_emails()
+    users_emails2=interestModel.all_emails2()
     print('Passed *********************** ',users_emails2)
     if users_emails2:
         for email_2 in users_emails2:
@@ -234,7 +234,7 @@ def send_bulk3(email,name):
     send_this.send()
 
 def congragulate3(request):
-    users_emails3=interestModel.all_emails()
+    users_emails3=FormtwoResponses.all_emails3()
     print('Passed *********************** ',users_emails3)
     if users_emails3:
         for email_3 in users_emails3:
