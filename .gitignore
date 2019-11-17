@@ -4,3 +4,4 @@ virtual/
 instance/
 .env/
 __pycache__/
+venv/
