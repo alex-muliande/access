@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'bootstrap4',
     'django_filters',
-    'crispy_forms',
+    # 'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -88,18 +88,11 @@ WSGI_APPLICATION = 'moringa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME':'access',
-            'USER': 'moringa',
-            'PASSWORD':'E*7@wach',
-            'HOST': 'localhost',
-            'PORT': '',
-    }       
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
-
 
 
 # Password validation
