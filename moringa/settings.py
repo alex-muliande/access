@@ -15,11 +15,8 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -42,16 +39,19 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap4',
+    'django_filters',
     'crispy_forms',
-    'users.apps.UsersConfig',
-    'access.apps.AccessConfig',
-    'django_sb_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'users.apps.UsersConfig',
+    'access.apps.AccessConfig',
+    'django_sb_admin',    
+
 ]
 
 MIDDLEWARE = [
@@ -88,11 +88,18 @@ WSGI_APPLICATION = 'moringa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME':'access',
+            'USER': 'moringa',
+            'PASSWORD':'E*7@wach',
+            'HOST': 'localhost',
+            'PORT': '',
+    }       
 }
+
 
 
 # Password validation
@@ -147,5 +154,11 @@ LOGIN_REDIRECT_URL = "/initial/"
 LOGOUT_REDIRECT_URL = "/"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 django_heroku.settings(locals())
