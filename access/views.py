@@ -73,7 +73,7 @@ def failed(request):
     failed=scoreModel.objects.filter(status='Rejected').all()
     passed = scoreModel.objects.filter(status='Accepted').all()
    
-    print(failed)
+    # print(failed)
     # for f in failed:
         # scoreModel.objects.create(name=f.name,email=f.email,score=f.score,number=f.number,assesment_time=f.assesment_time)
         # for email in  scoreModel.objects.values_list('email', flat=True).distinct():
@@ -139,7 +139,7 @@ def initial(request):
 
 def congragulate(request):
     users_emails=InitialForm.all_emails()
-    print('Passed *********************** ',users_emails)
+    # print('Passed *********************** ',users_emails)
     if users_emails:
         for email_1 in users_emails:
             user = InitialForm.objects.filter(email = email_1).first()
@@ -147,9 +147,9 @@ def congragulate(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_1)
+                # print('Passed *********************** ',email_1)
             else:
-                print('failed *********************** ',email_1)
+                # print('failed *********************** ',email_1)
                 pass
         return JsonResponse({'sent':users_emails})
     return JsonResponse({'sent':'upto date'})
@@ -187,7 +187,7 @@ def send_bulk2(email,name):
 
 def congragulate2(request):
     users_emails2=interestModel.all_emails()
-    print('Passed *********************** ',users_emails2)
+    # print('Passed *********************** ',users_emails2)
     if users_emails2:
         for email_2 in users_emails2:
             user = interestModel.objects.filter(email = email_2).first()
@@ -195,9 +195,9 @@ def congragulate2(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_2)
+                # print('Passed *********************** ',email_2)
             else:
-                print('failed *********************** ',email_2)
+                # print('failed *********************** ',email_2)
                 pass
         return JsonResponse({'sent':users_emails2})
     return JsonResponse({'sent':'upto date'})
@@ -235,7 +235,7 @@ def send_bulk3(email,name):
 
 def congragulate3(request):
     users_emails3=interestModel.all_emails()
-    print('Passed *********************** ',users_emails3)
+    # print('Passed *********************** ',users_emails3)
     if users_emails3:
         for email_3 in users_emails3:
             user = interestModel.objects.filter(email = email_3).first()
@@ -243,9 +243,9 @@ def congragulate3(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_3)
+                # print('Passed *********************** ',email_3)
             else:
-                print('failed *********************** ',email_3)
+                # print('failed *********************** ',email_3)
                 pass
         return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})

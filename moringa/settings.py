@@ -91,16 +91,10 @@ WSGI_APPLICATION = 'moringa.wsgi.application'
 
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME':'access',
-            'USER': 'moringa',
-            'PASSWORD':'E*7@wach',
-            'HOST': 'localhost',
-            'PORT': '',
-    }       
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
-
 
 
 # Password validation
