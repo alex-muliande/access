@@ -4,128 +4,136 @@
 
 <script src="{% static 'js/send_mail.js' %}"></script>
 <style>
-    .loader{
-     display: none;
-    margin-left: 20px;
-    width: 20px;
-    height: 20px;
-    border:2px solid white ;
-    border-left:2px solid darkgreen ;
-    border-radius:50%;
-    animation: 1s spin linear infinite;
-    animation-direction: alternate;
-     }
+    .loader {
+        display: none;
+        margin-left: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        border-left: 2px solid darkgreen;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+        animation-direction: alternate;
+    }
+
     @keyframes spin {
-    0%{
-      transform:rotate(0);
-      opacity: 1px;
+        0% {
+            transform: rotate(0);
+            opacity: 1px;
+        }
+
+        50% {
+            opacity: 10px;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            opacity: 1px;
+        }
+
     }
-    50%{
-       opacity: 10px;
-    }
-    100%{
-      transform: rotate(360deg);
-       opacity: 1px;
-    }
-    
-    }
-    </style>
-    
-            <!-- <section id="moringa-pathways-section"> -->
-    <div class="container text-center quote_container">
-            <span id="about"></span>
-            <br>
-            <br>
-            <br>
-            <br>
-        <p class="quote" >Moringa is a software engineering bootcamp that aims to be the number one technical skills
-            provider in Africa. Moringa School runs an Access Scholarship Program which aims to make world-class
-            technical education possible for individuals who would otherwise not be able to access it.Our courses
-            consist of pathways that branch into either full stack development or mobile development.</p>
+</style>
+
+<!-- <section id="moringa-pathways-section"> -->
+<div class="container text-center quote_container">
+    <span id="about"></span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="quote">Moringa is a software engineering bootcamp that aims to be the number one technical skills
+        provider in Africa. Moringa School runs an Access Scholarship Program which aims to make world-class
+        technical education possible for individuals who would otherwise not be able to access it.Our courses
+        consist of pathways that branch into either full stack development or mobile development.</p>
+</div>
+
+<!-- </section> -->
+
+
+<div id="social-community" class="text-center py-4 bg-light">
+    <div class="footer-container container">
+        <div class="row">
+            <div class="col-md-3 d-none d-md-block images-zig">
+                <span class="img-one"><img src="static/img/django.jpg" alt=""></span>
+                <span class="img-two"><img src="static/img/python.jpg" alt=""></span>
+                <span class="img-three"><img src="static/img/flask.jpg" alt=""></span>
+                <span class="img-four"><img src="static/img/angular.svg" alt=""></span>
+            </div>
+            <div class="col-md-6 col-12">
+                <h1 class="heading">Join us!</h1>
+                <p class="paragraph">We are dedicated to providing good coding practices and
+                    <br>
+                    we would like you to be part of the community</p>
+                <div class="enroll-button text-center">
+                    <a href="{% url 'register'%}">
+                        <button class="btn btn-xl bg-green text-white"
+                            style="background-color: #637c33;">Register!</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 d-none d-md-block images-zig">
+                <span class="img-one"><img src="static/css/img/java.jpg" alt=""></span>
+                <span class="img-two"><img src="static/css/img/spark.svg" alt=""></span>
+                <span class="img-three"><img src="static/css/img/android.jpg" alt=""></span>
+                <span class="img-four"><img src="static/css/img/javascript.jpg" alt=""></span>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- </section> -->
+
+<section id="footer-social" class="bg-green">
+    <div class="container">
+        <h1 class="text-center" id="contact"> Contact us</h1>
+    </div>
+</section>
 
 
-    <div id="social-community" class="text-center py-4 bg-light">
-        <div class="footer-container container">
+
+<footer>
+    <div class="container-fluid">
+
+        <div class="footer_nav">
             <div class="row">
-                <div class="col-md-3 d-none d-md-block images-zig">
-                    <span class="img-one"><img src="static/img/django.jpg" alt=""></span>
-                    <span class="img-two"><img src="static/img/python.jpg" alt=""></span>
-                    <span class="img-three"><img src="static/img/flask.jpg" alt=""></span>
-                    <span class="img-four"><img src="static/img/angular.svg"
-                            alt=""></span>
+                <div class="col-md-6">
+                    <p><a href="tel:+254 757 075 703"><b>General Enquiries:</b> +254 757 075 703</a></p>
+                    <p><b>Email:</b> admissions.access@moringaschool.com </p>
+                    <p><b>Admissions Enquiries:</b> </p>
+                    <p><b>Address:</b> P.O.Box 28860-00100</p>
+                    <p><b>Location:</b> Ngong Lane Plaza, Ngong Lane. Nairobi</p>
                 </div>
-                <div class="col-md-6 col-12">
-                    <h1 class="heading">Join us!</h1>
-                    <p class="paragraph">We are dedicated to providing good coding practices and
-                        <br>
-                        we would like you to be part of the community</p>
-                    <div class="enroll-button text-center">
-                        <a href="{% url 'register'%}">
-                            <button class="btn btn-xl bg-green text-white"
-                                style="background-color: #637c33;">Register!</button>
-                        </a>
-                    </div>
+                <div class="col-md-6" style="margin-left: -5px;">
+                    <p><a href="https://moringaschool.com/learning-model/">Learning Model</a></p>
+
                 </div>
-                <div class="col-md-3 d-none d-md-block images-zig">
-                    <span class="img-one"><img src="static/css/img/java.jpg" alt=""></span>
-                    <span class="img-two"><img src="static/css/img/spark.svg" alt=""></span>
-                    <span class="img-three"><img src="static/css/img/android.jpg" alt=""></span>
-                    <span class="img-four"><img src="static/css/img/javascript.jpg" alt=""></span>
-                </div>
+
             </div>
         </div>
     </div>
 
+</footer>
 
-    <section id="footer-social" class="bg-green">
-        <div class="container">
-            <h1 class="text-center" id="contact"> Contact us</h1>
-        </div>
-    </section>
+<p>Admin send mails button</p>
 
-
-
-    <footer>
-        <div class="container-fluid">
-
-            <div class="footer_nav">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><a href="tel:+254 757 075 703"><b>General Enquiries:</b> +254 757 075 703</a></p>
-                        <p><b>Email:</b> admissions.access@moringaschool.com </p>
-                        <p><b>Admissions Enquiries:</b> </p>
-                        <p><b>Address:</b> P.O.Box 28860-00100</p>
-                        <p><b>Location:</b> Ngong Lane Plaza, Ngong Lane. Nairobi</p>
-                    </div>
-                    <div class="col-md-6" style="margin-left: -5px;">
-                        <p><a href="https://moringaschool.com/learning-model/">Learning Model</a></p>
-                        
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </footer>
-
-    <p>Admin send mails button</p>
-   
 <div class="row">
     <div class="col-md-4">
-    <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats">
-        congratulations
-    </button>
-</div>
-<div class="col-md-4">
-    <button class="congrats1"> congrats1
-        
-    </button>
+        <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats">
+            congratulations
+        </button>
+    </div>
+    <div class="col-md-4">
+        <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
+            congratulations1
+
+        </button>
 
     </div>
-</div>
+    <div class="col-md-4">
+        <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats2">
+            congratulations2
+        </button>
+    </div>
+</div><br>
 </body>
 
 
