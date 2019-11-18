@@ -16,6 +16,9 @@ def dashboard(request):
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
                   {"nav_active":"dashboard", "applicants": applicants})
 
+def applicants(request):
+    return render(request,"django_sb_admin/applicants.html",
+                   {"nav_active": "applicants"})
 
 def charts(request):
     """Charts page.

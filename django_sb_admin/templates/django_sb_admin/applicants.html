@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%load static%}
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">age</th>
+        <th scope="col">Date_of_birth</th>
+        <th scope="col">Bachelors_degree</th>
+        <th scope="col">Start_date</th>
+        <th scope="col">Moringa student</th>
+
+
+
+   
+        </tr>
+    </thead>
+    {% for d in data %}
+    <tr>
+    <td class="table-active">{{d.name}}</td>
+    <td class="table-primary">{{d.email}}</td>
+    <td class="table-success">{{d.phone_number}}</td>
+    <td class="table-danger">{{d.age}}</td>
+    <td class="table-warning">{{d.date_of_birth}}</td>
+    <td class="table-info">{{d.bachelors_degree}}</td>
+    <td class="table-light">{{d.start_date}}</td>
+    <td class="table-dark">{{d.moringastudent}}</td>
+    </tr> 
+
+</table>
+
+
+</p>
+{% endfor %}
+
+
+</body>

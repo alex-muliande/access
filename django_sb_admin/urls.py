@@ -14,5 +14,6 @@ urlpatterns = [
     # url(r'^bootstrap-grid/$', django_sb_admin.views.bootstrap_grid, name='sb_admin_bootstrap_grid'),
     # url(r'^rtl-dashboard/$', django_sb_admin.views.rtl_dashboard, name='sb_admin_rtl_dashboard'),
     url(r'^blank/$', django_sb_admin.views.blank, name='sb_admin_blank'),
+    url(r'^applicants/$', django_sb_admin.views.applicants, name='applicants'),
     # url(r'^account/', include('django.contrib.auth.urls'),    {'template_name': 'django_sb_admin/examples/login.html'}),
 ]
