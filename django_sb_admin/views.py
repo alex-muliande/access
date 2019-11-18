@@ -1,23 +1,20 @@
 from django.shortcuts import render
-from access.models import interestModel, InitialForm, FormtwoResponses, scoreModel
+from access.models import InitialForm, scoreModel
 from django.contrib.admin.views.decorators import staff_member_required
 
-def start(request):
-    """Start page with a documentation.
-    """
-    return render(request, "django_sb_admin/start.html",
-                  {"nav_active":"start"})
+# def start(request):
+#     """Start page with a documentation.
+#     """
+#     return render(request, "django_sb_admin/start.html",
+#                   {"nav_active":"start"})
 
 @staff_member_required
 def dashboard(request):
     """Dashboard page.
     """
-    applicants = interestModel.objects.all()
-    stage1 =InitialForm.objects.all()
-    stage2 = FormtwoResponses.objects.all()
-    stage3 = scoreModel.objects.all()
+    applicants = InitialForm.objects.all()
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
-                  {"nav_active":"dashboard", "applicants": applicants, "stage":stage1, "stage2":stage2, "stage3":stage3})
+                  {"nav_active":"dashboard", "applicants": applicants})
 
 
 def charts(request):
