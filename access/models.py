@@ -28,6 +28,14 @@ class interestModel(models.Model):
     residence_other=models.CharField(max_length=250)   
     residence_clarification=models.CharField(max_length=250)     
 
+    @classmethod
+    def all_emails2(cls):
+        list_emails2=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails2.append(mail.email)
+        return list_emails2
+
 class scoreModel(models.Model):
     Accepted = 'Accepted'
     Rejected = 'Rejected'
@@ -65,6 +73,7 @@ class InitialForm(models.Model):
 
     def __str__(self):
         return self.your_name
+
 
     @classmethod
     def all_emails(cls):
@@ -147,3 +156,11 @@ class FormtwoResponses(models.Model):
     medium_complete_application=models.CharField(max_length=250)
     timetaken_complete_application=models.CharField(max_length=250)
     status=models.CharField(max_length=30, choices=STATUS, default=Pending)
+
+    @classmethod
+    def all_emails3(cls):
+        list_emails3=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails3.append(mail.email)
+        return list_emails3
