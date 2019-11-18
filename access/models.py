@@ -157,7 +157,7 @@ class FormtwoResponses(models.Model):
     timetaken_complete_application=models.CharField(max_length=250)
     status=models.CharField(max_length=30, choices=STATUS, default=Pending)
 
-        @classmethod
+    @classmethod
     def all_emails3(cls):
         list_emails3=[]
         mails= cls.objects.filter(is_sent=False).all()

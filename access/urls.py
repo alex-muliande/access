@@ -22,7 +22,8 @@ urlpatterns=[
     path('rejected/',views.failed,name='rejected'),
     path('accepted/',views.failed,name='accepted'),
     path('bulk/',views.congragulate),
-    path('congrats/',views.congragulate2)
+    path('congrats/',views.congragulate2),
+    path('congrats3/',views.congragulate3)
 
 ]
 
