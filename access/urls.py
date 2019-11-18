@@ -21,7 +21,8 @@ urlpatterns=[
     path('assesment/',views.scorecard,name='assesment'),
     path('rejected/',views.failed,name='rejected'),
     path('accepted/',views.failed,name='accepted'),
-    path('bulk/',views.congragulate)
+    path('bulk/',views.congragulate),
+    path('congrats/',views.congragulate2)
 
 ]
 

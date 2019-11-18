@@ -203,9 +203,6 @@ def congragulate2(request):
     return JsonResponse({'sent':'upto date'})
 ###########################################
 def send_bulk3(email,name):
-    # connection = EmailMultiAlternatives.get_connection()
-
-    # connection.open()
     html_content='''
     
     
@@ -227,8 +224,6 @@ def send_bulk3(email,name):
     <br>
     <p>The Moringa School Access Team</p>
     '''.format(name)
-    # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
     send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
