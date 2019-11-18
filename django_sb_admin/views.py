@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from access.models import InitialForm, scoreModel
+from access.models import InitialForm, interestModel, scoreModel
 from django.contrib.admin.views.decorators import staff_member_required
 
 # def start(request):
@@ -13,12 +13,15 @@ def dashboard(request):
     """Dashboard page.
     """
     applicants = InitialForm.objects.all()
+    stageone = interestModel.objects.all()
+    stagetwo = scoreModel.objects.all()
     return render(request, "django_sb_admin/sb_admin_dashboard.html",
-                  {"nav_active":"dashboard", "applicants": applicants})
+                  {"applicants": applicants, "stageone":stageone, "stagetwo":stagetwo })
 
 def applicants(request):
-    return render(request,"django_sb_admin/applicants.html",
+    return render(request, "applicants.html",
                    {"nav_active": "applicants"})
+
 
 def charts(request):
     """Charts page.
