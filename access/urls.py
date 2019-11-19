@@ -7,10 +7,6 @@ from django.urls import path, include
 from .views import InitialformCreateView
 from . import views 
 
-#router = routers.DefaultRouter()
-#router.register('', views.Profileview)
-
-
 
 urlpatterns=[
     path('', views.index, name ='index'),

@@ -39,8 +39,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap4',
+
     # 'django_filters',
     'crispy_forms',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -88,7 +90,6 @@ WSGI_APPLICATION = 'moringa.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 
 DATABASES = {
     'default': dj_database_url.config(
