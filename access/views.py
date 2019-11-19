@@ -265,7 +265,7 @@ def send_bulk4(email,name):
     send_this.send()
 
 def congragulate4(request):
-    users_emails4=interestModel.all_emails4()
+    users_emails4=scoreModel.all_emails4()
     print('Passed *********************** ',users_emails4)
     if users_emails4:
         for email_4 in users_emails4:
