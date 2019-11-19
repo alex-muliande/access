@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
     'application3.apps.Application3Config',
+    'assessment2.apps.Assessment2Config',
     'django_sb_admin',
 
 ]

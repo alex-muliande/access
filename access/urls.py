@@ -4,7 +4,6 @@ from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import InitialformCreateView
-from . import views 
 #router = routers.DefaultRouter()
 #router.register('', views.Profileview)
 
@@ -13,9 +12,6 @@ from . import views
 urlpatterns=[
     path('', views.index, name ='index'),
     path('initial/',views.initial, name='initial'),
-    path('assesment/',views.scorecard,name='assesment'),
-    path('rejected/',views.failed,name='rejected'),
-    path('accepted/',views.failed,name='accepted'),
     path('bulk/',views.congragulate),
     path('congrats/',views.congragulate2),
     
