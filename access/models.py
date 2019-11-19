@@ -24,3 +24,18 @@ class InitialForm(models.Model):
 
 
 
+
+
+class KnowMoringa(models.Model):
+    name =models.CharField(max_length=30)
+    email = models.EmailField(default = 'email@gmail.com')
+
+    def __str__(self):
+        return self.name
+    @classmethod
+    def all_emails5(cls):
+        list_emails5=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails5.append(mail.email)
+        return list_emails5

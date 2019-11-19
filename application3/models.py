@@ -80,3 +80,7 @@ class FormtwoResponses(models.Model):
         for mail in mails:
             list_emails3.append(mail.email)
         return list_emails3
+
+
+
+

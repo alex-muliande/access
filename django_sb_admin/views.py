@@ -1,10 +1,6 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from access.models import InitialForm
 from application3.models import  FormtwoResponses
-=======
-from access.models import InitialForm, interestModel, scoreModel
->>>>>>> 6fc12747812182662b96617f02a9a41c19b316a6
 from django.contrib.admin.views.decorators import staff_member_required
 
 # def start(request):
