@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 
+=======
+/* .form-control {
+    padding: 01px;
+}
+ */
+>>>>>>> 0d1aba197aac588439d94f2b2ea26fbe2ab31469
 
 #moringa-pathways-section {
     padding: 24px 0;
 }
-
 #moringa-pathways-section h3 {
         margin: auto;
         text-align: center;
@@ -1046,6 +1052,12 @@ header .shadow {
     font-size: 25px;
 }
 
+<<<<<<< HEAD
+=======
+/* .form-control{
+    padding: 110px;
+} */
+>>>>>>> 0d1aba197aac588439d94f2b2ea26fbe2ab31469
 
 .careers.card .exp {
     color: #007AFF;

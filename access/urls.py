@@ -19,7 +19,8 @@ urlpatterns=[
     path('accepted/',views.failed,name='accepted'),
     path('bulk/',views.congragulate),
     path('congrats/',views.congragulate2),
-    path('congrats3/',views.congragulate3)
+    path('congrats3/',views.congragulate3),
+    path('congrats4/',views.congragulate4)
 
 ]
 
