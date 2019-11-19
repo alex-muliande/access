@@ -1,7 +1,11 @@
+/* .form-control {
+    padding: 01px;
+}
+ */
+
 #moringa-pathways-section {
     padding: 24px 0;
 }
-
 #moringa-pathways-section h3 {
         margin: auto;
         text-align: center;
@@ -322,28 +326,6 @@ nav .fixed-top {
 
 
 
-button {
-    font-size: 27px;
-    color: #fff;
-    font-weight: 500;
-    margin-right: 35px;
-}
-
-.btn-xl {
-    margin: 0;
-    padding: 12px 37px;
-    font-size: 17px;
-    border-radius: 0;
-    color: #FFFFFF;
-}
-
-
-.btn-xl:hover {
-    box-shadow: 0 9px 3px 0 rgba(0, 0, 0, 0.2), 0 14px 29px 0 rgba(0, 0, 0, 0.14), 0 20px 25px 0 rgba(0, 0, 0, 0.12);
-    transition: box-shadow 0.28s cubic-bezier(4.4, 0, 12.2, 7);
-    color: #FFFFFF;
-}
-
 
 
 h1.heading {
@@ -526,6 +508,11 @@ footer .footer_nav li {
 /* alumni */
 
 @media screen and (min-width: 1024px) {
+
+  header .shadow {
+      /*height: 522px;*/
+  }
+
 header.shadow {
     height: 522px;
 }
@@ -586,8 +573,6 @@ header.shadow {
 }
 #no-slider .card-img-sm-left {
     width: 50%;
-}
-
 }
 
 @media only screen and (max-width: 768px) {
@@ -1063,9 +1048,9 @@ header .shadow {
     font-size: 25px;
 }
 
-.form-control{
+/* .form-control{
     padding: 110px;
-}
+} */
 
 .careers.card .exp {
     color: #007AFF;
