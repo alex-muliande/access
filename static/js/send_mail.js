@@ -80,3 +80,32 @@ $(document).ready(function(){
     })
     
 })
+
+$(document).ready(function(){
+    console.log('I am ready');
+    $(document).ajaxStart(function(){
+        $('.loader').css({'display':'block'})
+    })
+    $('.congrats4').click(function(){
+
+   
+    
+    $.ajax({
+        url:'/congrats4/',
+        method:'GET',
+        beforeSend:function(){
+        $('.loader').css({'display':'block'})
+        console.log('I have gone');
+
+        
+        }
+    })
+    .done(function(data){
+        $('.loader').css ({'display':'none'})
+        console.log('I am done');
+        console.log(data.sent);
+        
+        
+    })
+})
+})
