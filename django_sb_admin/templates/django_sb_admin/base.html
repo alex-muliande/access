@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,13 +11,13 @@
     <title>{% block title %}ACCESS PROGRAM ADMIN{% endblock %}</title>
 
     <!-- Bootstrap Core CSS -->
-    {% block sb_admin_bootstrap_css %}<link href="{% static "css/bootstrap.min.css"%}" rel="stylesheet">{% endblock sb_admin_bootstrap_css %}
+    {% block sb_admin_bootstrap_css %}<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">{% endblock sb_admin_bootstrap_css %}
 
     <!-- Custom CSS -->
-    {% block sb_admin_css %}<link href="{% static "css/sb-admin.css"%}" rel="stylesheet">{% endblock sb_admin_css %}
+    {% block sb_admin_css %}<link href="{% static 'css/sb-admin.css'%}" rel="stylesheet">{% endblock sb_admin_css %}
 
     <!-- Custom Fonts -->
-    {% block sb_admin_fonts_css %}<link href="{% static "font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">{% endblock sb_admin_fonts_css %}
+    {% block sb_admin_fonts_css %}<link href="{% static 'font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">{% endblock sb_admin_fonts_css %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% block sb_admin_header_url %}{% url "sb_admin_start" %}{% endblock sb_admin_header_url %}">{% block sb_admin_header %}ACCESS PROGRAM ADMIN{% endblock sb_admin_header %}</a>
+                <a class="navbar-brand" href="{% block sb_admin_header_url %}{% endblock sb_admin_header_url %}">{% block sb_admin_header %}ACCESS PROGRAM ADMIN{% endblock sb_admin_header %}</a>
             </div>
             <!-- Top Menu Items -->
             {% block sb_admin_navbar_right %}<ul class="nav navbar-right top-nav">
@@ -143,11 +144,9 @@
                 </li>
             </ul>{% endblock sb_admin_navbar_right %}
             {% block sb_admin_sidebar %}<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="collapse navbar-collapse navbar-ex1-collapse" id="nav">
                 <ul class="nav navbar-nav side-nav">
-                    <li {% if nav_active == "start" %}class="active"{% endif %}>
-                        <a href="{% url "sb_admin_start" %}"><i class="fa fa-fw fa-play"></i>Login</a>
-                    </li>
+                    
                     <li {% if nav_active == "dashboard" %}class="active"{% endif %}>
                         <a href="{% url "sb_admin_dashboard" %}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
@@ -187,7 +186,6 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            {% block sb_admin_title %}LOGIN{% endblock sb_admin_title %}
                             {% block sb_admin_subheading %}<small></small>{% endblock sb_admin_subheading %}
                         </h1>
                         <!-- <ol class="breadcrumb">
@@ -219,25 +217,7 @@
                     </div>
                 </div>
 {% endif %}
-                <!-- {% block sb_admin_content %}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>ACCESS PROGRAM ADMIN</strong> This and everything below is inside <code>sb_admin_content</code> block.
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">ACCESS PROGRAM ADMIN</h2>
-                        <p class="lead">Reusable Django application providing SB Admin dashboard theme, but also some other bootstrap related extras (for now it is only a login snippet).</p>
-                        <h5>List of resources</h5>
-                        <h6>Font Awesome</h6>
-                        <p class="">You can find list of all awesome icons <a href="https://fortawesome.github.io/Font-Awesome/icons/">here</a>.
-                    </div>
-                </div> -->
-                {% include "django_sb_admin/login.html" %}               
+                 {% block sb_admin_content %}
                 {% endblock sb_admin_content %}
 
             </div>
@@ -250,10 +230,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="{% static "js/jquery.js"%}"></script>
+    <script src="{% static 'js/jquery.js'%}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static "js/bootstrap.min.js"%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
 
     {% block sb_admin_custom_js %}{% endblock sb_admin_custom_js %}
 

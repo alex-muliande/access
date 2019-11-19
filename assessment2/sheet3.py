@@ -18,7 +18,7 @@ def assesment_responses():
     # Make sure you use the right name here.
 
     sheet = client.open("Assesment").sheet1
-    pp = pprint.PrettyPrinter()
+    #pp = pprint.PrettyPrinter()
 
     # Extract and print all of the values
     # pp.pprint(sheet.get_all_records())
