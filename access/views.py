@@ -89,7 +89,7 @@ def send_bulk(email,name):
     # connection.open()
     html_content='''
   Hello,
-Thank you for your interest in the Access Program! Our next class will start soon.  we will notify you when the application period for that class will open. Kindly send us an email that day and we will send you the link to apply.
+Thank you for your interest in the `Access` Program! Our next class will start soon.  we will notify you when the application period for that class will open. Kindly send us an email that day and we will send you the link to apply.
 Please review the requirements to confirm you qualify for the program before deciding to apply. To be considered for this scholarship, you must:
 Be 18-35 years old
 Come from a needy background

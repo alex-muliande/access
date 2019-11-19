@@ -18,10 +18,10 @@ def interest_responses():
     # Make sure you use the right name here.
 
     sheet = client.open("Access Outcomes Project Responses").sheet1
-    pp = pprint.PrettyPrinter()
+    #pp = pprint.PrettyPrinter()
 
     # Extract and print all of the values
-    pp.pprint(sheet.get_all_records())
+    #pp.pprint(sheet.get_all_records())
     processed_data=sheet.get_all_records()
     json_results=None
 

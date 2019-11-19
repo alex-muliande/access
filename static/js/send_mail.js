@@ -34,7 +34,7 @@ $(document).ready(function(){
     $('.congrats1').click(function(){
 
     $.ajax({
-        url:'congrats/',
+        url:'/congrats/',
         method:'GET',
         beforeSend:function(){
         $('.loader').css({'display':'block'})
@@ -62,7 +62,7 @@ $(document).ready(function(){
     $('.congrats2').click(function(){
 
     $.ajax({
-        url:'congrats3/',
+        url:'/congrats3/',
         method:'GET',
         beforeSend:function(){
         $('.loader').css({'display':'block'})
