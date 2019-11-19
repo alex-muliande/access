@@ -15,12 +15,15 @@ def dashboard(request):
     applicants = InitialForm.objects.all()
     stageone = interestModel.objects.all()
     stagetwo = scoreModel.objects.all()
-    return render(request, "django_sb_admin/sb_admin_dashboard.html",
-                  {"applicants": applicants, "stageone":stageone, "stagetwo":stagetwo })
+    return render(request, "django_sb_admin/sb_admin_dashboard.html",locals())
 
 def applicants(request):
-    return render(request, "applicants.html",
-                   {"nav_active": "applicants"})
+    print('**********************')
+    return render(request, "django_sb_admin/applicants.html")
+
+
+def sample(request):
+    return render(request, "sample.html")
 
 
 def charts(request):
