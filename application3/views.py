@@ -3,7 +3,7 @@ from .models import FormtwoResponses
 from .sheet1 import form_responses, process_response
 import json
 from django.http import HttpResponseRedirect,JsonResponse
-from access.models import interestModel
+from Interest1.models import interestModel
 from django.core.mail import EmailMultiAlternatives
 
 
