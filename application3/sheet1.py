@@ -2,6 +2,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
 from .models import FormtwoResponses
+
 # use creds to create a client to interact with the Google Drive API
 def form_responses():
     '''
@@ -96,7 +97,6 @@ def process_response():
         own_house=res['Do you or your guardians own the house you currently live in?']
         how_acquire_house=res['If you or your guardians own the house you currently live in, how was it financially possible to purchase the house?']
         rent_cost=res["If your household pays rent, what is the cost of your household's monthly rent?"]
-#endregion
         home_description=res['Please describe your home: number of rooms, construction materials (thatched roof, concrete walls, wood, mud walls, metal roof, etc.), plumbing (piped water, no piped water, flush toilet, etc), and electricity.']
         sent_home_schoolfees=res['Were you ever sent home from high school to collect school fees? If so, how many times were you sent home?']
         time_out_of_school=res['If you were sent home to collect school fees, how much time did you spend out of school in total?']

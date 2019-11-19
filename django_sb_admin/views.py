@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from access.models import InitialForm, interestModel, scoreModel
+from access.models import InitialForm
+from application3.models import  FormtwoResponses
 from django.contrib.admin.views.decorators import staff_member_required
 
 # def start(request):

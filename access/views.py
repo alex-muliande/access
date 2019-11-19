@@ -1,24 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import *
-from django.http import Http404
+from .models import InitialForm
+from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from .sheet2 import interest_responses, firstapplication_response
-from .sheet3 import assesment_responses, score_response
-from django.http import HttpResponseRedirect,JsonResponse
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
-from .models import InitialForm
-from django.http import HttpResponse
 from .forms import InitialformCreateView
 from django.core import mail
 from django.shortcuts import render,redirect
-from django.http import HttpResponseRedirect,JsonResponse
+from django.http import HttpResponseRedirect,JsonResponse, HttpResponse, Http404
 from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
-from django.views.generic import CreateView
-from .models import InitialForm, FormtwoResponses
-from .sheet1 import form_responses, process_response
 import json
 from .models import InitialForm,KnowMoringa
 from django.http import HttpResponse
@@ -40,9 +32,8 @@ def homepage(request):
     assuming we make the api call
     
     '''
-    
-    form_data=interest_responses()
-    response = firstapplication_response()
+    # form_data=interest_responses()
+    # response = firstapplication_response()
 
     for email in  interestModel.objects.values_list('email', flat=True).distinct():
         interestModel.objects.filter(pk__in= interestModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
@@ -50,37 +41,7 @@ def homepage(request):
     res= interestModel.objects.all()
     return render(request,'interest.html',{'data':res})
 
-def scorecard(request):
-    '''
-    Assuming we make the api call
-        
-    '''
-    # form_data=assesment_responses()
-    form_data=assesment_responses()
-    response = score_response()
 
-    for email in  scoreModel.objects.values_list('email', flat=True).distinct():
-        scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-
-    res= scoreModel.objects.all()
-    return render(request,'scores.html',{'data':res})
-
-    
-def failed(request):
-    # form_data=assesment_responses()
-    response = score_response()
-    
-    failed=scoreModel.objects.filter(status='Rejected').all()
-    passed = scoreModel.objects.filter(status='Accepted').all()
-   
-    # print(failed)
-    # for f in failed:
-        # scoreModel.objects.create(name=f.name,email=f.email,score=f.score,number=f.number,assesment_time=f.assesment_time)
-        # for email in  scoreModel.objects.values_list('email', flat=True).distinct():
-        #     scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-
-
-    return render(request,'rejected.html',{'failed':failed})
 
 
 def send_bulk(email,name):
@@ -319,33 +280,7 @@ def congragulate4(request):
         return JsonResponse({'sent':users_emails4})
     return JsonResponse({'sent':'upto date'})
 
-def myforms(request):
-    '''
-    assuming we make the api call
-    
-    '''
-    # form_data=form_responses()
-    # form_data=form_responses()
-    # response = process_response()
 
-    for email in  FormtwoResponses.objects.values_list('email', flat=True).distinct():
-        FormtwoResponses.objects.filter(pk__in= FormtwoResponses.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-
-
-    res= FormtwoResponses.objects.all()
-    return render(request,'results.html',{'data':res})
-
-def StageOne(request):
-    if 'pk' in request.GET and request.GET['pk']:
-        pk = request.GET['pk']
-        from .serializer import MyData
-
-        application = FormtwoResponses.objects.get(pk=int(pk))
-        # data2= MyData(application,many=False)
-    
-        # return JsonResponse(data2.data,safe=False)
-        return render(request ,'fullform.html',{'app':application})
-    return JsonResponse({'data':'No pk'})
 
 
 
