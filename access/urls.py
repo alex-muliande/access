@@ -12,16 +12,13 @@ from . import views
 
 urlpatterns=[
     path('', views.index, name ='index'),
-    path('forms', views.myforms, name ='forms'),
-    path('get_data/',views.StageOne),
-    path('final/',views.FinalList),
     path('initial/',views.initial, name='initial'),
     path('assesment/',views.scorecard,name='assesment'),
     path('rejected/',views.failed,name='rejected'),
     path('accepted/',views.failed,name='accepted'),
     path('bulk/',views.congragulate),
     path('congrats/',views.congragulate2),
-    path('congrats3/',views.congragulate3)
+    
 
 ]
 

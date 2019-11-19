@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .sheet2 import interest_responses, firstapplication_response
 from .sheet3 import assesment_responses, score_response
-from django.http import HttpResponseRedirect,JsonResponse
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
 from .models import InitialForm
@@ -18,8 +17,7 @@ from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
-from .models import InitialForm, FormtwoResponses
-from .sheet1 import form_responses, process_response
+from .models import InitialForm
 import json
 from .models import InitialForm
 from django.http import HttpResponse
@@ -42,8 +40,8 @@ def homepage(request):
     
     '''
     
-    form_data=interest_responses()
-    response = firstapplication_response()
+    # form_data=interest_responses()
+    # response = firstapplication_response()
 
     for email in  interestModel.objects.values_list('email', flat=True).distinct():
         interestModel.objects.filter(pk__in= interestModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
@@ -57,8 +55,8 @@ def scorecard(request):
         
     '''
     # form_data=assesment_responses()
-    form_data=assesment_responses()
-    response = score_response()
+    # form_data=assesment_responses()
+    # response = score_response()
 
     for email in  scoreModel.objects.values_list('email', flat=True).distinct():
         scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
@@ -69,7 +67,7 @@ def scorecard(request):
     
 def failed(request):
     # form_data=assesment_responses()
-    response = score_response()
+    # response = score_response()
     
     failed=scoreModel.objects.filter(status='Rejected').all()
     passed = scoreModel.objects.filter(status='Accepted').all()
@@ -203,49 +201,6 @@ def congragulate2(request):
         return JsonResponse({'sent':users_emails2})
     return JsonResponse({'sent':'upto date'})
 ###########################################
-def send_bulk3(email,name):
-    html_content='''
-    
-    
-    <h2>Application Form </h2>
-    <p style="color: red;">(Launch of Application Form 2)</p>
-    <br>
-    <p>Hello,</p>
-    <br>
-    <p>We thank you for applying to the Moringa School Access Program.
-    To proceed in the selection process, kindly click on this link to complete the application form. 
-    <a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
-    If you qualify, the next step in the application process is an assessment. 
-    
-    Wishing you all the best!
-
-    </p>
-    <br>
-    <p>Kind regards,</p>
-    <br>
-    <p>The Moringa School Access Team</p>
-    '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
-    send_this.attach_alternative(html_content,'text/html')
-    send_this.send()
-
-def congragulate3(request):
-    users_emails3=FormtwoResponses.all_emails3()
-    print('Passed *********************** ',users_emails3)
-    if users_emails3:
-        for email_3 in users_emails3:
-            user = interestModel.objects.filter(email = email_3).first()
-            send_bulk3(user.email,user.your_name)
-            if user:
-                user.is_sent = True 
-                user.save()
-                print('Passed *********************** ',email_3)
-            else:
-                print('failed *********************** ',email_3)
-                pass
-        return JsonResponse({'sent':users_emails3})
-    return JsonResponse({'sent':'upto date'})
-
 ###########################################
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -295,49 +250,7 @@ def congragulate4(request):
         return JsonResponse({'sent':users_emails4})
     return JsonResponse({'sent':'upto date'})
 
-def myforms(request):
-    '''
-    assuming we make the api call
-    
-    '''
-    # form_data=form_responses()
-    # form_data=form_responses()
-    # response = process_response()
-
-    for email in  FormtwoResponses.objects.values_list('email', flat=True).distinct():
-        FormtwoResponses.objects.filter(pk__in= FormtwoResponses.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-
-
-    res= FormtwoResponses.objects.all()
-    return render(request,'results.html',{'data':res})
-
-def StageOne(request):
-    if 'pk' in request.GET and request.GET['pk']:
-        pk = request.GET['pk']
-        from .serializer import MyData
-
-        application = FormtwoResponses.objects.get(pk=int(pk))
-        # data2= MyData(application,many=False)
-    
-        # return JsonResponse(data2.data,safe=False)
-        return render(request ,'fullform.html',{'app':application})
-    return JsonResponse({'data':'No pk'})
 
 
 
-def FinalList(request):
-     
-    
-    pending = FormtwoResponses.objects.filter(status='Pending')
-    accepted = FormtwoResponses.objects.filter(status='Accepted')
-    rejected = FormtwoResponses.objects.filter(status='Rejected')
-
-    params = {
-        'pending':pending,
-        'accepted':accepted,
-        'rejected':rejected,
-    }
-
-    return render(request, 'final.html', params)
-    
 
