@@ -6,7 +6,7 @@ from django.urls import reverse
 class interestModel(models.Model):
     
     email=models.EmailField(max_length=250,default='Nan')
-    name=models.CharField(max_length=50)
+    your_name=models.CharField(max_length=50)
     phone_number=models.CharField(max_length=250)
     guardians_number=models.TextField(max_length=250,default='Nan')
     age=models.TextField(max_length=250)
@@ -26,7 +26,16 @@ class interestModel(models.Model):
     fluency=models.CharField(max_length=250)   
     residence=models.CharField(max_length=250)   
     residence_other=models.CharField(max_length=250)   
-    residence_clarification=models.CharField(max_length=250)     
+    residence_clarification=models.CharField(max_length=250) 
+    is_sent = models.BooleanField(default=False)    
+
+    @classmethod
+    def all_emails2(cls):
+        list_emails2=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails2.append(mail.email)
+        return list_emails2
 
 class scoreModel(models.Model):
     Accepted = 'Accepted'
@@ -51,6 +60,13 @@ class scoreModel(models.Model):
             else:
                 self.status = 'Rejected'
         super().save(*args, **kwargs)
+    @classmethod
+    def all_emails4(cls):
+        list_emails4=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails4.append(mail.email)
+        return list_emails4
 
 
 
@@ -65,6 +81,7 @@ class InitialForm(models.Model):
 
     def __str__(self):
         return self.your_name
+
 
     @classmethod
     def all_emails(cls):
@@ -147,3 +164,12 @@ class FormtwoResponses(models.Model):
     medium_complete_application=models.CharField(max_length=250)
     timetaken_complete_application=models.CharField(max_length=250)
     status=models.CharField(max_length=30, choices=STATUS, default=Pending)
+    is_sent = models.BooleanField(default=False)
+
+    @classmethod
+    def all_emails3(cls):
+        list_emails3=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails3.append(mail.email)
+        return list_emails3
