@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.urls import reverse
 from django.http import Http404
 from django.contrib.auth.models import User
 from rest_framework import viewsets
@@ -12,12 +13,9 @@ from .models import InitialForm
 from django.http import HttpResponse
 from .forms import InitialformCreateView
 from django.core import mail
-
 from django.shortcuts import render,redirect
-
 from django.http import HttpResponseRedirect,JsonResponse
 from django.shortcuts import render,redirect
-
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
 from .models import InitialForm, FormtwoResponses

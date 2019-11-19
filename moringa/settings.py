@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'bootstrap4',
     'django_filters',
-    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
-    'django_sb_admin',    
+    'django_sb_admin',
+    'crispy_forms',   
 
 ]
 
@@ -94,7 +94,7 @@ DATABASES = {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME':'access',
             'USER': 'moringa',
-            'PASSWORD':'123',
+            'PASSWORD':'12345',
             'HOST': 'localhost',
             'PORT': '',
     }       
@@ -153,7 +153,7 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = "/initial/"
 LOGOUT_REDIRECT_URL = "/"
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
