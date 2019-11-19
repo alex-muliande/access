@@ -15,7 +15,7 @@ def form_responses():
     # Find a workbook by name and open the first sheet
     # Make sure you use the right name here.
     sheet = client.open("Access Sheet2").sheet1
-    pp = pprint.PrettyPrinter()
+    #pp = pprint.PrettyPrinter()
     print('******************************************************')
     # Extract and print all of the values
     #pp.pprint(sheet.get_all_records())
