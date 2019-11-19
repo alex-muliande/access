@@ -1,9 +1,13 @@
+/* .form-control {
+    padding: 01px;
+}
+ */
+
 
 
 #moringa-pathways-section {
     padding: 24px 0;
 }
-
 #moringa-pathways-section h3 {
         margin: auto;
         text-align: center;
@@ -1045,8 +1049,6 @@ header .shadow {
     font-weight: 300;
     font-size: 25px;
 }
-
-
 .careers.card .exp {
     color: #007AFF;
     font-size: 13px;

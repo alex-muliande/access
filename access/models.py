@@ -6,7 +6,7 @@ from django.urls import reverse
 class interestModel(models.Model):
     
     email=models.EmailField(max_length=250,default='Nan')
-    name=models.CharField(max_length=50)
+    your_name=models.CharField(max_length=50)
     phone_number=models.CharField(max_length=250)
     guardians_number=models.TextField(max_length=250,default='Nan')
     age=models.TextField(max_length=250)
@@ -26,7 +26,8 @@ class interestModel(models.Model):
     fluency=models.CharField(max_length=250)   
     residence=models.CharField(max_length=250)   
     residence_other=models.CharField(max_length=250)   
-    residence_clarification=models.CharField(max_length=250)     
+    residence_clarification=models.CharField(max_length=250) 
+    is_sent = models.BooleanField(default=False)    
 
     @classmethod
     def all_emails2(cls):
@@ -35,6 +36,14 @@ class interestModel(models.Model):
         for mail in mails:
             list_emails2.append(mail.email)
         return list_emails2
+
+    @classmethod
+    def all_emails6(cls):
+        list_emails6=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails6.append(mail.email)
+        return list_emails6
 
 class scoreModel(models.Model):
     Accepted = 'Accepted'
@@ -48,6 +57,7 @@ class scoreModel(models.Model):
     score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
     status=models.CharField(max_length=250,choices=STATUS, default='undecided')
+    is_sent= models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -59,6 +69,13 @@ class scoreModel(models.Model):
             else:
                 self.status = 'Rejected'
         super().save(*args, **kwargs)
+    @classmethod
+    def all_emails4(cls):
+        list_emails4=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails4.append(mail.email)
+        return list_emails4
 
 
 
@@ -156,11 +173,26 @@ class FormtwoResponses(models.Model):
     medium_complete_application=models.CharField(max_length=250)
     timetaken_complete_application=models.CharField(max_length=250)
     status=models.CharField(max_length=30, choices=STATUS, default=Pending)
+    is_sent = models.BooleanField(default=False)
 
-        @classmethod
+    @classmethod
     def all_emails3(cls):
         list_emails3=[]
         mails= cls.objects.filter(is_sent=False).all()
         for mail in mails:
             list_emails3.append(mail.email)
         return list_emails3
+
+class KnowMoringa(models.Model):
+    name =models.CharField(max_length=30)
+    email = models.EmailField(default = 'email@gmail.com')
+
+    def __str__(self):
+        return self.name
+    @classmethod
+    def all_emails5(cls):
+        list_emails5=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails5.append(mail.email)
+        return list_emails5

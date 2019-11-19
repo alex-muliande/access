@@ -14,10 +14,15 @@ urlpatterns=[
     path('get_data/',views.StageOne),
     path('final/',views.FinalList),
     path('initial/',views.initial, name='initial'),
+    path('more/',views.KnowMore,name = 'more'),
     path('assesment/',views.scorecard,name='assesment'),
     path('rejected/',views.failed,name='rejected'),
     path('accepted/',views.failed,name='accepted'),
-    path('bulk/',views.congragulate)
+    path('bulk/',views.congragulate),
+    path('congrats/',views.congragulate2),
+    path('congrats3/',views.congragulate3),
+    path('congrats4/',views.congragulate4),
+    path('congrats5/',views.more),
 
 ]
 
