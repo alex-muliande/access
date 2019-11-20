@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from .sheet2 import interest_responses, firstapplication_response
 from .sheet3 import assesment_responses, score_response
 from django.http import HttpResponseRedirect,JsonResponse
-from .email import welcome_to_moringa
+from .email import welcome_to_moringa,know_more
 from django.views.generic import CreateView
 from .models import InitialForm
 from django.http import HttpResponse
@@ -421,8 +421,9 @@ def KnowMore(request):
             email = form.cleaned_data['email']
             recipient = KnowMoringa(name = name, email = email)
             recipient.save()
-            return redirect('index')
             know_more(name,email)
+
+            return redirect('index')
 
     else:
         form = MoreInformation()

@@ -1,8 +1,7 @@
 Hello {{name}}
-<p>
 Moringa School is a world-class learning program which trains students to become software developers. We connect our students with employment opportunities after they graduate and teach them skills that will last a lifetime.
 Click here for a video about the Moringa experience. <a href="https://www.youtube.com/channel/UCnkYPrm1GvxDzGlT0S2zn4w/videos"></a>
 Click here for Moringa School’s website. <a href="https://moringaschool.com/"></a>
 The Access Program gives scholarships to youth from needy backgrounds. The scholarship value is 400,000 KES. To learn more about the program, click here: Access Program Overview.
 The admissions process is multi-stage. You must pass each stage to proceed. To learn more, read the section called "Admissions Process" in Access Program Overview.
-Contact: admissions.access@moringaschool.com if you would like to apply or require more information!</p>
+Contact: admissions.access@moringaschool.com if you would like to apply or require more information!
