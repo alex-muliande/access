@@ -14,14 +14,14 @@ from . import views
 
 urlpatterns=[
     path('', views.index, name ='index'),
-    path('initial/', InitialformCreateView.as_view(), name='initial'),
+    #path('initial/', InitialformCreateView.as_view(), name='initial'),
     path('forms', views.myforms, name ='forms'),
     path('get_data/',views.StageOne),
     path('final/',views.FinalList),
     path('initial/',views.initial, name='initial'),
     path('assesment/',views.scorecard,name='assesment'),
-    path('rejected/',views.failed,name='rejected'),
-    path('accepted/',views.failed,name='accepted'),
+    # path('rejected/',views.failed,name='rejected'),
+    path('accepted/',views.accepted,name='accepted'),
     path('bulk/',views.congragulate)
 
 ]
