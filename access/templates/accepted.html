@@ -4,9 +4,8 @@
 </head>
 
 <body>
+<div>
 <h2>Accepted Applicants</h2>
-
-
 <p>
     <table class="table table-sm">
         <thead>
@@ -16,26 +15,58 @@
             <th scope="col">Score</th>
             <th scope="col">Phone number</th>
             <th scope="col">assesment_time</th>
-            
        
             </tr>
         </thead>
-        {% for d in data %}
+        <tbody>
+        {% for d in passed %}
         <tr>
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
         <td class="table-secondary">{{d.score}}</td>
         <td class="table-success">{{d.number}}</td>
         <td class="table-danger">{{d.assesment_time}}</td>
-        
-           
         </tr> 
-    
+        {% endfor %}
+        </tbody>
     </table>
 
-    
 </p>
-{% endfor %}
+</div>
+
+ <div>
+    <h2>Rejected Applicants</h2>
+
+
+    <p>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Score</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">assesment_time</th>
+            
+       
+                </tr>
+            </thead>
+            <tbody>
+            {% for f in failed %}
+            <tr>
+            <td class="table-active">{{f.name}}</td>
+            <td class="table-primary">{{f.email}}</td>
+            <td class="table-secondary">{{f.score}}</td>
+            <td class="table-success">{{f.number}}</td>
+            <td class="table-danger">{{f.assesment_time}}</td> 
+            </tr> 
+            {% endfor %}
+            </tbody>
+        </table>
+
+    
+    </p>
  
+ </div>
     
 </body>

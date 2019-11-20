@@ -20,16 +20,16 @@
        
             </tr>
         </thead>
+        <tbody>
         {% for d in data %}
         <tr>
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
         <td class="table-secondary">{{d.score}}</td>
         <td class="table-success">{{d.number}}</td>
-        <td class="table-danger">{{d.assesment_time}}</td>
-        
-           
+        <td class="table-danger">{{d.assesment_time}}</td>   
         </tr> 
+        </tbody>
     
     </table>
 

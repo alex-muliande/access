@@ -68,22 +68,25 @@ def scorecard(request):
     res= scoreModel.objects.all()
     return render(request,'scores.html',{'data':res})
 
-    
-def failed(request):
+
+def accepted(request):
     # form_data=assesment_responses()
-    response = score_response()
-    
-    failed=scoreModel.objects.filter(status='Rejected').all()
+    #response = score_response()
     passed = scoreModel.objects.filter(status='Accepted').all()
-   
-    print(failed)
-    # for f in failed:
-        # scoreModel.objects.create(name=f.name,email=f.email,score=f.score,number=f.number,assesment_time=f.assesment_time)
-        # for email in  scoreModel.objects.values_list('email', flat=True).distinct():
-        #     scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+    failed=scoreModel.objects.filter(status='Rejected').all()
+    print('*****',passed)
+
+    for f in failed:
+        for email in  scoreModel.objects.values_list('email', flat=True).distinct():
+            scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+
+    for f in passed:
+        for email in  scoreModel.objects.values_list('email', flat=True).distinct():
+            scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
 
 
-    return render(request,'rejected.html',{'failed':failed})
+    return render(request,'accepted.html',{'passed':passed, 'failed':failed})
+
 
 
 def send_bulk(email,name):
@@ -132,7 +135,7 @@ def initial(request):
             email = form.cleaned_data['email']
             recipient = InitialForm(KCSE_certificate_image=KCSE_certificate_image,your_name = your_name, email = email)
             recipient.save()
-            welcome_to_moringa(name,email)
+            #welcome_to_moringa(name,email)
             HttpResponseRedirect('index')
     else:
         form = InitialformCreateView()

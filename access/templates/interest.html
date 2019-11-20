@@ -19,13 +19,14 @@
             <th scope="col">Bachelors_degree</th>
             <th scope="col">Start_date</th>
             <th scope="col">Moringa student</th>
-
+            
 
 
        
             </tr>
         </thead>
         {% for d in data %}
+        <tbody>
         <tr>
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
@@ -36,7 +37,7 @@
         <td class="table-light">{{d.start_date}}</td>
         <td class="table-dark">{{d.moringastudent}}</td>
         </tr> 
-    
+        </tbody>
     </table>
 
     
