@@ -21,7 +21,7 @@ def assesment_responses():
     #pp = pprint.PrettyPrinter()
 
     # Extract and print all of the values
-    #pp.pprint(sheet.get_all_records())
+    # pp.pprint(sheet.get_all_records())
     processed_data=sheet.get_all_records()
     json_results=None
 

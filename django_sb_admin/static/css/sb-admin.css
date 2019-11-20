@@ -6,6 +6,7 @@
 
 /* Global Styles */
 
+
 body {
     margin-top: 100px;
     background-color: #222;
@@ -224,4 +225,13 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+/* style side navbar */
+#nav {
+    background-color: rgb(99, 124, 51);
+    color: snow;
+}
+title {
+    color:white;
 }
