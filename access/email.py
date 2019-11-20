@@ -12,4 +12,4 @@ def welcome_to_moringa(name,receiver):
     msg.attach_alternative(html_content,'text/html')
     msg.send()
 
-
+def 
