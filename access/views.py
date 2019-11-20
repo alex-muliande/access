@@ -3,7 +3,10 @@ from .models import InitialForm
 from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from .email import welcome_to_moringa
+from .sheet2 import interest_responses, firstapplication_response
+from .sheet3 import assesment_responses, score_response
+from django.http import HttpResponseRedirect,JsonResponse
+from .email import welcome_to_moringa,know_more
 from django.views.generic import CreateView
 from .forms import InitialformCreateView
 from django.core import mail
@@ -356,47 +359,11 @@ def KnowMore(request):
             email = form.cleaned_data['email']
             recipient = KnowMoringa(name = name, email = email)
             recipient.save()
+            know_more(name,email)
+
             return redirect('index')
+
     else:
         form = MoreInformation()
 
     return render(request, 'more.html',{'form':form})
-
-def more(email,name):
-
-    html_content='''
-    <p>Hi,</p>
-    <br>
-    <p>Moringa School is a world-class learning program which trains students to become software developers. We connect our students with employment opportunities after they graduate and teach them skills that will last a lifetime.
-    Click here for a video about the Moringa experience.
-    Click here for Moringa School’s website.
-    The Access Program gives scholarships to youth from needy backgrounds. The scholarship value is 400,000 KES. To learn more about the program, click here: Access Program Overview.
-    The admissions process is multi-stage. You must pass each stage to proceed. To learn more, read the section called "Admissions Process" in Access Program Overview.
-    Contact admissions.access@moringaschool.com if you would like to apply or require more information!
-    </p>
-    <br>
-    <p>Regards,</p>
-
-    '''.format(name)
-    # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
-    send_this.attach_alternative(html_content,'text/html')
-    send_this.send()
-
-def moreinfo(request):
-    users_emails5=scoreModel.all_emails5()
-    print('Passed *********************** ',users_emails5)
-    if users_emails5:
-        for email_5 in users_emails5:
-            user = interestModel.objects.filter(email = email_5).first()
-            send_bulk5(user.email,user.your_name)
-            if user:
-                user.is_sent = True 
-                user.save()
-                print('Passed *********************** ',email_5)
-            else:
-                print('failed *********************** ',email_5)
-                pass
-        return JsonResponse({'sent':users_emails5})
-    return JsonResponse({'sent':'upto date'})

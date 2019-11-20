@@ -22,10 +22,6 @@ class InitialForm(models.Model):
             list_emails.append(mail.email)
         return list_emails
 
-
-
-
-
 class KnowMoringa(models.Model):
     name =models.CharField(max_length=30)
     email = models.EmailField(default = 'email@gmail.com')
