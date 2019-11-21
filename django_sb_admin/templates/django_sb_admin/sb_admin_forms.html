@@ -4,9 +4,16 @@
  <li class="active">
       <i class="fa fa-edit"></i> Forms
  </li>
- {% endblock sb_admin_breadcrumb_active %}
+ {% block sb_admin_custom_js %}
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+ <link href="{%static 'js/charts.js'%}">
+ {% endblock sb_admin_custom_js %}
+  {% endblock sb_admin_breadcrumb_active %}
  {% block sb_admin_content %}  
- <div class="row">
+ <div id="piechart">
+
+ </div>
+ <div class="row">git
                     <div class="col-lg-6">
 
                         <form role="form">

@@ -17,6 +17,8 @@ from decouple import config, Csv
 
 
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,8 +39,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap4',
-    'django_filters',
     'crispy_forms',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +50,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
-    'django_sb_admin',    
+    'application3.apps.Application3Config',
+    'assessment2.apps.Assessment2Config',
+    'Interest1.apps.Interest1Config',
+    'django_sb_admin',
 
 ]
 
@@ -86,18 +91,11 @@ WSGI_APPLICATION = 'moringa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME':'access',
-            'USER': 'moringa',
-            'PASSWORD':'123',
-            'HOST': 'localhost',
-            'PORT': '',
-    }       
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
-
 
 
 # Password validation
@@ -151,6 +149,12 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = "/initial/"
 LOGOUT_REDIRECT_URL = "/"
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 django_heroku.settings(locals())
