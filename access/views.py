@@ -1,20 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import InitialForm
+from .models import InitialForm, KnowMoringa
 from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .email import welcome_to_moringa
 from django.views.generic import CreateView
-from .forms import InitialformCreateView
+from .forms import InitialformCreateView, MoreInformation
 from django.core import mail
-from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,JsonResponse, HttpResponse, Http404
-from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
 import json
-from .models import InitialForm,KnowMoringa
-from django.http import HttpResponse
-from .forms import InitialformCreateView,MoreInformation
 from django.core.mail import EmailMultiAlternatives
 
 # from django.contrib.auth.models import User
@@ -282,26 +277,6 @@ def congragulate4(request):
 
 
 
-
-
-def FinalList(request):
-     
-    all = FormtwoResponses.objects.all()
-
-
-
-    pending = FormtwoResponses.objects.filter(status='Pending')
-    accepted = FormtwoResponses.objects.filter(status='Accepted')
-    rejected = FormtwoResponses.objects.filter(status='Rejected')
-
-    params = {
-        'pending':pending,
-        'accepted':accepted,
-        'rejected':rejected,
-    }
-
-    return render(request, 'final.html', params)
-    
 
 ###########################################
 def send_bulk4(email,name):
