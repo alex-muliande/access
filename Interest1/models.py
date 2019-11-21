@@ -23,7 +23,25 @@ class interestModel(models.Model):
     fluency=models.CharField(max_length=250)   
     residence=models.CharField(max_length=250)   
     residence_other=models.CharField(max_length=250)   
-    residence_clarification=models.CharField(max_length=250)     
+    residence_clarification=models.CharField(max_length=250) 
+
+
+    def __str__(self):
+        return self.name
+    def __str__(self):
+        return self.email
+    def __str__(self):
+        return self.commitment
+    def __str__(self):
+        return self.age
+    def __str__(self):
+        return self.computer_literacy
+    def __str__(self):
+        return self.residence
+    def __str__(self):
+        return self.residence_other
+    def __str__(self):
+        return self.fluency    
 
     @classmethod
     def all_emails2(cls):

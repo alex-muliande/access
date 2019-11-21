@@ -2,8 +2,6 @@
 {%load static%}
 {% block sb_admin_content %}
 
-<p>Show this content</p>
-
 <table class="table table-sm">
     <thead>
         <tr>
@@ -14,11 +12,7 @@
         <th scope="col">Date_of_birth</th>
         <th scope="col">Bachelors_degree</th>
         <th scope="col">Start_date</th>
-        <th scope="col">Moringa student</th>
-
-
-
-   
+        <th scope="col">Moringa student</th> 
         </tr>
     </thead>
     {% for d in data %}
@@ -32,13 +26,7 @@
     <td class="table-light">{{d.start_date}}</td>
     <td class="table-dark">{{d.moringastudent}}</td>
     </tr> 
-
+    {% endfor %}
 </table>
 
-
-</p>
-{% endfor %}
-
-
-</body>
-{%endblock%}
+{%sb_admin_endblock%}

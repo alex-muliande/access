@@ -28,6 +28,8 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', include('access.urls')),
     path('', include('application3.urls')),
-    path('', include('assessment2.urls'))
+    path('', include('assessment2.urls')),
+    path('', include('Interest1.urls')),
+
 
 ]

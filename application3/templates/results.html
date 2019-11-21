@@ -1,53 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
+{%block banner%}
+<div id="bg-color">
+    <div class="bg-img ">
+        <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
+    </div>
+{% endblock%}
 {% load crispy_forms_tags%}
 {% include 'final.html' %}
 {% block content %}
+
+
 <script src='{% static "js/data.js" %}'></script>
-<h2>FORM RESPONSES</h2>
+    
+    <br><br><br>
+    <h2 class="text-center">FORM RESPONSES</h2>
 
+    <div class="table-responsive">
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead class="results">
+                <tr class="font-weight-bold">
+                    <th class="th-sm">Full names
+                    </th>
+                    <th class="th-sm">Email
+                    </th>
+                    <th class="th-sm">How much money do you earn each month? Include only money you earn yourself through working. Do not include money you receive from other people.
+                    </th>
+                    <th class="th-sm">Do you own a laptop? What kind of laptop is it? What year was it made?
+                    </th>
+                    <th class="th-sm">How did you afford your laptop?
+                    </th>
+                    <th class="th-sm">Were you ever sent home from high school to collect school fees? If so, how many times were you sent home?
+                    </th>
+                    <th class="th-sm">If you were sent home to collect school fees, how much time did you spend out of school in total?
+                    </th>
+                    <th class="th-sm">List the names of your guardians and write how much money they make per month. If it depends on the month, write the average.
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                <tr class='data{{d.pk}}'>
+                    <td>{{ d.all_names}}</td>
+                    <td>{{ d.email}}</td>
+                    <td>{{ d.earnings_per_month}}</td>
+                    <td>{{ d.laptop_details}}</td>
+                    <td>{{ d.afford_laptop}}</td>
+                    <td>{{ d.sent_home_schoolfees}}</td>
+                    <td>{{ d.time_out_of_school }}</td>
+                    <td>{{ d.gurdians_earning }}</td>
+                    <td>
+                        
 
-<div class="table-responsive">
-    <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead uk-sticky class="black white-text">
-            <tr class="font-weight-bold">
-                <th class="th-sm">Full names
-                </th>
-                <th class="th-sm">Email
-                </th>
-                <th class="th-sm">How much money do you earn each month? Include only money you earn yourself through
-                    working. Do not include money you receive from other people.
-                </th>
-                <th class="th-sm">Do you own a laptop? What kind of laptop is it? What year was it made?
-                </th>
-                <th class="th-sm">How did you afford your laptop?
-                </th>
-                <th class="th-sm">Were you ever sent home from high school to collect school fees? If so, how many times
-                    were you sent home?
-                </th>
-                <th class="th-sm">If you were sent home to collect school fees, how much time did you spend out of
-                    school in total?
-                </th>
-                <th class="th-sm">List the names of your guardians and write how much money they make per month. If it
-                    depends on the month, write the average.
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for d in data %}
-            <tr class='data{{d.pk}}'>
-                <td>{{ d.all_names}}</td>
-                <td>{{ d.email}}</td>
-                <td>{{ d.earnings_per_month}}</td>
-                <td>{{ d.laptop_details}}</td>
-                <td>{{ d.afford_laptop}}</td>
-                <td>{{ d.sent_home_schoolfees}}</td>
-                <td>{{ d.time_out_of_school }}</td>
-                <td>{{ d.gurdians_earning }}</td>
-                <td>
-                    <button class='all_data'>
-                    <input type="hidden" class="getData" value='{{d.pk}}'> Expand</button>
-                </td>
+                            <button class='all_data'>
+                                <input type="hidden" class="getData" value='{{d.pk}}'> Expand</button>
+                        </td>
+                        <td>
+                            <input type="radio" name="vehicle1" id="acce" value="accept">Accept<br>
+                        </td>
+                        <td>
+                            <input type="radio" name="vehicle1" id="accept" value="accept"> Reject<br>
+                        </td>
 
                 <td> 
                     {% if d.status == 'Pending'%}

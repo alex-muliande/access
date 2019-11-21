@@ -47,7 +47,7 @@
                 </div>
                 <a href="#">
                     <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
+                        <a href="{%url 'interest'%}"><span class="pull-left">View Details</span></a>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
@@ -55,6 +55,7 @@
             </div>
         </div>
     </div>
+    <div class="row"></div>
    
     <div class="row">
             <div class="col-md-1"></div>
@@ -73,7 +74,7 @@
                     </div>
                     <a href="#">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
+                            <a href="{%url 'assesment'%}"><span class="pull-left">View Details</span></a>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
                         </div>
@@ -93,7 +94,7 @@
                         </div>
                     </div>
                 </div> 
-                <a href="#">
+                <a href="{% url 'final'%}">
 
 
                     <div class="panel-footer">
@@ -119,51 +120,7 @@
 </div> -->
 <!-- /.row -->
 
-<div class="row">
-    
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> FORMS OF STUDENT REFERENCE TO ACCESS PROGRAM</h3>
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>CHANNELS OF REFERENCE</th>
-                                <th>PERCENTAGE OF REFERED APPLICANTS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Partnering Organizations</td>
-                                <td>63%</td>
-            
-                            </tr>
-                            <tr>
-                                <td>Access Alumni</td>
-                                <td>25%</td>
-                            </tr>
-                            <tr>
-                                <td>Moringa Employees</td>
-                                <td>10%</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>Individual Applicant</td>
-                                <td>2%</td>
-                              
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-                <div class="text-right">
-                    <a href="#">View All REFERENCES <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-        </div>
-</div> 
+
 
 <!-- /.row -->
 {% endblock sb_admin_content %}
