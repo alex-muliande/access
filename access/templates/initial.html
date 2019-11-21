@@ -6,28 +6,28 @@
 {%block banner%}
 <div id="bg-color">
     <div class="bg-img ">
-        <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" >
+        <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
     </div>
 {% endblock%}
 
 {% block content %}
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 <div class="row" >
     <div class="col-md-3">
 
-        <img src="https://image.shutterstock.com/image-photo/moringa-powder-wooden-spoon-fresh-260nw-482519422.jpg" alt="moriga tree">
+        <!-- <img src="https://image.shutterstock.com/image-photo/moringa-powder-wooden-spoon-fresh-260nw-482519422.jpg" alt="moriga tree"> -->
     </div>
     <div class="col-md-6">
-        <div class="card" style="width: 40rem;">
-        <div class="content-section">
+        <div class="card scard" style="width: 40rem;">
+        <div class="content-section ml-3 mr-3">
             <form method="POST" action="{% url 'initial' %}" enctype="multipart/form-data" >
                 {% csrf_token %}
-                <p> <b> Please enter a screen shot of your KCSE result slip in the field below </b></p>
-                {% bootstrap_form form %}
+                <p > <b> Please enter a screen shot of your KCSE result slip in the field below </b></p>
+                {% bootstrap_form form size="small"  %}
                 
                 <div class="form-group">
-                    <button  style="color: #637c33;" type="submit">Submit</button>
+                    <button class="sbtn" style="color: #637c33;" type="submit">Submit</button>
                 </div>
             </form>
         </div>
