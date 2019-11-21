@@ -26,7 +26,6 @@ def accepted(request):
     # response = score_response()
     passed = scoreModel.objects.filter(status='Accepted').all()
     failed=scoreModel.objects.filter(status='Rejected').all()
-    print('*****',passed)
 
     for f in failed:
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
