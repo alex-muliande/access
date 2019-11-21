@@ -1,21 +1,18 @@
 from django.shortcuts import render, redirect
+from .models import InitialForm, KnowMoringa
 from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from django.http import HttpResponseRedirect,JsonResponse
 from .email import welcome_to_moringa,know_more
 from django.views.generic import CreateView
-from .forms import InitialformCreateView
+from .forms import InitialformCreateView, MoreInformation
 from django.core import mail
-from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect,JsonResponse, HttpResponse, Http404
-from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
 import json
-from .models import InitialForm,KnowMoringa
 from Interest1.models import interestModel
 from django.http import HttpResponse
-from .forms import InitialformCreateView,MoreInformation
 from django.core.mail import EmailMultiAlternatives
 
 def homepage(request):
@@ -190,6 +187,42 @@ def rejected(request):
         return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
 
+###########################################
+def send_bulk3(email,name):
+    html_content='''
+    <p>Hi,</p>
+    <br>
+    <p>Thank you for completing the application form. Congratulations! You are proceeding to the next stage of the admissions process.
+    For the next stage, kindly complete the following assessment by clicking on this link.<a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
+    It is meant to assess your skills in digital literacy.
+    Please complete this by end of the day.
+    If you pass, the final step is an interview at Moringa School.</p>
+    <br>
+    <p>Best wishes,</p>
+    <br>
+    <p>The Moringa School Access Team</p>
+    '''.format(name)
+    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def congragulate3(request):
+    users_emails3=FormtwoResponses.all_emails3()
+    print('Passed *********************** ',users_emails3)
+    if users_emails3:
+        for email_3 in users_emails3:
+            user = interestModel.objects.filter(email = email_3).first()
+            send_bulk3(user.email,user.your_name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                # print('Passed *********************** ',email_3)
+            else:
+                # print('failed *********************** ',email_3)
+                pass
+        return JsonResponse({'sent':users_emails3})
+    return JsonResponse({'sent':'upto date'})
+
 def FinalList(request):
      
     all = FormtwoResponses.objects.all()
@@ -206,6 +239,7 @@ def FinalList(request):
 
     return render(request, 'final.html', params)
     
+
 def KnowMore(request):
     if request.method == 'POST':
         form = MoreInformation(request.POST, request.FILES)
