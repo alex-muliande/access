@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import InitialForm
 from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from .sheet2 import interest_responses, firstapplication_response
-from .sheet3 import assesment_responses, score_response
 from django.http import HttpResponseRedirect,JsonResponse
 from .email import welcome_to_moringa,know_more
 from django.views.generic import CreateView
@@ -20,16 +17,6 @@ from django.http import HttpResponse
 from .forms import InitialformCreateView,MoreInformation
 from django.core.mail import EmailMultiAlternatives
 
-# from django.contrib.auth.models import User
-# from django.shortcuts import render
-# from .filters import UserFilter
-
-# Create your views here.
-#class Profileview(viewsets.ModelViewSet):
-    #queryset= Profile.objects.all()
-    #serializer_class = ProfileSerializer
-
-
 def homepage(request):
     '''
     assuming we make the api call
@@ -43,9 +30,6 @@ def homepage(request):
 
     res= interestModel.objects.all()
     return render(request,'interest.html',{'data':res})
-
-
-
 
 def send_bulk(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -92,7 +76,7 @@ def initial(request):
             recipient = InitialForm(KCSE_certificate_image=KCSE_certificate_image,your_name = your_name, email = email)
             recipient.save()
             welcome_to_moringa(your_name,email)
-            HttpResponseRedirect('index')
+            return redirect('index')
     else:
         form = InitialformCreateView()
 
@@ -115,6 +99,7 @@ def congragulate(request):
                 pass
         return JsonResponse({'sent':users_emails})
     return JsonResponse({'sent':'upto date'})
+
 ###########################################
 def send_bulk2(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -164,6 +149,7 @@ def congragulate2(request):
                 pass
         return JsonResponse({'sent':users_emails2})
     return JsonResponse({'sent':'upto date'})
+    
 ###########################################
 def send_bulk6(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -202,96 +188,10 @@ def rejected(request):
                 pass
         return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
-###########################################
-def send_bulk3(email,name):
-    html_content='''
-    <p>Hi,</p>
-    <br>
-    <p>Thank you for completing the application form. Congratulations! You are proceeding to the next stage of the admissions process.
-    For the next stage, kindly complete the following assessment by clicking on this link.<a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
-    It is meant to assess your skills in digital literacy.
-    Please complete this by end of the day.
-    If you pass, the final step is an interview at Moringa School.</p>
-    <br>
-    <p>Best wishes,</p>
-    <br>
-    <p>The Moringa School Access Team</p>
-    '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
-    send_this.attach_alternative(html_content,'text/html')
-    send_this.send()
-
-def congragulate3(request):
-    users_emails3=FormtwoResponses.all_emails3()
-    print('Passed *********************** ',users_emails3)
-    if users_emails3:
-        for email_3 in users_emails3:
-            user = interestModel.objects.filter(email = email_3).first()
-            send_bulk3(user.email,user.your_name)
-            if user:
-                user.is_sent = True 
-                user.save()
-                # print('Passed *********************** ',email_3)
-            else:
-                # print('failed *********************** ',email_3)
-                pass
-        return JsonResponse({'sent':users_emails3})
-    return JsonResponse({'sent':'upto date'})
-
-###########################################
-def send_bulk4(email,name):
-    # connection = EmailMultiAlternatives.get_connection()
-
-    # connection.open()
-    html_content='''
-    <p>Hi,</p>
-    <br>
-    <p>Congratulations! We have reviewed your application and would like to invite you for an independent interview at Moringa School. This is the final phase of the application process.
-    Your live interview has been scheduled on Friday this week the time will be communicated. Your interview will take 30 minutes. You must arrive on time. You are allowed only one interview slot, and if you arrive late, we will not be able to interview you.
-    Please respond to this email confirming that you will attend the interview.
-    Directions to Moringa School:
-    - Here is a google maps link to our location.
-    - If you are using matatu transport, kindly alight at Prestige Plaza along Ngong Road.
-    Spot a signboard that reads "Double Tree by Hilton" and walk along the same road you see the sign post into Ngong Lane Plaza opposite Faulu Bank. Our offices are located on the first floor of Ngong Lane Plaza.
-    See you on your interview day! 
-    </p>
-    <br>
-    <p>Regards,</p>
-    <br>
-    <p>The Moringa School Access Team</p>
-    '''.format(name)
-    # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
-    send_this.attach_alternative(html_content,'text/html')
-    send_this.send()
-
-def congragulate4(request):
-    users_emails4=scoreModel.all_emails4()
-    print('Passed *********************** ',users_emails4)
-    if users_emails4:
-        for email_4 in users_emails4:
-            user = interestModel.objects.filter(email = email_4).first()
-            send_bulk4(user.email,user.your_name)
-            if user:
-                user.is_sent = True 
-                user.save()
-                print('Passed *********************** ',email_4)
-            else:
-                print('failed *********************** ',email_4)
-                pass
-        return JsonResponse({'sent':users_emails4})
-    return JsonResponse({'sent':'upto date'})
-
-
-
-
 
 def FinalList(request):
      
     all = FormtwoResponses.objects.all()
-
-
 
     pending = FormtwoResponses.objects.filter(status='Pending')
     accepted = FormtwoResponses.objects.filter(status='Accepted')
@@ -305,52 +205,6 @@ def FinalList(request):
 
     return render(request, 'final.html', params)
     
-
-###########################################
-def send_bulk4(email,name):
-    # connection = EmailMultiAlternatives.get_connection()
-
-    # connection.open()
-    html_content='''
-    <p>Hi,</p>
-    <br>
-    <p>Congratulations! We have reviewed your application and would like to invite you for an independent interview at Moringa School. This is the final phase of the application process.
-    Your live interview has been scheduled on Friday this week the time will be communicated. Your interview will take 30 minutes. You must arrive on time. You are allowed only one interview slot, and if you arrive late, we will not be able to interview you.
-    Please respond to this email confirming that you will attend the interview.
-    Directions to Moringa School:
-    - Here is a google maps link to our location.
-    - If you are using matatu transport, kindly alight at Prestige Plaza along Ngong Road.
-    Spot a signboard that reads "Double Tree by Hilton" and walk along the same road you see the sign post into Ngong Lane Plaza opposite Faulu Bank. Our offices are located on the first floor of Ngong Lane Plaza.
-    See you on your interview day! 
-    </p>
-    <br>
-    <p>Regards,</p>
-    <br>
-    <p>The Moringa School Access Team</p>
-    '''.format(name)
-    # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
-    send_this.attach_alternative(html_content,'text/html')
-    send_this.send()
-
-def congragulate4(request):
-    users_emails4=scoreModel.all_emails4()
-    print('Passed *********************** ',users_emails4)
-    if users_emails4:
-        for email_4 in users_emails4:
-            user = interestModel.objects.filter(email = email_4).first()
-            send_bulk4(user.email,user.your_name)
-            if user:
-                user.is_sent = True 
-                user.save()
-                print('Passed *********************** ',email_4)
-            else:
-                print('failed *********************** ',email_4)
-                pass
-        return JsonResponse({'sent':users_emails4})
-    return JsonResponse({'sent':'upto date'})
-
 def KnowMore(request):
     if request.method == 'POST':
         form = MoreInformation(request.POST, request.FILES)

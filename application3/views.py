@@ -56,29 +56,18 @@ def FinalList(request):
     }
 
     return render(request, 'final.html', params)
-
-
-
-
+###########################################
 def send_bulk3(email,name):
     html_content='''
-    
-    
-    <h2>Application Form </h2>
-    <p style="color: red;">(Launch of Application Form 2)</p>
+    <p>Hi,</p>
     <br>
-    <p>Hello,</p>
+    <p>Thank you for completing the application form. Congratulations! You are proceeding to the next stage of the admissions process.
+    For the next stage, kindly complete the following assessment by clicking on this link.<a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
+    It is meant to assess your skills in digital literacy.
+    Please complete this by end of the day.
+    If you pass, the final step is an interview at Moringa School.</p>
     <br>
-    <p>We thank you for applying to the Moringa School Access Program.
-    To proceed in the selection process, kindly click on this link to complete the application form. 
-    <a href="https://forms.gle/87cDDKQnThyi423V9">HERE</a>
-    If you qualify, the next step in the application process is an assessment. 
-    
-    Wishing you all the best!
-
-    </p>
-    <br>
-    <p>Kind regards,</p>
+    <p>Best wishes,</p>
     <br>
     <p>The Moringa School Access Team</p>
     '''.format(name)
@@ -96,12 +85,13 @@ def congragulate3(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_3)
+                # print('Passed *********************** ',email_3)
             else:
-                print('failed *********************** ',email_3)
+                # print('failed *********************** ',email_3)
                 pass
         return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})
+
 
 
 
