@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from access.models import InitialForm, interestModel, scoreModel
+from access.models import InitialForm
+from Interest1.models import interestModel
+from assessment2.models import scoreModel
+from application3.models import  FormtwoResponses
 from django.contrib.admin.views.decorators import staff_member_required
+from Interest1.models import interestModel
+from assessment2.models import scoreModel
 
 # def start(request):
 #     """Start page with a documentation.
@@ -19,7 +24,7 @@ def dashboard(request):
 
 def applicants(request):
     print('**********************')
-    return render(request, "django_sb_admin/applicants.html")
+    return render(request, "interest.html")
 
 
 def sample(request):

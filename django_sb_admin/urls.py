@@ -6,7 +6,7 @@ from django_sb_admin import views as auth_views
 
 
 urlpatterns = [
-    url(r'^dashboard/$', django_sb_admin.views.dashboard, name='sb_admin_dashboard'),
+    url(r'^$', django_sb_admin.views.dashboard, name='sb_admin_dashboard'),
     url(r'^charts/$', django_sb_admin.views.charts, name='sb_admin_charts'),
     url(r'^tables/$', django_sb_admin.views.tables, name='sb_admin_tables'),
     url(r'^forms/$', django_sb_admin.views.forms, name='sb_admin_forms'),

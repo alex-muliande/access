@@ -13,3 +13,14 @@ def welcome_to_moringa(name,receiver):
     msg.send()
 
 
+def know_more(name,receiver):
+    subject = 'To know more about Moringa'
+    sender = 'wachirabeatice2020@gmail.com'
+
+    #passing in the context vairables
+    text_content = render_to_string('email/more.txt',{"name": name})
+    html_content = render_to_string('email/more.html',{"name": name})
+
+    msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
+    msg.attach_alternative(html_content,'text/html')
+    msg.send()
