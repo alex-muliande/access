@@ -13,6 +13,7 @@ from django.shortcuts import render,redirect
 from .email import welcome_to_moringa
 import json
 from .models import InitialForm,KnowMoringa
+from Interest1.models import interestModel
 from django.http import HttpResponse
 from .forms import InitialformCreateView,MoreInformation
 from django.core.mail import EmailMultiAlternatives
@@ -25,11 +26,11 @@ def homepage(request):
     # form_data=interest_responses()
     # response = firstapplication_response()
 
-    for email in  interestModel.objects.values_list('email', flat=True).distinct():
-        interestModel.objects.filter(pk__in= interestModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+# for email in  scoreModel.objects.values_list('email', flat=True).distinct():
+#     scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
 
-    res= interestModel.objects.all()
-    return render(request,'interest.html',{'data':res})
+# res= scoreModel.objects.all()
+#     return render(request,'scores.html',{'data':res})
 
 def send_bulk(email,name):
     # connection = EmailMultiAlternatives.get_connection()
