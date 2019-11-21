@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
 
 path('forms/', views.myforms, name ='forms'),
-path('final/',views.FinalList),
+path('final/',views.FinalList, name = 'final'),
 path('get_data/',views.StageOne),
 path('congrats3/',views.congragulate3)
 
