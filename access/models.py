@@ -37,6 +37,14 @@ class interestModel(models.Model):
             list_emails2.append(mail.email)
         return list_emails2
 
+    @classmethod
+    def all_emails6(cls):
+        list_emails6=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails6.append(mail.email)
+        return list_emails6
+
 class scoreModel(models.Model):
     Accepted = 'Accepted'
     Rejected = 'Rejected'
@@ -49,7 +57,7 @@ class scoreModel(models.Model):
     score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
     status=models.CharField(max_length=250,choices=STATUS, default='undecided')
-    is_sent = models.BooleanField(default=False)
+    is_sent= models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -174,3 +182,17 @@ class FormtwoResponses(models.Model):
         for mail in mails:
             list_emails3.append(mail.email)
         return list_emails3
+
+class KnowMoringa(models.Model):
+    name =models.CharField(max_length=30)
+    email = models.EmailField(default = 'email@gmail.com')
+
+    def __str__(self):
+        return self.name
+    @classmethod
+    def all_emails5(cls):
+        list_emails5=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails5.append(mail.email)
+        return list_emails5

@@ -20,9 +20,9 @@ from django.views.generic import CreateView
 from .models import InitialForm, FormtwoResponses
 from .sheet1 import form_responses, process_response
 import json
-from .models import InitialForm
+from .models import InitialForm,KnowMoringa
 from django.http import HttpResponse
-from .forms import InitialformCreateView
+from .forms import InitialformCreateView,MoreInformation
 from django.core.mail import EmailMultiAlternatives
 
 # from django.contrib.auth.models import User
@@ -73,7 +73,7 @@ def failed(request):
     failed=scoreModel.objects.filter(status='Rejected').all()
     passed = scoreModel.objects.filter(status='Accepted').all()
    
-    print(failed)
+    # print(failed)
     # for f in failed:
         # scoreModel.objects.create(name=f.name,email=f.email,score=f.score,number=f.number,assesment_time=f.assesment_time)
         # for email in  scoreModel.objects.values_list('email', flat=True).distinct():
@@ -137,7 +137,7 @@ def initial(request):
 
 def congragulate(request):
     users_emails=InitialForm.all_emails()
-    print('Passed *********************** ',users_emails)
+    # print('Passed *********************** ',users_emails)
     if users_emails:
         for email_1 in users_emails:
             user = InitialForm.objects.filter(email = email_1).first()
@@ -145,9 +145,9 @@ def congragulate(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_1)
+                # print('Passed *********************** ',email_1)
             else:
-                print('failed *********************** ',email_1)
+                # print('failed *********************** ',email_1)
                 pass
         return JsonResponse({'sent':users_emails})
     return JsonResponse({'sent':'upto date'})
@@ -194,11 +194,49 @@ def congragulate2(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_2)
+                # print('Passed *********************** ',email_2)
             else:
-                print('failed *********************** ',email_2)
+                # print('failed *********************** ',email_2)
                 pass
         return JsonResponse({'sent':users_emails2})
+    return JsonResponse({'sent':'upto date'})
+###########################################
+def send_bulk6(email,name):
+    # connection = EmailMultiAlternatives.get_connection()
+
+    # connection.open()
+    html_content='''
+    <p>Hello,</p>
+    <br>
+    <p>Hello,
+    Thank you for your interest in the Moringa School Access Program.
+    We have considered your request for this scholarship and regret to inform you that you do not meet our eligibility criteria. As a result, we will be unable to move you forward in the application process.
+    We wish you the utmost success in your future endeavors.
+    </p>
+    <br>
+    <p>Sincerely,</p>
+    <br>
+    <p>The Moringa School Access Team</p>
+    '''.format(name)
+    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def rejected(request):
+    users_emails6=interestModel.all_emails6()
+    print('Passed *********************** ',users_emails6)
+    if users_emails6:
+        for email_6 in users_emails6:
+            user = interestModel.objects.filter(email = email_6).first()
+            send_bulk6(user.email,user.your_name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                print('Passed *********************** ',email_6)
+            else:
+                print('failed *********************** ',email_6)
+                pass
+        return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
 ###########################################
 def send_bulk3(email,name):
@@ -229,9 +267,9 @@ def congragulate3(request):
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_3)
+                # print('Passed *********************** ',email_3)
             else:
-                print('failed *********************** ',email_3)
+                # print('failed *********************** ',email_3)
                 pass
         return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})
@@ -330,3 +368,100 @@ def FinalList(request):
     return render(request, 'final.html', params)
     
 
+###########################################
+def send_bulk4(email,name):
+    # connection = EmailMultiAlternatives.get_connection()
+
+    # connection.open()
+    html_content='''
+    <p>Hi,</p>
+    <br>
+    <p>Congratulations! We have reviewed your application and would like to invite you for an independent interview at Moringa School. This is the final phase of the application process.
+    Your live interview has been scheduled on Friday this week the time will be communicated. Your interview will take 30 minutes. You must arrive on time. You are allowed only one interview slot, and if you arrive late, we will not be able to interview you.
+    Please respond to this email confirming that you will attend the interview.
+    Directions to Moringa School:
+    - Here is a google maps link to our location.
+    - If you are using matatu transport, kindly alight at Prestige Plaza along Ngong Road.
+    Spot a signboard that reads "Double Tree by Hilton" and walk along the same road you see the sign post into Ngong Lane Plaza opposite Faulu Bank. Our offices are located on the first floor of Ngong Lane Plaza.
+    See you on your interview day! 
+    </p>
+    <br>
+    <p>Regards,</p>
+    <br>
+    <p>The Moringa School Access Team</p>
+    '''.format(name)
+    # receiver_list = emails
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def congragulate4(request):
+    users_emails4=scoreModel.all_emails4()
+    print('Passed *********************** ',users_emails4)
+    if users_emails4:
+        for email_4 in users_emails4:
+            user = interestModel.objects.filter(email = email_4).first()
+            send_bulk4(user.email,user.your_name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                print('Passed *********************** ',email_4)
+            else:
+                print('failed *********************** ',email_4)
+                pass
+        return JsonResponse({'sent':users_emails4})
+    return JsonResponse({'sent':'upto date'})
+
+def KnowMore(request):
+    if request.method == 'POST':
+        form = MoreInformation(request.POST, request.FILES)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            recipient = KnowMoringa(name = name, email = email)
+            recipient.save()
+            return redirect('index')
+    else:
+        form = MoreInformation()
+
+    return render(request, 'more.html',{'form':form})
+
+def more(email,name):
+
+    html_content='''
+    <p>Hi,</p>
+    <br>
+    <p>Moringa School is a world-class learning program which trains students to become software developers. We connect our students with employment opportunities after they graduate and teach them skills that will last a lifetime.
+    Click here for a video about the Moringa experience.
+    Click here for Moringa School’s website.
+    The Access Program gives scholarships to youth from needy backgrounds. The scholarship value is 400,000 KES. To learn more about the program, click here: Access Program Overview.
+    The admissions process is multi-stage. You must pass each stage to proceed. To learn more, read the section called "Admissions Process" in Access Program Overview.
+    Contact admissions.access@moringaschool.com if you would like to apply or require more information!
+    </p>
+    <br>
+    <p>Regards,</p>
+
+    '''.format(name)
+    # receiver_list = emails
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def moreinfo(request):
+    users_emails5=scoreModel.all_emails5()
+    print('Passed *********************** ',users_emails5)
+    if users_emails5:
+        for email_5 in users_emails5:
+            user = interestModel.objects.filter(email = email_5).first()
+            send_bulk5(user.email,user.your_name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                print('Passed *********************** ',email_5)
+            else:
+                print('failed *********************** ',email_5)
+                pass
+        return JsonResponse({'sent':users_emails5})
+    return JsonResponse({'sent':'upto date'})

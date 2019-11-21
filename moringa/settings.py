@@ -39,8 +39,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap4',
-    'django_filters',
+
+    # 'django_filters',
     'crispy_forms',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,7 +52,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'users.apps.UsersConfig',
     'access.apps.AccessConfig',
-    'django_sb_admin',    
+    'django_sb_admin',  
+    
 
 ]
 
