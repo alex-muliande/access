@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .sheet3 import assesment_responses, score_response
 from .models import scoreModel
+from django.core.mail import EmailMultiAlternatives
+from django.http import HttpResponseRedirect,JsonResponse
 
 
 
@@ -34,7 +36,8 @@ def accepted(request):
     for f in passed:
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
             scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-
+    return render(request,'accepted.html',{'passed':passed, 'failed':failed})
+    
 ###########################################
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -68,7 +71,7 @@ def congragulate4(request):
     print('Passed *********************** ',users_emails4)
     if users_emails4:
         for email_4 in users_emails4:
-            user = interestModel.objects.filter(email = email_4).first()
+            user = scoreModel.objects.filter(email = email_4).first()
             send_bulk4(user.email,user.your_name)
             if user:
                 user.is_sent = True 
@@ -79,7 +82,3 @@ def congragulate4(request):
                 pass
         return JsonResponse({'sent':users_emails4})
     return JsonResponse({'sent':'upto date'})
-
-
-
-    return render(request,'accepted.html',{'passed':passed, 'failed':failed})
