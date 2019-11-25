@@ -83,7 +83,7 @@ def update_status(request,id):
             print('******* Accepted *******')  
             form.status='Accepted'
             form.save()
-        return redirect(myforms)
+        return render(request, 'ajax-status.html', {"d": form})
          
 
 def send_bulk3(email,name):
