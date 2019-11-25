@@ -2,8 +2,15 @@
     background-color: #637c33;
     height: 13.2vh;
     
-   
 }
+.help-block, li{
+    display: none;
+}
+
+input{
+    width:10c d dc 0%;
+}
+
 .results{
     color: black;
     backgr

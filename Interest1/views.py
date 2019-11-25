@@ -21,6 +21,18 @@ def homepage(request):
 
 
 def firststageaccepted(request):
-    first=interestModel.objects.filter(Q(commitment__icontains="yes") & Q(fluency__icontains="yes") & Q(computer_literacy__icontains="yes") & Q(residence__icontains="yes")& Q(residencyothers__icontains="yes") & Q(age__gte=18))
+    all = interestModel.objects.all()
+    first = []
+    for elem in all:
+        points = 0
+        if int(elem.age) > 18:
+            points += 1
+        else:
+            points -= 10
+        # Add other filters here
+        if item.prop.lower() in ['yes', 'yep', 'ndio']:
+            pass
+        # check if success
+
     print('first.count')
     print('########################################')
