@@ -37,7 +37,7 @@ We hope you apply to join us!</p> <br>
 <br>
 <p>The Moringa School Access Team</p>
     '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
