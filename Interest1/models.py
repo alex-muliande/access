@@ -51,3 +51,11 @@ class interestModel(models.Model):
             list_emails2.append(mail.email)
         return list_emails2
 
+
+    @classmethod
+    def all_emails6(cls):
+        list_emails6=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails6.append(mail.email)
+        return list_emails6

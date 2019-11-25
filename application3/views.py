@@ -109,7 +109,7 @@ def congragulate3(request):
     print('Passed *********************** ',users_emails3)
     if users_emails3:
         for email_3 in users_emails3:
-            user = interestModel.objects.filter(email = email_3).first()
+            user = FormtwoResponses.objects.filter(email = email_3).first()
             send_bulk3(user.email,user.your_name)
             if user:
                 user.is_sent = True 
@@ -121,8 +121,5 @@ def congragulate3(request):
         return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})
     
-
-    path('congrats3/',views.congragulate3)
-
 
 
