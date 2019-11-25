@@ -37,7 +37,7 @@ def accepted(request):
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
             scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
     return render(request,'accepted.html',{'passed':passed, 'failed':failed})
-    
+
 ###########################################
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -61,8 +61,8 @@ def send_bulk4(email,name):
     <p>The Moringa School Access Team</p>
     '''.format(name)
     # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','moringaschoolaccess@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
