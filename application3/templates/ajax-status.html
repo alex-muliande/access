@@ -1,0 +1,11 @@
+<span id="status-{{d.pk}}">
+    {% if d.status == 'Pending'%}
+    <small class='text-warning'>{{d.status}}</small>
+    {% endif %}
+    {% if d.status == 'Rejected'%}
+    <small class='text-danger'>{{d.status}}</small>
+    {% endif %}
+    {% if d.status == 'Accepted'%}
+    <small class='text-success '>{{d.status}}</small>
+    {% endif %}
+</span>
