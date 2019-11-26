@@ -73,8 +73,6 @@ def firstapplication_response():
         residence_clarification=res["If you do not currently live in or near Nairobi, please describe where you will stay while you are attending Moringa School."]
         
         
-        # print('name*************************************')
-
         if name:
             '''
             making sure each response has a name attached to it
@@ -92,7 +90,7 @@ def firstapplication_response():
                             fluency=fluency,residence=residence,
                             residence_other=residence_other,residence_clarification=residence_clarification
                             )
-            application_object.save()
+            #application_object.save()
             json_data.append(application_object)
 
     return json_data

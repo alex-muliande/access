@@ -19,7 +19,6 @@
             <th scope="col">Language Fluency</th>
             <th scope="col">Computer Literacy</th>
             <th scope="col">Nairobi Residence</th>
-            <th scope="col">Nairobi Residence2</th>
             <th scope="col">Moringa student</th>
             
 
@@ -32,13 +31,12 @@
         <tr>
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
-        <td class="table-danger">{{d.age}}</td        
+        <td class="table-danger">{{d.age}}</td>        
         <td class="table-success">{{d.phone_number}}</td>
         <td class="table-success">{{d.commitment}}</td>
         <td class="table-danger">{{d.fluency}}</td>
         <td class="table-warning">{{d.computer_literacy}}</td>
         <td class="table-info">{{d.residence}}</td>
-        <td class="table-light">{{d.residence_other}}</td>
         <td class="table-dark">{{d.moringastudent}}</td>
         </tr> 
         </tbody>
@@ -46,12 +44,17 @@
     </table>
 
     
-</p>
-
-{% endfor %}
-<button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
-    congratulations1
-
+</p> 
+<!--bulk and rejected-->
+<p style="font-size: 20px;">Click here to send Emails to all applicants who want to join Access
+<button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;' class="congrats">
+    Accept Email
 </button>
+</p>
+<p style="font-size: 20px;">Click here to send rejected emails if applicats do not qualify this process 
+    <button class="btn btn-success" style='border:2px solid#637C33;background-color:#637C33;color: white;' class="rejected">
+    Send Email </button>
+</p>
+</div>
     <!-- <p>to all applicants</p> -->
 </body>
