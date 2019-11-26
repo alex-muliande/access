@@ -36,12 +36,7 @@ def accepted(request):
     for f in passed:
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
             scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-<<<<<<< HEAD
-    return render(request,'accepted.html',{'passed':passed,'failed':failed})
-
-=======
     return render(request,'accepted.html',{'passed':passed, 'failed':failed})
->>>>>>> b15ca23244a83e6a4c5ea4c3c47d8358f3806592
 
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -86,6 +81,7 @@ def congragulate4(request):
                 pass
         return JsonResponse({'sent':users_emails4})
     return JsonResponse({'sent':'upto date'})
+
 ###########################################
 def send_bulk6(email,name):
     html_content='''
@@ -106,25 +102,18 @@ def send_bulk6(email,name):
     send_this.send()
 
 def rejected(request):
-    users_emails4=scoreModel.all_emails4()
-    print('Passed *********************** ',users_emails4)
-    if users_emails4:
-        for email_4 in users_emails4:
-            user = scoreModel.objects.filter(email = email_4).first()
-            send_bulk4(user.email,user.name)
+    users_emails6=scoreModel.all_emails6()
+    print('Passed *********************** ',users_emails6)
+    if users_emails6:
+        for email_6 in users_emails6:
+            user = scoreModel.objects.filter(email = email_6).first()
+            send_bulk6(user.email,user.name)
             if user:
                 user.is_sent = True 
                 user.save()
-                print('Passed *********************** ',email_4)
+                print('Passed *********************** ',email_6)
             else:
-                print('failed *********************** ',email_4)
+                print('failed *********************** ',email_6)
                 pass
-        return JsonResponse({'sent':users_emails4})
+        return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
-<<<<<<< HEAD
-
-
-
-    
-=======
->>>>>>> b15ca23244a83e6a4c5ea4c3c47d8358f3806592
