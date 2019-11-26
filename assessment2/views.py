@@ -76,7 +76,42 @@ def congragulate4(request):
     if users_emails4:
         for email_4 in users_emails4:
             user = scoreModel.objects.filter(email = email_4).first()
-            send_bulk4(user.email,user.your_name)
+            send_bulk4(user.email,user.name)
+            if user:
+                user.is_sent = True 
+                user.save()
+                print('Passed *********************** ',email_4)
+            else:
+                print('failed *********************** ',email_4)
+                pass
+        return JsonResponse({'sent':users_emails4})
+    return JsonResponse({'sent':'upto date'})
+###########################################
+def send_bulk6(email,name):
+    html_content='''
+    <p>Hello,</p>
+    <br>
+    <p>Hello,
+    Thank you for your interest in the Moringa School Access Program.
+    We have considered your request for this scholarship and regret to inform you that you do not meet our eligibility criteria. As a result, we will be unable to move you forward in the application process.
+    We wish you the utmost success in your future endeavors.
+    </p>
+    <br>
+    <p>Sincerely,</p>
+    <br>
+    <p>The Moringa School Access Team</p>
+    '''.format(name)
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
+    send_this.attach_alternative(html_content,'text/html')
+    send_this.send()
+
+def rejected(request):
+    users_emails4=scoreModel.all_emails4()
+    print('Passed *********************** ',users_emails4)
+    if users_emails4:
+        for email_4 in users_emails4:
+            user = scoreModel.objects.filter(email = email_4).first()
+            send_bulk4(user.email,user.name)
             if user:
                 user.is_sent = True 
                 user.save()
