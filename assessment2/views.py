@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .sheet3 import assesment_responses, score_response
 from .models import scoreModel
+from django.core.mail import EmailMultiAlternatives
+from django.http import HttpResponseRedirect,JsonResponse
 
 
 
@@ -34,8 +36,12 @@ def accepted(request):
     for f in passed:
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
             scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+<<<<<<< HEAD
     return render(request,'accepted.html',{'passed':passed,'failed':failed})
 
+=======
+    return render(request,'accepted.html',{'passed':passed, 'failed':failed})
+>>>>>>> b15ca23244a83e6a4c5ea4c3c47d8358f3806592
 
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -59,8 +65,8 @@ def send_bulk4(email,name):
     <p>The Moringa School Access Team</p>
     '''.format(name)
     # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','moringaschoolaccess@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
@@ -69,7 +75,7 @@ def congragulate4(request):
     print('Passed *********************** ',users_emails4)
     if users_emails4:
         for email_4 in users_emails4:
-            user = interestModel.objects.filter(email = email_4).first()
+            user = scoreModel.objects.filter(email = email_4).first()
             send_bulk4(user.email,user.your_name)
             if user:
                 user.is_sent = True 
@@ -80,7 +86,10 @@ def congragulate4(request):
                 pass
         return JsonResponse({'sent':users_emails4})
     return JsonResponse({'sent':'upto date'})
+<<<<<<< HEAD
 
 
 
     
+=======
+>>>>>>> b15ca23244a83e6a4c5ea4c3c47d8358f3806592

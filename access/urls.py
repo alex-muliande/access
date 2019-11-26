@@ -13,11 +13,7 @@ urlpatterns=[
     path('', views.index, name ='index'),
     path('initial/',views.initial, name='initial'),
     path('bulk/',views.congragulate),
-    path('congrats/',views.congragulate2),
     path('more/',views.KnowMore, name='more'),
-    path('rejected/',views.rejected),
-    
-
 
 ]
 
