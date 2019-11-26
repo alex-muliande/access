@@ -14,6 +14,7 @@ class scoreModel(models.Model):
     score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
     status=models.CharField(max_length=250,choices=STATUS, default='undecided')
+    is_sent= models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -25,3 +26,12 @@ class scoreModel(models.Model):
             else:
                 self.status = 'Rejected'
         super().save(*args, **kwargs)
+
+
+    @classmethod
+    def all_emails4(cls):
+        list_emails4=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails4.append(mail.email)
+        return list_emails4

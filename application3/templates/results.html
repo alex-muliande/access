@@ -10,7 +10,13 @@
 {% include 'final.html' %}
 {% block content %}
 
-
+<script>
+    function submitForm(id){
+        $.get("/update_status/" + id, $('#acceptance-' + id).serialize()).then(response => {
+            $("#status-" + id).html(response)
+        })
+    }
+</script>
 <script src='{% static "js/data.js" %}'></script>
     
     <br><br><br>
@@ -22,8 +28,8 @@
                 <tr class="font-weight-bold">
                     <th class="th-sm">Full names
                     </th>
-                    <th class="th-sm">Email
-                    </th>
+                    <!-- <th class="th-sm">Email
+                    </th> -->
                     <th class="th-sm">How much money do you earn each month? Include only money you earn yourself through working. Do not include money you receive from other people.
                     </th>
                     <th class="th-sm">Do you own a laptop? What kind of laptop is it? What year was it made?
@@ -42,7 +48,7 @@
                 {% for d in data %}
                 <tr class='data{{d.pk}}'>
                     <td>{{ d.all_names}}</td>
-                    <td>{{ d.email}}</td>
+                    <!-- <td>{{ d.email}}</td> -->
                     <td>{{ d.earnings_per_month}}</td>
                     <td>{{ d.laptop_details}}</td>
                     <td>{{ d.afford_laptop}}</td>
@@ -62,7 +68,8 @@
                             <input type="radio" name="vehicle1" id="accept" value="accept"> Reject<br>
                         </td> -->
 
-                <td> 
+                <td>
+                <span id="status-{{d.pk}}">
                     {% if d.status == 'Pending'%}
                     <small class='text-warning'>{{d.status}}</small>
                     {% endif %}
@@ -72,8 +79,9 @@
                     {% if d.status == 'Accepted'%}
                     <small class='text-success '>{{d.status}}</small>
                     {% endif %}
+                </span>
                 <div class="content-section">
-                    <form method="GET" action="{% url 'update_status' d.pk %}">
+                    <form method="GET" action="{% url 'update_status' d.pk %}" id="acceptance-{{d.pk}}" onsubmit="submitForm({{d.pk}});return false">
                             <input type='radio' name='status' required selected value="-">Pending <br>
                             <input type='radio' name='status' required value="0">Rejected <br>
                             <input type='radio' name='status' required value="1">Accepted

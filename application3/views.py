@@ -13,8 +13,8 @@ def myforms(request):
     '''
  
 
-    # form_data=form_responses()
-    # response = process_response()
+    form_data=form_responses()
+    response = process_response()
 
     for email in  FormtwoResponses.objects.values_list('email', flat=True).distinct():
         FormtwoResponses.objects.filter(pk__in= FormtwoResponses.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
@@ -100,7 +100,7 @@ def send_bulk3(email,name):
     <br>
     <p>The Moringa School Access Team</p>
     '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
@@ -109,8 +109,8 @@ def congragulate3(request):
     print('Passed *********************** ',users_emails3)
     if users_emails3:
         for email_3 in users_emails3:
-            user = interestModel.objects.filter(email = email_3).first()
-            send_bulk3(user.email,user.your_name)
+            user = FormtwoResponses.objects.filter(email = email_3).first()
+            send_bulk3(user.email,user.all_names)
             if user:
                 user.is_sent = True 
                 user.save()
@@ -121,8 +121,5 @@ def congragulate3(request):
         return JsonResponse({'sent':users_emails3})
     return JsonResponse({'sent':'upto date'})
     
-
-    path('congrats3/',views.congragulate3)
-
 
 

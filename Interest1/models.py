@@ -24,6 +24,7 @@ class interestModel(models.Model):
     residence=models.CharField(max_length=250)   
     residence_other=models.CharField(max_length=250)   
     residence_clarification=models.CharField(max_length=250) 
+    is_sent= models.BooleanField(default=False)
 
 
     def __str__(self):
@@ -51,3 +52,11 @@ class interestModel(models.Model):
             list_emails2.append(mail.email)
         return list_emails2
 
+
+    @classmethod
+    def all_emails6(cls):
+        list_emails6=[]
+        mails= cls.objects.filter(is_sent=False).all()
+        for mail in mails:
+            list_emails6.append(mail.email)
+        return list_emails6

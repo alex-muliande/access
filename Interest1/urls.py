@@ -7,8 +7,11 @@ from django.conf.urls.static import static
 
 
 urlpatterns=[
-
+        path('congrats/',views.congragulate2),
         path('interest/',views.homepage,name='interest'),
+        path('interestaccepted/',views.firststageaccepted,name='interestaccepted'),
+        path('rejected/',views.rejected),
+
 ]
 
 

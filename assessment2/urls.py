@@ -6,12 +6,11 @@ from django.conf.urls.static import static
 
 
 
-urlpatterns=[
-       
+urlpatterns=[       
         path('assesment/',views.scorecard,name='assesment'),
         path('accepted/',views.accepted,name='accepted'),
         path('congrats4/',views.congragulate4),
-
+        path('rejected/',views.rejected),
 ]
 
 

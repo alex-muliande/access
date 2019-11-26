@@ -110,38 +110,6 @@ $(document).ready(function(){
 })
 })
 
-// send congratulation6
-
-$(document).ready(function(){
-    console.log('I am ready');
-    $(document).ajaxStart(function(){
-        $('.loader').css({'display':'block'})
-    })
-    $('.congrats6').click(function(){
-
-   
-    
-    $.ajax({
-        url:'/congrats6/',
-        method:'GET',
-        beforeSend:function(){
-        $('.loader').css({'display':'block'})
-        console.log('I have gone');
-
-        
-        }
-    })
-    .done(function(data){
-        $('.loader').css ({'display':'none'})
-        console.log('I am done');
-        console.log(data.sent);
-        
-        
-    })
-})
-})
-
-
 // Send email to all rejected people
 
 $(document).ready(function(){
@@ -150,8 +118,6 @@ $(document).ready(function(){
         $('.loader').css({'display':'block'})
     })
     $('.rejected').click(function(){
-
-   
     
     $.ajax({
         url:'/rejected/',
@@ -159,8 +125,7 @@ $(document).ready(function(){
         beforeSend:function(){
         $('.loader').css({'display':'block'})
         console.log('I have gone');
-
-        
+       
         }
     })
     .done(function(data){
