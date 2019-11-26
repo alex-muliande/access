@@ -23,8 +23,12 @@ def dashboard(request):
     return render(request, "django_sb_admin/sb_admin_dashboard.html",locals())
 
 def applicants(request):
-    print('**********************')
-    return render(request, "interest.html")
+    return render(request, "django_sb_admin/interest.html")
+
+def assessment(request):
+        return render(request, "django_sb_admin/assessment.html")
+
+
 
 
 def sample(request):
