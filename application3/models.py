@@ -72,6 +72,7 @@ class FormtwoResponses(models.Model):
     medium_complete_application=models.CharField(max_length=250)
     timetaken_complete_application=models.CharField(max_length=250)
     status=models.CharField(max_length=30, choices=STATUS, default=Pending)
+    is_sent= models.BooleanField(default=False)
 
     @classmethod
     def all_emails3(cls):

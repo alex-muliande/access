@@ -14,6 +14,7 @@ class scoreModel(models.Model):
     score=models.TextField(max_length=25)
     assesment_time=models.CharField(max_length=250)
     status=models.CharField(max_length=250,choices=STATUS, default='undecided')
+    is_sent= models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.pk:
