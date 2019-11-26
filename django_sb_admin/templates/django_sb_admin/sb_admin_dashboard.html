@@ -11,21 +11,22 @@
         <div class="col-md-1"></div>
         <div class="col-lg-4 col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading" style="background-color: #A89ED1; border-radius:5px; border:1px solid#A89ED1">
+                    <div class="panel-heading" style="background-color: #21421e; border-radius:5px; border:1px solid#21421e">
                         <div class="row">
                             <div class="col-xs-3">
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-10 text-right">
                                 <div class="huge">{{applicants.count}}</div>
-                                <div>APPLICANTS</div>
+                                <div>ALL  APPLICANTS</div>
                             </div>
                         </div>
                     </div>
                     <a href="">
                         <div class="panel-footer">
                             <a href="{%url 'interest' %}"><span class="pull-left">View Details</span></a>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right" ></i></span>
+                            {% comment %} <span class="pull-right"><i class="fa fa-arrow-circle-right" ></i></span> {% endcomment %}
+
                             <div class="clearfix"></div>
                         </div>
                     </a>
@@ -33,22 +34,23 @@
             </div>
             <div class="col-md-1"></div>
     <div class="col-lg-4 col-md-6">
-            <div class="green" style="background-color: #2F2A44; border:1px solid #2F2A44; border-radius: 5px;">
+            <div class="green" style="background-color: #627c33; border:1px solid #627c33; border-radius: 5px;">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-book fa-fw fa-5x" style="color:#8D8A99"></i>
+                            <i class="fa fa-book fa-fw fa-5x" style="color:#ffffff"></i>
                         </div>
                         <div class="col-xs-10 text-right">
-                            <div class="huge" style="color:#8D8A99;">{{stageone.count}}</div>
-                            <div style="color:#8D8A99;">STAGE I</div>
+                            <div class="huge" style="color:#ffffff;">{{stageone.count}}</div>
+                            <div style="color:#ffffff;">INTEREST STAGE</div>
                         </div>
                     </div>
                 </div>
                 <a href="#">
                     <div class="panel-footer">
-                        <a href="{%url 'interestaccepted'%}"><span class="pull-left">View Details</span></a>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <a href="{%url 'interestaccepted'%}">View Details</a>
+                        {% comment %} <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span> {% endcomment %}
+
                         <div class="clearfix"></div>
                     </div>
                 </a>
@@ -61,14 +63,14 @@
     <div class="row">
             <div class="col-md-1"></div>
             <div class="col-lg-4 col-md-6">
-                    <div class="green" style="background-color: #2F2A44; border:1px solid #2F2A44; border-radius: 5px;">
+                    <div class="green" style="background-color: #627c33; border:1px solid #627c33; border-radius: 5px;">
                             <div class="row">
                             <div class="col-xs-3" >
-                                <i class="fa fa-tasks fa-5x" style="color:#8D8A99"></i>
+                                <i class="fa fa-tasks fa-5x" style="color:#ffffff"></i>
                             </div>
-                            <div class="col-sm-10 text-right" style="color:#8D8A99;">
+                            <div class="col-sm-10 text-right" style="color:#ffffff;">
                                 <div class="huge">{{stagetwo.count}}</div>
-                                <div>STAGE II</div>
+                                <div>ASSESMENT STAGE</div>
                             </div>
                         </div>
                     <a href="#">
@@ -83,14 +85,14 @@
             <div class="col-md-1"></div>
         <div class="col-lg-4 col-md-6">
         
-                <div class="panel-heading" style="background-color: #A89ED1; border:1px solid#2F2A44; border-radius:5px; ">
+                <div class="panel-heading" style="background-color: #21421e; border:1px solid#21421e; border-radius:5px; ">
                         <div class="row">
                         <div class="col-xs-3">
                             <i class="fa fa-support fa-5x" style="color:antiquewhite;"></i>
                         </div>
                         <div class="col-xs-10 text-right" style="color:antiquewhite;">
                             <div class="huge"></div>
-                            <div>STAGE III</div>
+                            <div>FINAL APPLICATION STAGE</div>
                         </div>
                     </div>
                 </div> 

@@ -9,7 +9,11 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #ffff;
+}
+
+navbar-brand{
+    color: white
 }
 
 @media(min-width:768px) {
@@ -58,7 +62,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: #fff;
 }
 
 .top-nav>li>a:hover,
@@ -67,7 +71,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #000;
+    background-color: silver;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -148,7 +152,7 @@ ul.alert-dropdown {
     display: block;
     padding: 10px 15px 10px 38px;
     text-decoration: none;
-    color: #999;
+    color: #fff;
 }
 
 .side-nav>li>ul>li>a:hover {

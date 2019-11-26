@@ -117,3 +117,4 @@ def rejected(request):
                 pass
         return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
+
