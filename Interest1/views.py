@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .sheet2 import interest_responses, firstapplication_response
 from .models import interestModel
 from django.db.models import Q
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect,JsonResponse
-
 
 # Create your views here.
 def homepage(request):
@@ -23,19 +22,7 @@ def homepage(request):
 
 
 def firststageaccepted(request):
-    all = interestModel.objects.all()
-    first = []
-    for elem in all:
-        points = 0
-        if int(elem.age) > 18:
-            points += 1
-        else:
-            points -= 10
-        # Add other filters here
-        if item.prop.lower() in ['yes', 'yep', 'ndio']:
-            pass
-        # check if success
-
+    first=interestModel.objects.filter(Q(commitment__icontains="yes") & Q(fluency__icontains="yes") & Q(computer_literacy__icontains="yes") & Q(residence__icontains="yes")& Q(residencyothers__icontains="yes") & Q(age__gte=18))
     print('first.count')
     print('########################################')
 
@@ -67,8 +54,8 @@ def send_bulk2(email,name):
     <p>The Moringa School Access Team</p>
     '''.format(name)
     # receiver_list = emails
-    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','wachirabeatice2020@gmail.com', receiver_list,connection = connection)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    # mail1 = mail.EmailMessage('Final Test  ','Finall Email','moringaschoolaccess@gmail.com', receiver_list,connection = connection)
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
@@ -78,7 +65,7 @@ def congragulate2(request):
     if users_emails2:
         for email_2 in users_emails2:
             user = interestModel.objects.filter(email = email_2).first()
-            send_bulk2(user.email,user.your_name)
+            send_bulk2(user.email,user.name)
             if user:
                 user.is_sent = True 
                 user.save()
@@ -91,9 +78,6 @@ def congragulate2(request):
 
 ###########################################
 def send_bulk6(email,name):
-    # connection = EmailMultiAlternatives.get_connection()
-
-    # connection.open()
     html_content='''
     <p>Hello,</p>
     <br>
@@ -107,7 +91,7 @@ def send_bulk6(email,name):
     <br>
     <p>The Moringa School Access Team</p>
     '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
@@ -117,7 +101,7 @@ def rejected(request):
     if users_emails6:
         for email_6 in users_emails6:
             user = interestModel.objects.filter(email = email_6).first()
-            send_bulk6(user.email,user.your_name)
+            send_bulk6(user.email,user.name)
             if user:
                 user.is_sent = True 
                 user.save()

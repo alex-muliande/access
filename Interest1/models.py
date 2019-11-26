@@ -24,6 +24,7 @@ class interestModel(models.Model):
     residence=models.CharField(max_length=250)   
     residence_other=models.CharField(max_length=250)   
     residence_clarification=models.CharField(max_length=250) 
+    is_sent= models.BooleanField(default=False)
 
 
     def __str__(self):
