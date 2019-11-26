@@ -1,5 +1,9 @@
 {%extends 'django_sb_admin/base.html'%}
 {%load static%}
+{% block sb_admin_title %}ACCESS-PROGRAM ADMIN DASHBOARD{% endblock sb_admin_title %}
+{% block sb_admin_subheading %}<!-- <small>Statistics Overview</small> -->{% endblock sb_admin_subheading %}
+{% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>{% endblock sb_admin_breadcrumb %}
+{% block sb_admin_breadcrumb_active %}{% endblock sb_admin_breadcrumb_active %}
 {% block sb_admin_content %}
 
 <table class="table table-sm">
@@ -28,5 +32,5 @@
     </tr> 
     {% endfor %}
 </table>
+{% endblock sb_admin_content %}
 
-{%sb_admin_endblock%}
