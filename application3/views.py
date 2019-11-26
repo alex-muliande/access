@@ -83,7 +83,7 @@ def update_status(request,id):
             print('******* Accepted *******')  
             form.status='Accepted'
             form.save()
-        return render(request, 'ajax-status.html', {"d": form})
+        return redirect(myforms)
          
 
 def send_bulk3(email,name):
@@ -100,7 +100,7 @@ def send_bulk3(email,name):
     <br>
     <p>The Moringa School Access Team</p>
     '''.format(name)
-    send_this = EmailMultiAlternatives('subject','text_content','wachirabeatice2020@gmail.com',[email])    
+    send_this = EmailMultiAlternatives('subject','text_content','moringaschoolaccess@gmail.com',[email])    
     send_this.attach_alternative(html_content,'text/html')
     send_this.send()
 
@@ -110,7 +110,7 @@ def congragulate3(request):
     if users_emails3:
         for email_3 in users_emails3:
             user = FormtwoResponses.objects.filter(email = email_3).first()
-            send_bulk3(user.email,user.your_name)
+            send_bulk3(user.email,user.all_names)
             if user:
                 user.is_sent = True 
                 user.save()
