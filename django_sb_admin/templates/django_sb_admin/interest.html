@@ -1,0 +1,55 @@
+{% extends "django_sb_admin/base.html" %}{% load static %}{% block sb_admin_title %}ACCESS-PROGRAM ADMIN DASHBOARD{% endblock sb_admin_title %}
+{% block sb_admin_subheading %}<!-- <small>Statistics Overview</small> -->{% endblock sb_admin_subheading %}
+{% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>{% endblock sb_admin_breadcrumb %}
+{% block sb_admin_breadcrumb_active %}{% endblock sb_admin_breadcrumb_active %}
+{% block sb_admin_content %}
+<!--  -->
+
+<h2>FORM RESPONSES</h2>
+
+
+<p>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">age</th>
+            <th scope="col">Date_of_birth</th>
+            <th scope="col">Bachelors_degree</th>
+            <th scope="col">Start_date</th>
+            <th scope="col">Moringa student</th>
+            
+
+
+       
+            </tr>
+        </thead>
+        {% for d in data %}
+        <tbody>
+        <tr>
+        <td class="table-active">{{d.name}}</td>
+        <td class="table-primary">{{d.email}}</td>
+        <td class="table-success">{{d.phone_number}}</td>
+        <td class="table-danger">{{d.age}}</td>
+        <td class="table-warning">{{d.date_of_birth}}</td>
+        <td class="table-info">{{d.bachelors_degree}}</td>
+        <td class="table-light">{{d.start_date}}</td>
+        <td class="table-dark">{{d.moringastudent}}</td>
+        </tr> 
+        </tbody>
+    </table>
+
+    
+</p>
+{% endfor %}
+ 
+{% endblock sb_admin_content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+{% block sb_admin_custom_js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endblock sb_admin_custom_js %}
