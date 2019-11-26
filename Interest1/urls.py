@@ -9,6 +9,8 @@ from django.conf.urls.static import static
 urlpatterns=[
 
         path('interest/',views.homepage,name='interest'),
+        path('interestaccepted/',views.firststageaccepted,name='interestaccepted'),
+
 ]
 
 

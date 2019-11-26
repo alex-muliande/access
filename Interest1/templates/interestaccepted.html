@@ -13,13 +13,11 @@
             <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">age</th>
             <th scope="col">Phone number</th>
-            <th scope="col">Commitment to access</th>
-            <th scope="col">Language Fluency</th>
-            <th scope="col">Computer Literacy</th>
-            <th scope="col">Nairobi Residence</th>
-            <th scope="col">Nairobi Residence2</th>
+            <th scope="col">age</th>
+            <th scope="col">Date_of_birth</th>
+            <th scope="col">Bachelors_degree</th>
+            <th scope="col">Start_date</th>
             <th scope="col">Moringa student</th>
             
 
@@ -32,14 +30,12 @@
         <tr>
         <td class="table-active">{{d.name}}</td>
         <td class="table-primary">{{d.email}}</td>
-        <td class="table-danger">{{d.age}}</td        
-        <td class="table-success">{{d.phone_number}}</td>
+        <td class="table-dark">{{d.age}}</td>
         <td class="table-success">{{d.commitment}}</td>
         <td class="table-danger">{{d.fluency}}</td>
         <td class="table-warning">{{d.computer_literacy}}</td>
         <td class="table-info">{{d.residence}}</td>
         <td class="table-light">{{d.residence_other}}</td>
-        <td class="table-dark">{{d.moringastudent}}</td>
         </tr> 
         </tbody>
         {% endfor %}
