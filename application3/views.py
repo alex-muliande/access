@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
-from .models import FormtwoResponses
+from .models import FormtwoResponses,FormtwoResponses
 from .sheet1 import form_responses, process_response
 import json
 from django.http import HttpResponseRedirect,JsonResponse
-from Interest1.models import interestModel
+from Interest1.models import interestModel 
 from django.core.mail import EmailMultiAlternatives
 
 
@@ -122,7 +122,5 @@ def congragulate3(request):
     return JsonResponse({'sent':'upto date'})
     
 
-    path('congrats3/',views.congragulate3)
-
-
+    # path('congrats3/',views.congragulate3)
 
