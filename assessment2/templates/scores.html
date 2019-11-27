@@ -114,18 +114,61 @@
         margin-right: -220px;
     }
 
-    #td {
+    #tda {
+        transition: all .2s ease-in-out !important;
+    }
+    #tdb {
+        transition: all .2s ease-in-out !important;
+    }
+    #tdc {
+        transition: all .2s ease-in-out !important;
+    }
+    #tdd {
+        transition: all .2s ease-in-out !important;
+    }
+    #tde {
         transition: all .2s ease-in-out !important;
     }
 
 
-    #td:hover {
+
+    
+    #tda:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
         transform: scale(1) !important;
         box-shadow: 0 8px 6px -6px black;
+        background-color: green;
+    }
+    #tdb:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        box-shadow: 0 8px 6px -6px black;
+        
+    }
+    #tdc:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        box-shadow: 0 8px 6px -6px black;
+        background-color: blue;
+    }
+    #tdd:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        box-shadow: 0 8px 6px -6px black;
+        background-color: red;
     }
 
+    #tde:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        box-shadow: 0 8px 6px -6px black;
+        background-color: yellow;
+    }
     .sidebar-nav {
         position: absolute;
         top: 0;
@@ -369,7 +412,10 @@
                         alt="">
                 </li>
                 <li style="margin-top: 40px;">
-                    <a href="about.html">ABOUT</a>
+                    <a href="about.html">Approved</a>
+                </li>
+                <li href='' style="margin-top: 0px;">
+                    <a href="about.html">Rejected</a>
                 </li>
 
                 <li>
@@ -406,11 +452,11 @@
                         <tbody>
                             {% for d in data %}
                             <tr>
-                                <td class="table-active" id="td">{{d.name}}</td>
-                                <td class="table-primary" id="td">{{d.email}}</td>
-                                <td class="table-secondary" id="td">{{d.score}}</td>
-                                <td class="table-success" id="td">{{d.number}}</td>
-                                <td class="table-danger" id="td">{{d.assesment_time}}</td>
+                                <td class="table-active" id="tda">{{d.name}}</td>
+                                <td class="table-primary" id="tdb">{{d.email}}</td>
+                                <td class="table-secondary" id="tdc">{{d.score}}</td>
+                                <td class="table-success" id="tdd">{{d.number}}</td>
+                                <td class="table-danger" id="tde">{{d.assesment_time}}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
