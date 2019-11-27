@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>Loading</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{% static 'css/loader.css' %}">
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="{% static 'js/jQuery.js' %}"></script>
+
+<script>
+    $(document).ready(function(){
+    var counter = 0;
+    var c = 0;
+    var i = setInterval(function(){
+        $(".loading-page .counter h1").html(c + "%");
+        $(".loading-page .counter hr").css("width", c + "%");
+        //$(".loading-page .counter").css("background", "linear-gradient(to right, #F60D54 "+ c + "%,#0D0D0D "+ c + "%)");
+        /*
+        $(".loading-page .counter h1.color").css("width", c + "%");
+        */
+        counter++;
+        c++;
+        if(counter == 101) {
+            clearInterval(i);
+        }
+    }, 85);
+
+    setTimeout("location.href = 'interest';",-20000);
+
+    
+});
+
+
+</script>
+
+
+<div class="loading-page">
+<div class="counter">
+    <p>loading</p>
+    <h1>0%
+    <!--
+    h1.abs loading
+    h1.abs.color loading
+    -->
+    </h1>
+    <hr/>
+</div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+</body>
+</html>

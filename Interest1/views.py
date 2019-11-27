@@ -6,6 +6,11 @@ from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect,JsonResponse
 
 # Create your views here.
+
+
+def loaderpage(request):
+        return render(request,"loader.html")
+
 def homepage(request):
         '''
         assuming we make the api call
