@@ -90,7 +90,7 @@ def firstapplication_response():
                             fluency=fluency,residence=residence,
                             residence_other=residence_other,residence_clarification=residence_clarification
                             )
-            #application_object.save()
+
             json_data.append(application_object)
 
     return json_data
