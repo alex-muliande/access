@@ -1,7 +1,57 @@
+
+
+
+{% load static %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+
+
+
+
+
+<script src="{% static 'js/send_mail.js' %}"></script>
+
+<style>
+    .loader {
+        display: none;
+        margin-left: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        border-left: 2px solid darkgreen;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+        animation-direction: alternate;
+    }
+
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0);
+            opacity: 1px;
+        }
+
+        50% {
+            opacity: 10px;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            opacity: 1px;
+        }
+
+    }
+</style>
+
+
+
+
+
+
+
+
 
 <body>
 <h2>FORM RESPONSES</h2>
@@ -43,10 +93,14 @@
 
     
 </p>
-
-<button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
+<p style="font-size: 20px;">Click here to send Emails to all applicants who proceed to next module
+    <button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;' class="congrats1">
+        Proceed Email
+    </button>
+</p>
+<!-- <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
     congratulations1
 
-</button>
+</button> -->
     
 </body>
