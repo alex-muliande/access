@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
+
 {% load static %}
 {%block banner%}
 <div id="bg-color">
     <div class="bg-img ">
         <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
     </div>
+    
     {% endblock%}
     {% load crispy_forms_tags%}
     {% include 'final.html' %}
@@ -20,6 +21,14 @@
 <script src='{% static "js/data.js" %}'></script>
     
     <br><br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2 class="text-center">FORM RESPONSES</h2>
 
     <div class="table-responsive">
@@ -28,16 +37,9 @@
                 <tr class="font-weight-bold">
                     <th class="th-sm">Full names
                     </th>
-<<<<<<< HEAD
-                    <th class="th-sm">Email
-                    </th>
-                    <th class="th-sm">How much money do you earn each month? Include only money you earn yourself
-                        through working. Do not include money you receive from other people.
-=======
                     <!-- <th class="th-sm">Email
                     </th> -->
                     <th class="th-sm">How much money do you earn each month? Include only money you earn yourself through working. Do not include money you receive from other people.
->>>>>>> 07b1947d21971c3ab357cf778f5c03e3a804ecbf
                     </th>
                     <th class="th-sm">Do you own a laptop? What kind of laptop is it? What year was it made?
                     </th>
@@ -66,39 +68,6 @@
                     <td>{{ d.time_out_of_school }}</td>
                     <td>{{ d.gurdians_earning }}</td>
                     <td>
-<<<<<<< HEAD
-
-
-                        <button class='all_data'>
-                            <input type="hidden" class="getData" value='{{d.pk}}'> Expand</button>
-                    </td>
-                    <td>
-                        <input type="radio" name="vehicle1" id="acce" value="accept">Accept<br>
-                    </td>
-                    <td>
-                        <input type="radio" name="vehicle1" id="accept" value="accept"> Reject<br>
-                    </td>
-
-                    <td>
-                        {% if d.status == 'Pending'%}
-                        <small class='text-warning'>{{d.status}}</small>
-                        {% endif %}
-                        {% if d.status == 'Rejected'%}
-                        <small class='text-danger'>{{d.status}}</small>
-                        {% endif %}
-                        {% if d.status == 'Accepted'%}
-                        <small class='text-success '>{{d.status}}</small>
-                        {% endif %}
-                        <div class="content-section">
-                            <form method="GET" action="{% url 'update_status' d.pk %}">
-                                <input type='radio' name='status' required selected value="-">Pending <br>
-                                <input type='radio' name='status' required value="0">Rejected <br>
-                                <input type='radio' name='status' required value="1">Accepted
-                                <div class="form-group">
-                                    <button class="btn btn-outline-info" type="submit">Submit</button>
-                                </div>
-                            </form>
-=======
                         
 
                             <button class='all_data'>
@@ -130,7 +99,6 @@
                             <input type='radio' name='status' required value="1">Accepted
                         <div class="form-group">
                             <button class="btn btn-outline-info" type="submit">Submit</button>
->>>>>>> 07b1947d21971c3ab357cf778f5c03e3a804ecbf
                         </div>
                     </td>
                 </tr>
