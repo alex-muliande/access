@@ -69,21 +69,25 @@ def StageOne(request):
 def update_status(request,id):
     if request.method == 'GET':
         status = request.GET.get('status')
+        d=None
         form = FormtwoResponses.objects.get(pk = int(id))
         print('******* PENDING *******')
         if status == '-':
             print('******* PENDING *******')
+            d={'pk':int(id),'status':'Pending'}
             form.status='Pending'
             form.save()
         if status == '0':
             print('******* Rejected *******')
+            d={'pk':int(id),'status':'Rejected'}
             form.status='Rejected'
             form.save()
         if status == '1':
             print('******* Accepted *******')  
+            d={'pk':int(id),'status':'Accepted'}
             form.status='Accepted'
             form.save()
-        return redirect(myforms)
+        return render(request,'ajax-status.html',{'d':d})
          
 
 def send_bulk3(email,name):
