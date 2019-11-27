@@ -36,7 +36,8 @@ def accepted(request):
     for f in passed:
         for email in  scoreModel.objects.values_list('email', flat=True).distinct():
             scoreModel.objects.filter(pk__in= scoreModel.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-    return render(request,'accepted.html',{'passed':passed, 'failed':failed})
+    return render(request,'accepted.html',{'passed':passed,'failed':failed})
+
 
 def send_bulk4(email,name):
     # connection = EmailMultiAlternatives.get_connection()
@@ -117,3 +118,7 @@ def rejected(request):
                 pass
         return JsonResponse({'sent':users_emails6})
     return JsonResponse({'sent':'upto date'})
+
+
+
+    

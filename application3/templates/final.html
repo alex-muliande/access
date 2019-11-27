@@ -2,6 +2,13 @@
 {% load static %}
 
 
+{%block banner%}
+<div id="bg-color">
+    <div class="bg-img ">
+        <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
+    </div>
+{% endblock%}
+
 {%block content%}
 <script src="{% static 'js/send_mail.js' %}"></script>
 
@@ -36,13 +43,12 @@
 
     }
 </style>
-
 <div class="row">
-<div class="col-md-4">
-        <h2>Pending</h2>
+<div class="col-md-4" >
+        <h1>Pending</h1>
     {% if pending %}
     {% for i in pending %}
-    <h3> {{ i.all_names}}</h3>
+    <p style="font-size: 23px;"> {{ i.all_names}}</p>
     {% endfor %}
 
     {% else %}
@@ -57,11 +63,11 @@
         <h2>Accepted</h2>
     {% if accepted %}
     {% for i in accepted %}
-    <h3> {{ i.all_names}}</h3>
+    <p style="font-size: 23px;"> {{ i.all_names}}</p>
     {% endfor %}
 
     {% else %}
-    <h2>There are no accepted candidates at the moment</h2>
+    <p style="font-size: 23px;">There are no accepted candidates at the moment</p>
     {% endif %}
 
 </div>
@@ -71,11 +77,11 @@
     <h2>Rejected</h2>
     {% if rejected %}
     {% for i in rejected %}
-    <h3> {{ i.all_names}}</h3>
+    <p style="font-size: 23px;"> {{ i.all_names}}</p>
     {% endfor %}
 
     {% else %}
-    <h2>There are no rejected candidates at the moment</h2>
+    <p style="font-size: 18px;">There are no rejected candidates at the moment</p>
     {% endif %}
 </div>
 

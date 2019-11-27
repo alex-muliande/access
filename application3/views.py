@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
-from .models import FormtwoResponses
+from .models import FormtwoResponses,FormtwoResponses
 from .sheet1 import form_responses, process_response
 import json
 from django.http import HttpResponseRedirect,JsonResponse
-from Interest1.models import interestModel
+from Interest1.models import interestModel 
 from django.core.mail import EmailMultiAlternatives
 
 
@@ -13,8 +13,8 @@ def myforms(request):
     '''
  
 
-    # form_data=form_responses()
-    # response = process_response()
+    form_data=form_responses()
+    response = process_response()
 
     for email in  FormtwoResponses.objects.values_list('email', flat=True).distinct():
         FormtwoResponses.objects.filter(pk__in= FormtwoResponses.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
