@@ -11,7 +11,6 @@ urlpatterns=[
         path('loader/',views.loaderpage,name='loader'),
         path('loader/interest/',views.homepage,name='interest'),
         path('interestaccepted/',views.firststageaccepted,name='interestaccepted'),
-      
 
 ]
 
