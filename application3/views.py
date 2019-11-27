@@ -13,8 +13,8 @@ def myforms(request):
     '''
  
 
-    # form_data=form_responses()
-    # response = process_response()
+    form_data=form_responses()
+    response = process_response()
 
     for email in  FormtwoResponses.objects.values_list('email', flat=True).distinct():
         FormtwoResponses.objects.filter(pk__in= FormtwoResponses.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
