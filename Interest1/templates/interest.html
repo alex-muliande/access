@@ -1,12 +1,54 @@
+
+
+{% load static %}
+
+
+{% load bootstrap4%}
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+{%block content%}
 
 <body>
+        <script src="{% static 'js/send_mail.js' %}"></script>
+
+        <style>
+            .loader {
+                display: none;
+                margin-left: 20px;
+                width: 20px;
+                height: 20px;
+                border: 2px solid white;
+                border-left: 2px solid darkgreen;
+                border-radius: 50%;
+                animation: 1s spin linear infinite;
+                animation-direction: alternate;
+            }
+        
+        
+            @keyframes spin {
+                0% {
+                    transform: rotate(0);
+                    opacity: 1px;
+                }
+        
+                50% {
+                    opacity: 10px;
+                }
+        
+                100% {
+                    transform: rotate(360deg);
+                    opacity: 1px;
+                }
+        
+            }
+        </style>
 <h2>FORM RESPONSES</h2>
 
-
+<button class="btn btn-primary">pick me</button>
 <p>
     <table class="table table-sm">
         <thead>
@@ -20,18 +62,14 @@
             <th scope="col">Computer Literacy</th>
             <th scope="col">Nairobi Residence</th>
             <th scope="col">Moringa student</th>
-            
-
-
-       
             </tr>
         </thead>
         {% for d in data %}
         <tbody>
         <tr>
         <td class="table-active">{{d.name}}</td>
-        <td class="table-primary">{{d.email}}</td>
-        <td class="table-danger">{{d.age}}</td>        
+        <td class="bg-primary">{{d.email}}</td>
+        <td class="bg-danger">{{d.age}}</td        
         <td class="table-success">{{d.phone_number}}</td>
         <td class="table-success">{{d.commitment}}</td>
         <td class="table-danger">{{d.fluency}}</td>
@@ -44,11 +82,10 @@
     </table>
 
     
-</p> 
-<!--bulk and rejected-->
-<p style="font-size: 20px;">Click here to send Emails to all applicants who want to join Access
-<button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;' class="congrats">
-    Accept Email
+</p>
+<button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
+    congratulations1
+
 </button>
 </p>
 <p style="font-size: 20px;">Click here to send rejected emails if applicats do not qualify this process 
@@ -58,3 +95,4 @@
 </div>
     <!-- <p>to all applicants</p> -->
 </body>
+{% endblock %}

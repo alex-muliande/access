@@ -1,9 +1,51 @@
+
+{% load static %}
+
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+        <script src="{% static 'js/send_mail.js' %}"></script>
+
+        <style>
+            .loader {
+                display: none;
+                margin-left: 20px;
+                width: 20px;
+                height: 20px;
+                border: 2px solid white;
+                border-left: 2px solid darkgreen;
+                border-radius: 50%;
+                animation: 1s spin linear infinite;
+                animation-direction: alternate;
+            }
+        
+        
+            @keyframes spin {
+                0% {
+                    transform: rotate(0);
+                    opacity: 1px;
+                }
+        
+                50% {
+                    opacity: 10px;
+                }
+        
+                100% {
+                    transform: rotate(360deg);
+                    opacity: 1px;
+                }
+        
+            }
+        </style>
+        
+
+
+    
 <div>
 <h2>Accepted Applicants</h2>
 <p>
@@ -30,57 +72,70 @@
         {% endfor %}
         </tbody>
     </table>
+    <div>
+        <h2>Accepted Applicants</h2>
 
-</p>
-</div>
+        <p>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">assesment_time</th>
 
- <div>
-    <h2>Rejected Applicants</h2>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in passed %}
+                    <tr>
+                        <td class="table-active">{{d.name}}</td>
+                        <td class="table-primary">{{d.email}}</td>
+                        <td class="table-secondary">{{d.score}}</td>
+                        <td class="table-success">{{d.number}}</td>
+                        <td class="table-danger">{{d.assesment_time}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </p>
+    </div>
+
+    <div>
+        <h2>Rejected Applicants</h2>
 
 
-    <p>
-        <table class="table table-sm">
-            <thead>
-                <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Score</th>
-                <th scope="col">Phone number</th>
-                <th scope="col">assesment_time</th>
-            
-       
-                </tr>
-            </thead>
-            <tbody>
-            {% for f in failed %}
-            <tr>
-            <td class="table-active">{{f.name}}</td>
-            <td class="table-primary">{{f.email}}</td>
-            <td class="table-secondary">{{f.score}}</td>
-            <td class="table-success">{{f.number}}</td>
-            <td class="table-danger">{{f.assesment_time}}</td> 
-            </tr> 
-            {% endfor %}
-            </tbody>
-        </table>
+        <p>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">assesment_time</th>
 
-    
-    </p>
- 
- </div> 
-<p style="font-size: 20px;">Click here to send Emails to all applicants who want to join Access
-    <button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;'class="congrats4">
-        Accept Email
-    </button>
-</p>
 
- <!-- <p>invite to interview</p> Email4-->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for f in failed %}
+                    <tr>
+                        <td class="table-active">{{f.name}}</td>
+                        <td class="table-primary">{{f.email}}</td>
+                        <td class="table-secondary">{{f.score}}</td>
+                        <td class="table-success">{{f.number}}</td>
+                        <td class="table-danger">{{f.assesment_time}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
- <!-- <p>failed interview</p> -->
-<p style="font-size: 20px;">Click here to send rejected emails if applicats do not qualify this process 
-    <button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;'class="rejected">
-        Reject Email
-    </button>
-</p>
+
+        </p>
+
+    </div>
 
 </body>
