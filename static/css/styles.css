@@ -6,6 +6,14 @@
 help-block li{
     display: none;
 }
+.help-block, li{
+    display: none;
+}
+
+input{
+    width:10c d dc 0%;
+}
+
 .results{
     color: black;
    
