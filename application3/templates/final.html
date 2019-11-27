@@ -1,6 +1,42 @@
 {%extends 'base.html'%}
+{% load static %}
+
 
 {%block content%}
+<script src="{% static 'js/send_mail.js' %}"></script>
+
+<style>
+    .loader {
+        display: none;
+        margin-left: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        border-left: 2px solid darkgreen;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+        animation-direction: alternate;
+    }
+
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0);
+            opacity: 1px;
+        }
+
+        50% {
+            opacity: 10px;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            opacity: 1px;
+        }
+
+    }
+</style>
+
 <div class="row">
 <div class="col-md-4">
         <h2>Pending</h2>
