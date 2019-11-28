@@ -10,7 +10,8 @@ urlpatterns=[
         #path('congrats/',views.congragulate2),
         path('loader/',views.loaderpage,name='loader'),
         path('loader/interest/',views.homepage,name='interest'),
-        path('interestaccepted/',views.firststageaccepted,name='interestaccepted'),
+        path('loader2/',views.loader2page,name='loader2'),
+        path('loader2/interestaccepted/',views.firststageaccepted,name='loader2/interestaccepted'),
 
 ]
 
