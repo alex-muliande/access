@@ -11,6 +11,9 @@ from django.http import HttpResponseRedirect,JsonResponse
 def loaderpage(request):
         return render(request,"loader.html")
 
+def loader2page(request):
+        return render(request,"loader2.html")
+
 def homepage(request):
         '''
         assuming we make the api call

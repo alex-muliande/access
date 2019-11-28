@@ -37,13 +37,32 @@ DASHBOARD{% endblock sb_admin_title %}
                         <div class="col-xs-10 text-right">
                             <div class="huge" style="color:#ffffff;">{{stageone.count}}</div>
                             <div style="color:#ffffff;">INTEREST STAGE</div>
-                            <a href="{%url 'interestaccepted'%}">View Details</a>
+
+                            <a href="{%url 'loader2'%}">View Details</a>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row" style="height: 30px;"></div>
+
+   
+    <div class="row style="height: 70px;">
+            <div class="col-md-1"></div>
+            <div class="col-lg-4 col-md-6">
+                    <div class="green" style="background-color:#627c33; border:1px solid #627c33; border-radius: 5px;">
+                            <div class="row">
+                            <div class="col-xs-3" >
+                                <i class="fa fa-tasks fa-5x" style="color:#ffffff"></i>
+                            </div>
+                            <div class="col-sm-10 text-right" style="color:#ffffff;">
+                                <div class="huge">{{stagetwo.count}}</div>
+                                <div>ASSESMENT STAGE</div>
+                                <a href="{%url 'loader3'%}"><span class="pull-left">View Details</span></a>
 
     <div class="row" style="height: 70px;">
         <div class="col-md-6" style="width: 300px !important; margin-left: 20px;">

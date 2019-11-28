@@ -6,9 +6,10 @@ from django.conf.urls.static import static
 
 
 
-urlpatterns=[       
-        path('assesment/',views.scorecard,name='assesment'),
-        path('accepted/',views.accepted,name='accepted'),
+urlpatterns=[    
+       
+        path('loader3/',views.loader3page,name='loader3'),
+        path('loader3/assesment/',views.scorecard,name='assesment'),
         path('congrats4/',views.congragulate4),
         path('rejected/',views.rejected),
 ]

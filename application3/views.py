@@ -7,6 +7,7 @@ from Interest1.models import interestModel
 from django.core.mail import EmailMultiAlternatives
 
 
+
 def myforms(request):
     '''
     assuming we make the api call

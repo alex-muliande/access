@@ -5,6 +5,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponseRedirect,JsonResponse
 
 
+def loader3page(request):
+        return render(request,"loader3.html")
 
 def scorecard(request):
     '''
