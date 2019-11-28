@@ -10,6 +10,16 @@
 body {
     margin-top: 100px;
     background-color: #ffff;
+    overflow: hidden;
+}
+
+a{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+a:hover{
+    color: black !important;
 }
 
 navbar-brand{
@@ -54,8 +64,9 @@ navbar-brand{
 }
 
 .top-nav>li {
-    display: inline-block;
     float: left;
+    display: inline-block;
+    
 }
 
 .top-nav>li>a {

@@ -50,7 +50,7 @@ def send_bulk4(email,name):
     Your live interview has been scheduled on Friday this week the time will be communicated. Your interview will take 30 minutes. You must arrive on time. You are allowed only one interview slot, and if you arrive late, we will not be able to interview you.
     Please respond to this email confirming that you will attend the interview.
     Directions to Moringa School:
-    - Here is a google maps link to our location.
+    - Here is a google maps link to our location. <a href='https://www.google.com/maps/dir/-1.3033472,36.7927296/Moringa+School,+Ngong+Lane/@-1.302943,36.7842908,16z/data=!3m1!4b1!4m10!4m9!1m1!4e1!1m5!1m1!1s0x182f1a6bf7445dc1:0x940b62a3c8efde4c!2m2!1d36.7846067!2d-1.3004862!3e0'>Map</a>
     - If you are using matatu transport, kindly alight at Prestige Plaza along Ngong Road.
     Spot a signboard that reads "Double Tree by Hilton" and walk along the same road you see the sign post into Ngong Lane Plaza opposite Faulu Bank. Our offices are located on the first floor of Ngong Lane Plaza.
     See you on your interview day! 
