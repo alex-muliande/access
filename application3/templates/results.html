@@ -1,123 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
 
-{% load static %}
-{%block banner%}
-<div id="bg-color">
-    <div class="bg-img ">
-        <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
-    </div>
-    
-    {% endblock%}
-    {% load crispy_forms_tags%}
-    {% include 'final.html' %}
-    {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+</head>
 
-<script>
-    function submitForm(id){
-        $.get("/update_status/" + id, $('#acceptance-' + id).serialize()).then(response => {
-            $("#status-" + id).html(response)
-        })
-    }
-</script>
-
-<script src='{% static "js/data.js" %}'></script>
-    
-    <br><br><br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2 class="text-center">FORM RESPONSES</h2>
-
-    <div class="table-responsive">
-        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead class="results">
-                <tr class="font-weight-bold">
-                    <th class="th-sm">Full names
-                    </th>
-                    <!-- <th class="th-sm">Email
-                    </th> -->
-                    <th class="th-sm">How much money do you earn each month? Include only money you earn yourself through working. Do not include money you receive from other people.
-                    </th>
-                    <th class="th-sm">Do you own a laptop? What kind of laptop is it? What year was it made?
-                    </th>
-                    <th class="th-sm">How did you afford your laptop?
-                    </th>
-                    <th class="th-sm">Were you ever sent home from high school to collect school fees? If so, how many
-                        times were you sent home?
-                    </th>
-                    <th class="th-sm">If you were sent home to collect school fees, how much time did you spend out of
-                        school in total?
-                    </th>
-                    <th class="th-sm">List the names of your guardians and write how much money they make per month. If
-                        it depends on the month, write the average.
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for d in data %}
-                <tr class='data{{d.pk}}'>
-                    <td>{{ d.all_names}}</td>
-                    <!-- <td>{{ d.email}}</td> -->
-                    <td>{{ d.earnings_per_month}}</td>
-                    <td>{{ d.laptop_details}}</td>
-                    <td>{{ d.afford_laptop}}</td>
-                    <td>{{ d.sent_home_schoolfees}}</td>
-                    <td>{{ d.time_out_of_school }}</td>
-                    <td>{{ d.gurdians_earning }}</td>
-                    <td>
-                        
-
-                            <button class='all_data'>
-                                <input type="hidden" class="getData" value='{{d.pk}}'> Expand</button>
-                        </td>
-                       
-                <td>
-                <span id="status-{{d.pk}}">
-                    {% if d.status == 'Pending'%}
-                    <small class='text-warning'>{{d.status}}</small>
-                    {% endif %}
-                    {% if d.status == 'Rejected'%}
-                    <small class='text-danger'>{{d.status}}</small>
-                    {% endif %}
-                    {% if d.status == 'Accepted'%}
-                    <small class='text-success '>{{d.status}}</small>
-                    {% endif %}
-                </span>
-                <div class="content-section">
-                    <form method="GET" action="{% url 'update_status' d.pk %}" id="acceptance-{{d.pk}}" onsubmit="submitForm({{d.pk}});return false">
-                            <input type='radio' name='status' required selected value="-">Pending <br>
-                            <input type='radio' name='status' required value="0">Rejected <br>
-                            <input type='radio' name='status' required value="1">Accepted
-                        <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Submit</button>
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-
-        </table>
-    </div>
-
-
-    <div class="container-fluid all">
-        <div class="hide">o</div>
-        <div class="row">
-            <div class="my-data">
-
-            </div>
-        </div>
-    </div>
-
-<div>
-    <p>Check out to send emails <a href="/final/">here</a></p>
-</div>
-
-<style>
+<!-- <style>
     .all {
         position: fixed;
         top: 10vh;
@@ -138,59 +30,94 @@
         z-index: 1000000;
     }
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Pending</h2>
-            {% if pending %}
-            {% for i in pending %}
-            <h3> {{ i.all_names}}</h3>
-            {% endfor %}
+    <div class="row"><div class="col-md-4"><h2>Pending</h2> {
+        % if pending %
+    }
 
-            {% else %}
-            <h2>There are no pending Candidates at the moment</h2>
-            {% endif %}
+        {
+        % for i in pending %
+    }
 
+    <h3> {
+            {
+            i.all_names
+        }
+    }
 
+    </h3> {
+        % endfor %
+    }
 
-        </div>
+        {
+        % else %
+    }
 
-        <div class="col-md-4">
-            <h2>Accepted</h2>
-            {% if accepted %}
-            {% for i in accepted %}
-            <h3> {{ i.all_names}}</h3>
-            {% endfor %}
-
-            {% else %}
-            <h2>There are no accepted candidates at the moment</h2>
-            {% endif %}
-
-        </div>
+    <h2>There are no pending Candidates at the moment</h2> {
+        % endif %
+    }
 
 
-        <div class="col-md-4">
-            <h2>Rejected</h2>
-            {% if rejected %}
-            {% for i in rejected %}
-            <h3> {{ i.all_names}}</h3>
-            {% endfor %}
 
-            {% else %}
-            <h2>There are no rejected candidates at the moment</h2>
-            {% endif %}
-        </div>
+    </div><div class="col-md-4"><h2>Accepted</h2> {
+        % if accepted %
+    }
 
-    </div>
-    <div>
-    .all .row .my-data {
+        {
+        % for i in accepted %
+    }
+
+    <h3> {
+            {
+            i.all_names
+        }
+    }
+
+    </h3> {
+        % endfor %
+    }
+
+        {
+        % else %
+    }
+
+    <h2>There are no accepted candidates at the moment</h2> {
+        % endif %
+    }
+
+    </div><div class="col-md-4"><h2>Rejected</h2> {
+        % if rejected %
+    }
+
+        {
+        % for i in rejected %
+    }
+
+    <h3> {
+            {
+            i.all_names
+        }
+    }
+
+    </h3> {
+        % endfor %
+    }
+
+        {
+        % else %
+    }
+
+    <h2>There are no rejected candidates at the moment</h2> {
+        % endif %
+    }
+
+    </div></div><div>.all .row .my-data {
         padding: 20px;
         background: white;
         width: 70%;
         height: 90%;
         overflow-y: scroll;
-    </div>
-    <style>
-        .all {
+
+        </div><style>.all {
             position: fixed;
             top: 30vh;
             height: 100vh;
@@ -226,6 +153,170 @@
             overflow-y: auto;
 
         }
-    </style>
+</style> -->
 
+<style>
+    #p {
+        font-size: 11px !important;
+    }
+
+    #section {
+        margin-top: 70px;
+    }
+
+    .con {
+        position: relative;
+        text-align: center;
+        color: white;
+        
+    }
+
+
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #main {
+        background-color: #637c33;
+        height: 100px;
+    }
+
+    #im{
+        height: 90px;
+    }
+</style>
+
+
+<body>
+    <section class="con">
+        <main id="main"></main>
+
+        <div class="centered">
+            <img src="https://moringaschool.com/static/img/main-logo.png" class="wow pulse" data-wow-iteration="infinite" data-wow-duration="5s" id="im" alt="Snow">
+        </div>
+    </section>
+
+    {% load static %}
+
+    {% load crispy_forms_tags%}
+    {% include 'final.html' %}
+    {% block content %}
+    <section id="section">
+        <h5 class="text-center" style="margin-bottom: 20px;">Form Responses</h5>
+
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead class="results">
+                    <tr class="font-weight-bold">
+                        <th class="th-sm">Full names
+                        </th>
+                        <!-- <th class="th-sm">Email
+                            </th> -->
+                        <th class="th-sm">
+                            <p id="p"> How much money do you earn each month? Include only money you earn yourself
+                                through
+                                working. Do not include money you receive from other people.</p>
+                        </th>
+                        <th class="th-sm">
+                            <p id="p"> Do you own a laptop? What kind of laptop is it? What year was it made?</p>
+                        </th>
+                        <th class="th-sm">
+                            <p id="p"> How did you afford your laptop?</p>
+                        </th>
+                        <th class="th-sm">
+                            <p id="p"> Were you ever sent home from high school to collect school fees? If so, how many
+                                times were you sent home?</p>
+                        </th>
+                        <th class="th-sm">
+                            <p id="p"> If you were sent home to collect school fees, how much time did you spend out of
+                                school in total?</p>
+                        </th>
+                        <th class="th-sm">
+                            <p id="p"> List the names of your guardians and write how much money they make per month. If
+                                it depends on the month, write the average.</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in data %}
+                    <tr class='data{{d.pk}}'>
+                        <td>{{ d.all_names}}</td>
+                        <!-- <td>{{ d.email}}</td> -->
+                        <td>{{ d.earnings_per_month}}</td>
+                        <td>{{ d.laptop_details}}</td>
+                        <td>{{ d.afford_laptop}}</td>
+                        <td>{{ d.sent_home_schoolfees}}</td>
+                        <td>{{ d.time_out_of_school }}</td>
+                        <td>{{ d.gurdians_earning }}</td>
+                        <td>
+
+
+                            <button class='all_data'>
+                                <input type="hidden" class="getData" value='{{d.pk}}'> Expand</button>
+                        </td>
+
+                        <td>
+                            <span id="status-{{d.pk}}">
+                                {% if d.status == 'Pending'%}
+                                <small class='text-warning'>{{d.status}}</small>
+                                {% endif %}
+                                {% if d.status == 'Rejected'%}
+                                <small class='text-danger'>{{d.status}}</small>
+                                {% endif %}
+                                {% if d.status == 'Accepted'%}
+                                <small class='text-success '>{{d.status}}</small>
+                                {% endif %}
+                            </span>
+                            <div class="content-section">
+                                <form method="GET" action="{% url 'update_status' d.pk %}" id="acceptance-{{d.pk}}"
+                                    onsubmit="submitForm({{d.pk}});return false">
+                                    <input type='radio' name='status' required selected value="-">Pending <br>
+                                    <input type='radio' name='status' required value="0">Rejected <br>
+                                    <input type='radio' name='status' required value="1">Accepted
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-info" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+
+        <!-- <div class="container-fluid all">
+        <div class="hide">o</div>
+        <div class="row">
+            <div class="my-data">
+
+            </div>
+        </div>
+    </div> -->
+
+        <div>
+            <p>Check out to send emails <a href="/final/">here</a></p>
+        </div>
+
+
+    </section>
     {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+        function submitForm(id) {
+            $.get("/update_status/" + id, $('#acceptance-' + id).serialize()).then(response => {
+                $("#status-" + id).html(response)
+            })
+        }
+    </script>
+
+    <script src='{% static "js/data.js" %}'></script>
+
+</body>
+
+</html>

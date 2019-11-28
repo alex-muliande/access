@@ -1,16 +1,14 @@
-{%extends 'base.html'%}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-{%block banner%}
-<div id="bg-color">
-    <div class="bg-img ">
-        <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
-    </div>
-{% endblock%}
-
-{%block content%}
-<script src="{% static 'js/send_mail.js' %}"></script>
+</head>
 
 <style>
     .loader {
@@ -42,54 +40,84 @@
         }
 
     }
+
+    p {
+        font-size: 15px !important;
+    }
+
+    #row {
+        margin-top: 70px;
+    }
 </style>
-<div class="row">
-<div class="col-md-4" >
-        <h1>Pending</h1>
-    {% if pending %}
-    {% for i in pending %}
-    <p style="font-size: 23px;"> {{ i.all_names}}</p>
-    {% endfor %}
 
-    {% else %}
-    <h2>There are no pending Candidates at the moment</h2>
-    {% endif %}
+<body>
 
-   
-
-</div>
-
-<div class="col-md-4">
-        <h2>Accepted</h2>
-    {% if accepted %}
-    {% for i in accepted %}
-    <p style="font-size: 23px;"> {{ i.all_names}}</p>
-    {% endfor %}
-
-    {% else %}
-    <p style="font-size: 23px;">There are no accepted candidates at the moment</p>
-    {% endif %}
-
-</div>
+    <div class="container">
+        {% load static %}
 
 
-<div class="col-md-4">
-    <h2>Rejected</h2>
-    {% if rejected %}
-    {% for i in rejected %}
-    <p style="font-size: 23px;"> {{ i.all_names}}</p>
-    {% endfor %}
+        {%block banner%}
+        <div id="bg-color">
+            <div class="bg-img ">
+                <!-- <img src="https://cdn.pixabay.com/photo/2019/05/05/22/58/spring-4181886__340.jpg" alt="" height="100px" width="100px" > -->
+            </div>
+            {% endblock%}
 
-    {% else %}
-    <p style="font-size: 18px;">There are no rejected candidates at the moment</p>
-    {% endif %}
-</div>
+            {%block content%}
+            <script src="{% static 'js/send_mail.js' %}"></script>
 
-</div>
-<p style="font-size: 20px;">Click here to send Emails to all applicants who proceed to next module
-<button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;' class="congrats2">
-    Proceed Email
-</button>
-</p>
-<!--email3-->
-{% endblock content%}
+
+            <div class="row" id="row">
+                <div class="col-md-4">
+                    <h5>Pending</h5>
+                    {% if pending %}
+                    {% for i in pending %}
+                    <p> {{ i.all_names}}</p>
+                    {% endfor %}
+
+                    {% else %}
+                    <h5>There are no pending Candidates at the moment</h5>
+                    {% endif %}
+
+                </div>
+
+                <div class="col-md-4">
+                    <h5>Accepted</h5>
+                    {% if accepted %}
+                    {% for i in accepted %}
+                    <p> {{ i.all_names}}</p>
+                    {% endfor %}
+
+                    {% else %}
+                    <p>There are no accepted candidates at the moment</p>
+                    {% endif %}
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <h5>Rejected</h5>
+                    {% if rejected %}
+                    {% for i in rejected %}
+                    <p> {{ i.all_names}}</p>
+                    {% endfor %}
+
+                    {% else %}
+                    <p>There are no rejected candidates at the moment</p>
+                    {% endif %}
+                </div>
+
+            </div>
+            <p>Click here to send Emails to all applicants who proceed to next module
+                <button class="btn btn-success"
+                    style='height: 30px; background-color:#637C33;color: white; margin-bottom: 10px !important;'
+                    class="congrats2">
+                    <p>Proceed Email</p>
+                </button>
+            </p>
+            <!--email3-->
+            {% endblock content%}
+        </div>
+</body>
+
+</html>
