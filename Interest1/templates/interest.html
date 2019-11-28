@@ -1,5 +1,3 @@
-
-
 {% load static %}
 
 
@@ -7,92 +5,117 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="{% static 'js/send_mail.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 </head>
 {%block content%}
 
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+    .loader {
+        display: none;
+        margin-left: 20px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        border-left: 2px solid darkgreen;
+        border-radius: 50%;
+        animation: 1s spin linear infinite;
+        animation-direction: alternate;
+    }
+
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0);
+            opacity: 1px;
+        }
+
+        50% {
+            opacity: 10px;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            opacity: 1px;
+        }
+
+    }
+
+    h3 {
+        font-family: 'Dosis', sans-serif;
+        font-weight: 600;
+    }
+
+    #td {
+        transition: all .6s ease-in-out !important;
+    }
+
+    #td:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        background-color: #637c33;
+        box-shadow: 0 8px 6px -6px black;
+    }
+</style>
+
 <body>
-        <script src="{% static 'js/send_mail.js' %}"></script>
+    <div class="container">
+        <h3 class="text-center">FORM RESPONSES</h3>
+        <p>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">age</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Commitment to access</th>
+                        <th scope="col">Language Fluency</th>
+                        <th scope="col">Computer Literacy</th>
+                        <th scope="col">Nairobi Residence</th>
+                        <th scope="col">Moringa student</th>
+                    </tr>
+                </thead>
+                {% for d in data %}
+                <tbody>
+                    <tr>
+                        <td class="table-active" id="td">{{d.name}}</td>
+                        <td id="td">{{d.email}}</td>
+                        <td id="td">{{d.age}}</td>
+                        <td class="table-success" id="td">{{d.phone_number}}</td>
+                        <td class="table-success" id="td">{{d.commitment}}</td>
+                        <td class="table-danger" id="td">{{d.fluency}}</td>
+                        <td class="table-warning" id="td">{{d.computer_literacy}}</td>
+                        <td class="table-info" id="td">{{d.residence}}</td>
+                        <td class="table-dark" id="td">{{d.moringastudent}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
 
-        <style>
-            .loader {
-                display: none;
-                margin-left: 20px;
-                width: 20px;
-                height: 20px;
-                border: 2px solid white;
-                border-left: 2px solid darkgreen;
-                border-radius: 50%;
-                animation: 1s spin linear infinite;
-                animation-direction: alternate;
-            }
-        
-        
-            @keyframes spin {
-                0% {
-                    transform: rotate(0);
-                    opacity: 1px;
-                }
-        
-                50% {
-                    opacity: 10px;
-                }
-        
-                100% {
-                    transform: rotate(360deg);
-                    opacity: 1px;
-                }
-        
-            }
-        </style>
-<h2>FORM RESPONSES</h2>
 
-<button class="btn btn-primary">pick me</button>
-<p>
-    <table class="table table-sm">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">age</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">Commitment to access</th>
-            <th scope="col">Language Fluency</th>
-            <th scope="col">Computer Literacy</th>
-            <th scope="col">Nairobi Residence</th>
-            <th scope="col">Moringa student</th>
-            </tr>
-        </thead>
-        {% for d in data %}
-        <tbody>
-        <tr>
-        <td class="table-active">{{d.name}}</td>
-        <td class="bg-primary">{{d.email}}</td>
-        <td class="bg-danger">{{d.age}}</td        
-        <td class="table-success">{{d.phone_number}}</td>
-        <td class="table-success">{{d.commitment}}</td>
-        <td class="table-danger">{{d.fluency}}</td>
-        <td class="table-warning">{{d.computer_literacy}}</td>
-        <td class="table-info">{{d.residence}}</td>
-        <td class="table-dark">{{d.moringastudent}}</td>
-        </tr> 
-        </tbody>
-        {% endfor %}
-    </table>
+        </p>
+        <!-- <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
+            congratulations1
 
-    
-</p>
-<button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
-    congratulations1
+        </button> -->
+        </p>
+        <p style="font-size: 20px;">Click here to send emails to applicats who qualify this process
+            <button class="btn btn-success wow pulse" data-wow-iteration="infinite" data-wow-duration="2s" style='border:2px solid#637C33;background-color:#637C33;color: white;'
+                class="congrats1">
+                Send Email </button>
+        </p>
+    </div>
 
-</button>
-</p>
-<p style="font-size: 20px;">Click here to send rejected emails if applicats do not qualify this process 
-    <button class="btn btn-success" style='border:2px solid#637C33;background-color:#637C33;color: white;' class="rejected">
-    Send Email </button>
-</p>
-</div>
     <!-- <p>to all applicants</p> -->
 </body>
 {% endblock %}

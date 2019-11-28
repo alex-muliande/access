@@ -1,4 +1,3 @@
-
 {% load static %}
 
 
@@ -9,133 +8,137 @@
 </head>
 
 <body>
-        <script src="{% static 'js/send_mail.js' %}"></script>
+    <script src="{% static 'js/send_mail.js' %}"></script>
 
-        <style>
-            .loader {
-                display: none;
-                margin-left: 20px;
-                width: 20px;
-                height: 20px;
-                border: 2px solid white;
-                border-left: 2px solid darkgreen;
-                border-radius: 50%;
-                animation: 1s spin linear infinite;
-                animation-direction: alternate;
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+        .loader {
+            display: none;
+            margin-left: 20px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-left: 2px solid darkgreen;
+            border-radius: 50%;
+            animation: 1s spin linear infinite;
+            animation-direction: alternate;
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0);
+                opacity: 1px;
             }
-        
-        
-            @keyframes spin {
-                0% {
-                    transform: rotate(0);
-                    opacity: 1px;
-                }
-        
-                50% {
-                    opacity: 10px;
-                }
-        
-                100% {
-                    transform: rotate(360deg);
-                    opacity: 1px;
-                }
-        
+
+            50% {
+                opacity: 10px;
             }
-        </style>
-        
+
+            100% {
+                transform: rotate(360deg);
+                opacity: 1px;
+            }
+
+        }
+
+        h3 {
+            font-family: 'Dosis', sans-serif;
+            font-weight: 600;
+        }
+
+        #tda {
+            transition: all .6s ease-in-out !important;
+        }
+
+        #tda:hover {
+            -ms-transform: scale(1.1) !important;
+            -webkit-transform: scale(1.1) !important;
+            transform: scale(1) !important;
+            background-color: #637c33;
+            box-shadow: 0 8px 6px -6px black;
+        }
+    </style>
+
+    <div class="container">
+        <div class="card" id="b1">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <div>
+                        <h3 class="text-center">Accepted Applicants</h3>
+                        <p>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Phone number</th>
+                                        <th scope="col">assesment_time</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for d in passed %}
+                                    <tr>
+                                        <td class="table-active" id="tda">{{d.name}}</td>
+                                        <td class="table-primary" id="tda">{{d.email}}</td>
+                                        <td class="table-secondary" id="tda">{{d.score}}</td>
+                                        <td class="table-success" id="tda">{{d.number}}</td>
+                                        <td class="table-danger" id="tda">{{d.assesment_time}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                    </div>
+                </blockquote>
+            </div>
+        </div>
 
 
-    
-<div>
-<h2>Accepted Applicants</h2>
-<p>
-    <table class="table table-sm">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Score</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">assesment_time</th>
-       
-            </tr>
-        </thead>
-        <tbody>
-        {% for d in passed %}
-        <tr>
-        <td class="table-active">{{d.name}}</td>
-        <td class="table-primary">{{d.email}}</td>
-        <td class="table-secondary">{{d.score}}</td>
-        <td class="table-success">{{d.number}}</td>
-        <td class="table-danger">{{d.assesment_time}}</td>
-        </tr> 
-        {% endfor %}
-        </tbody>
-    </table>
-    <div>
-        <h2>Accepted Applicants</h2>
+        <div class="card" id="b3">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <div>
+                        <h3 class="text-center">Rejected Applicants</h3>
 
-        <p>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Score</th>
-                        <th scope="col">Phone number</th>
-                        <th scope="col">assesment_time</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for d in passed %}
-                    <tr>
-                        <td class="table-active">{{d.name}}</td>
-                        <td class="table-primary">{{d.email}}</td>
-                        <td class="table-secondary">{{d.score}}</td>
-                        <td class="table-success">{{d.number}}</td>
-                        <td class="table-danger">{{d.assesment_time}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                        <p>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Score</th>
+                                        <th scope="col">Phone number</th>
+                                        <th scope="col">assesment_time</th>
 
-        </p>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for f in failed %}
+                                    <tr>
+                                        <td class="table-active" id="tda">{{f.name}}</td>
+                                        <td class="table-primary" id="tda">{{f.email}}</td>
+                                        <td class="table-secondary" id="tda">{{f.score}}</td>
+                                        <td class="table-success" id="tda">{{f.number}}</td>
+                                        <td class="table-danger" id="tda">{{f.assesment_time}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </p>
+
+                    </div>
+            </div>
+            </blockquote>
+        </div>
     </div>
 
-    <div>
-        <h2>Rejected Applicants</h2>
 
-
-        <p>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Score</th>
-                        <th scope="col">Phone number</th>
-                        <th scope="col">assesment_time</th>
-
-
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for f in failed %}
-                    <tr>
-                        <td class="table-active">{{f.name}}</td>
-                        <td class="table-primary">{{f.email}}</td>
-                        <td class="table-secondary">{{f.score}}</td>
-                        <td class="table-success">{{f.number}}</td>
-                        <td class="table-danger">{{f.assesment_time}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-
-        </p>
-
-    </div>
 
 </body>

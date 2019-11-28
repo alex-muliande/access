@@ -1,10 +1,12 @@
-
-
-
 {% load static %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 </head>
 
 
@@ -43,64 +45,59 @@
         }
 
     }
+
+    #td {
+        transition: all .6s ease-in-out !important;
+    }
+
+    #td:hover {
+        -ms-transform: scale(1.1) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1) !important;
+        background-color: #637c33;
+        box-shadow: 0 8px 6px -6px black;
+    }
 </style>
 
-
-
-
-
-
-
-
-
 <body>
-<h2>FORM RESPONSES</h2>
+    <div class="container">
+        <h3 class="text-center">FORM RESPONSES</h3>
+        <p>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Moringa student</th>
+                    </tr>
+                </thead>
+                {% for d in data %}
+                <tbody>
+                    <tr>
+                        <td class="table-active" id="td">{{d.name}}</td>
+                        <td class="table-primary" id="td">{{d.email}}</td>
+                        <td class="table-dark" id="td">{{d.age}}</td>
+                        <td class="table-success" id="td">{{d.commitment}}</td>
+                        <td class="table-danger" id="td">{{d.fluency}}</td>
+                        <td class="table-warning" id="td">{{d.computer_literacy}}</td>
+                        <td class="table-info" id="td">{{d.residence}}</td>
+                        <td class="table-light" id="td">{{d.residence_other}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
 
 
-<p>
-    <table class="table table-sm">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">age</th>
-            <th scope="col">Date_of_birth</th>
-            <th scope="col">Bachelors_degree</th>
-            <th scope="col">Start_date</th>
-            <th scope="col">Moringa student</th>
-            
+        </p>
+        <p>Click here to send Emails to all applicants who proceed to next module
+            <button class="btn btn-success wow pulse" data-wow-iteration="infinite" data-wow-duration="2s" style=' border:2px solid#637C33;background-color:#637C33;color: white;'
+                class="congrats1">
+                Proceed Email
+            </button>
+        </p>
+    </div>
 
-
-       
-            </tr>
-        </thead>
-        {% for d in data %}
-        <tbody>
-        <tr>
-        <td class="table-active">{{d.name}}</td>
-        <td class="table-primary">{{d.email}}</td>
-        <td class="table-dark">{{d.age}}</td>
-        <td class="table-success">{{d.commitment}}</td>
-        <td class="table-danger">{{d.fluency}}</td>
-        <td class="table-warning">{{d.computer_literacy}}</td>
-        <td class="table-info">{{d.residence}}</td>
-        <td class="table-light">{{d.residence_other}}</td>
-        </tr> 
-        </tbody>
-        {% endfor %}
-    </table>
-
-    
-</p>
-<p style="font-size: 20px;">Click here to send Emails to all applicants who proceed to next module
-    <button class="btn btn-success" style=' border:2px solid#637C33;background-color:#637C33;color: white;' class="congrats1">
-        Proceed Email
-    </button>
-</p>
-<!-- <button style='border:2px solid darkgreen; background: white;color: darkgreen;' class="congrats1">
-    congratulations1
-
-</button> -->
-    
 </body>
