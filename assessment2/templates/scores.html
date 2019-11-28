@@ -15,7 +15,7 @@
 
     <script>
         $(document).ready(function () {
-            vaxr trigger = $('.hamburger'),
+            var trigger = $('.hamburger'),
                 overlay = $('.overlay'),
                 isClosed = false;
             trigger.click(function () {
@@ -35,6 +35,7 @@
                     isClosed = true;
                 }
             }
+
             $('[data-toggle="offcanvas"]').click(function () {
                 $('#wrapper').toggleClass('toggled');
             });
@@ -114,61 +115,66 @@
         margin-right: -220px;
     }
 
-    #tda {
-        transition: all .2s ease-in-out !important;
-    }
-    #tdb {
-        transition: all .2s ease-in-out !important;
-    }
-    #tdc {
-        transition: all .2s ease-in-out !important;
-    }
-    #tdd {
-        transition: all .2s ease-in-out !important;
-    }
-    #tde {
-        transition: all .2s ease-in-out !important;
-    }
-
-
-
-    
     #tda:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
-        transform: scale(1) !important;
+        transform: scale(1.1) !important;
+        background-color: #637c33;
         box-shadow: 0 8px 6px -6px black;
-        background-color: green;
     }
+
+    /*  */
+    #tdb {
+        transition: all .6s ease-in-out !important;
+    }
+
     #tdb:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
-        transform: scale(1) !important;
+        transform: scale(1.1) !important;
+        background-color: #637c33;
         box-shadow: 0 8px 6px -6px black;
-        
     }
+
+    /*  */
+    #tdc {
+        transition: all .6s ease-in-out !important;
+    }
+
     #tdc:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
-        transform: scale(1) !important;
+        transform: scale(1.1) !important;
+        background-color: #637c33;
         box-shadow: 0 8px 6px -6px black;
-        background-color: blue;
     }
+
+    /*  */
+    #tdd {
+        transition: all .6s ease-in-out !important;
+    }
+
     #tdd:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
-        transform: scale(1) !important;
+        transform: scale(1.1) !important;
+        background-color: #637c33;
         box-shadow: 0 8px 6px -6px black;
-        background-color: red;
+    }
+
+    /*  */
+    #tde {
+        transition: all .6s ease-in-out !important;
     }
 
     #tde:hover {
         -ms-transform: scale(1.1) !important;
         -webkit-transform: scale(1.1) !important;
-        transform: scale(1) !important;
+        transform: scale(1.1) !important;
+        background-color: #637c33;
         box-shadow: 0 8px 6px -6px black;
-        background-color: yellow;
     }
+
     .sidebar-nav {
         position: absolute;
         top: 0;
@@ -408,8 +414,9 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
-                    <img src="https://i.pinimg.com/originals/01/3e/ca/013eca6c081bb74ca714293601c70d8c.jpg" class="img-fluid " style="height: 66px; width: 66px; margin: 50px; margin-left: 20px; border-radius: 50%;"
-                        alt="">
+                    <img src="https://i.pinimg.com/originals/01/3e/ca/013eca6c081bb74ca714293601c70d8c.jpg"
+                        class="img-fluid "
+                        style="height: 66px; width: 66px; margin: 50px; margin-left: 20px; border-radius: 50%;" alt="">
                 </li>
                 <li style="margin-top: 40px;">
                     <a href="about.html">Approved</a>
